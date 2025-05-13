@@ -4,8 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        header, footer {
+            background-color: #1f1f1f;
+            padding: 20px;
+            text-align: center;
+        }
+        header .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        header .logo img {
+            width: 40px;
+            margin-right: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            height: 800px;
+        }
+        .tiles article {
+            background: #1e1e1e;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .tiles img {
+            width: 100%;
+            height: 650px;
+            object-fit: cover;
+        }
+        .tiles h2 {
+            margin: 10px;
+        }
+        .tiles p {
+            margin: 0 10px 10px;
+            color: #ccc;
+        }
+        .button {
+            background: #e50914;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        footer form input {
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        .icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .icons a {
+            color: white;
+            font-size: 1.5em;
+        }
+    </style>
 </head>
 <body>
-    
+    <header>
+        <div class="logo">
+            <img src="images/logo.svg" alt="Logo" />
+            <h1>Loja de Jogos</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="#">Jogos</a></li>
+                <li><a href="#">Consoles</a></li>
+                <li><a href="#">Acessórios</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="inner">
+        <h2>Nitendo</h2>
+        <p>A Nintendo Co., Ltd. é uma desenvolvedora e publicadora japonesa de jogos eletrônicos e consoles sediada em Quioto, no Japão. 
+            Foi fundada em setembro de 1889 pelo artesão e empresário Fusajiro Yamauchi, 
+            e originalmente era uma fabricante de cartas de baralho tradicionais japonesas.</p>
+        <h2 style="margin-top: 40px;">Jogos populares</h2>
+        <section class="tiles">
+            <article>
+                <img src="images/pic16.webp" alt="Nintendo">
+                <h2>Super Smash Bros Ultimate</h2>
+                <p>Super Smash Bros. é uma série de jogos de luta e ação com crossovers criada e dirigida por Masahiro Sakurai, 
+                    na qual o jogador controla os personagens da franquia de jogos eletrônicos da Nintendo e outras franquias conhecidas, 
+                    onde se enfrentam em batalhas. Lançado para o Nintendo 64 no Japão em 21 de janeiro de 1999 e na América do Norte em 26 de abril de 1999. 
+                    Para ajudar a atrair jogadores acostumados com a jogabilidade de jogos de luta tradicionais, Sakurai criou o " Smash Bros.</p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="icons">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>© 2025 Loja de Jogos. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
