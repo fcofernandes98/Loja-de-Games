@@ -1,140 +1,236 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-        }
-        header, footer {
-            background-color: #1f1f1f;
-            padding: 20px;
-            text-align: center;
-        }
-        header .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        header .logo img {
-            width: 40px;
-            margin-right: 10px;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .tiles {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            height: 800px;
-        }
-        .tiles article {
-            background: #1e1e1e;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-        .tiles img {
-            width: 100%;
-            height: 650px;
-            object-fit: cover;
-        }
-        .tiles h2 {
-            margin: 10px;
-        }
-        .tiles p {
-            margin: 0 10px 10px;
-            color: #ccc;
-        }
-        .button {
-            background: #e50914;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin-top: 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        footer form input {
-            margin: 5px;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-        }
-        .icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 10px;
-        }
-        .icons a {
-            color: white;
-            font-size: 1.5em;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jogos Nintendo - Loja de Jogos</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #fff;
+    }
+
+    header {
+      background-color: #e60012;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    header .logo img {
+      width: 40px;
+    }
+
+    header h1 {
+      font-size: 2em;
+      color: #fff;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .inner h2 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+      color: #ff4d4d;
+    }
+
+    .inner p {
+      font-size: 1em;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .game-card {
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .game-card:hover {
+      transform: scale(1.03);
+    }
+
+    .game-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .game-info {
+      padding: 15px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .game-info h3 {
+      font-size: 1em;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #5cff5c;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #1f1f1f;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #999;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="images/logo.svg" alt="Logo" />
-            <h1>Loja de Jogos</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="#">Jogos</a></li>
-                <li><a href="#">Consoles</a></li>
-                <li><a href="#">Acessórios</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <div class="inner">
-        <h2>Nitendo</h2>
-        <p>A Nintendo Co., Ltd. é uma desenvolvedora e publicadora japonesa de jogos eletrônicos e consoles sediada em Quioto, no Japão. 
-            Foi fundada em setembro de 1889 pelo artesão e empresário Fusajiro Yamauchi, 
-            e originalmente era uma fabricante de cartas de baralho tradicionais japonesas.</p>
-        <h2 style="margin-top: 40px;">Jogos populares</h2>
-        <section class="tiles">
-            <article>
-                <img src="images/pic16.webp" alt="Nintendo">
-                <h2>Super Smash Bros Ultimate</h2>
-                <p>Super Smash Bros. é uma série de jogos de luta e ação com crossovers criada e dirigida por Masahiro Sakurai, 
-                    na qual o jogador controla os personagens da franquia de jogos eletrônicos da Nintendo e outras franquias conhecidas, 
-                    onde se enfrentam em batalhas. Lançado para o Nintendo 64 no Japão em 21 de janeiro de 1999 e na América do Norte em 26 de abril de 1999. 
-                    Para ajudar a atrair jogadores acostumados com a jogabilidade de jogos de luta tradicionais, Sakurai criou o " Smash Bros.</p>
-        </section>
+  <header>
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Nintendo.svg" alt="Nintendo Logo">
+      <h1>Jogos Nintendo</h1>
     </div>
+    <nav>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Jogos</a></li>
+        <li><a href="#">Consoles</a></li>
+        <li><a href="#">Acessórios</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <footer>
-        <div class="icons">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fas fa-envelope"></i></a>
+  <div class="inner">
+    <h2>Sobre a Nintendo</h2>
+    <p>
+      A <strong>Nintendo Co., Ltd.</strong> é uma desenvolvedora e publicadora japonesa de jogos eletrônicos sediada em Quioto. Fundada em 1889, começou como fabricante de cartas de baralho tradicionais e evoluiu para se tornar uma das empresas mais influentes do mundo dos games, com franquias como Mario, Zelda, Pokémon e muitas outras.
+    </p>
+
+    <h2>Jogos Populares</h2>
+    <div class="games-grid">
+
+      <div class="game-card">
+        <img src="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/HAC_PAAAAA_EU_image950w.jpg" alt="Zelda BOTW">
+        <div class="game-info">
+          <h3>The Legend of Zelda: Breath of the Wild</h3>
+          <span class="price">R$ 299,00</span>
         </div>
-        <p>© 2025 Loja de Jogos. Todos os direitos reservados.</p>
-    </footer>
+      </div>
+
+      <div class="game-card">
+        <img src="https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_auto/c_scale,w_1200/ncom/en_US/games/switch/s/super-smash-bros-ultimate-switch/hero" alt="Super Smash Bros">
+        <div class="game-info">
+          <h3>Super Smash Bros. Ultimate</h3>
+          <span class="price">R$ 279,00</span>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_auto/c_scale,w_1200/ncom/en_US/games/switch/m/mario-kart-8-deluxe-switch/hero" alt="Mario Kart 8">
+        <div class="game-info">
+          <h3>Mario Kart 8 Deluxe</h3>
+          <span class="price">R$ 249,00</span>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://m.media-amazon.com/images/I/71VL7ve7K3L.jpg" alt="Super Mario Odyssey">
+        <div class="game-info">
+          <h3>Super Mario Odyssey</h3>
+          <span class="price">R$ 279,00</span>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://assets.nintendo.com/image/upload/f_auto/q_auto/c_fill,w_1200/ncom/en_US/games/switch/a/animal-crossing-new-horizons-switch/hero" alt="Animal Crossing">
+        <div class="game-info">
+          <h3>Animal Crossing: New Horizons</h3>
+          <span class="price">R$ 249,00</span>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://assets.nintendo.com/image/upload/f_auto/q_auto/c_fill,w_1200/ncom/en_US/games/switch/m/metroid-dread-switch/hero" alt="Metroid Dread">
+        <div class="game-info">
+          <h3>Metroid Dread</h3>
+          <span class="price">R$ 229,00</span>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://m.media-amazon.com/images/I/71t6j7N4qbL.jpg" alt="Donkey Kong Country: Tropical Freeze">
+        <div class="game-info">
+          <h3>Donkey Kong Country: Tropical Freeze</h3>
+          <span class="price">R$ 199,00</span>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://cdn.awsli.com.br/600x450/2123/2123981/produto/193745054/pokemon-legends-arceus-nintendo-switch-novo-nl2ynhlyen.jpg" alt="Pokémon Legends: Arceus">
+        <div class="game-info">
+          <h3>Pokémon Legends: Arceus</h3>
+          <span class="price">R$ 299,00</span>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://m.media-amazon.com/images/I/81j1m4wBd+L.jpg" alt="Luigi’s Mansion 3">
+        <div class="game-info">
+          <h3>Luigi’s Mansion 3</h3>
+          <span class="price">R$ 249,00</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Loja de Jogos Nintendo. Todos os direitos reservados.</p>
+  </footer>
+
 </body>
 </html>
