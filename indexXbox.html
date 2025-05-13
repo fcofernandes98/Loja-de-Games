@@ -1,11 +1,196 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja Xbox - Vitrine de Jogos</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f0f;
+      color: #ffffff;
+    }
+
+    header {
+      background-color: #107C10;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 25px;
+    }
+
+    .game-card {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .game-card:hover {
+      transform: scale(1.03);
+    }
+
+    .game-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-bottom: 1px solid #2c2c2c;
+    }
+
+    .game-info {
+      padding: 12px 16px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .game-info h2 {
+      font-size: 1em;
+      margin-bottom: 6px;
+      color: #ffffff;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #5cff5c;
+    }
+
+    .price .old-price {
+      font-size: 0.9rem;
+      color: #888;
+      text-decoration: line-through;
+      margin-left: 6px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      .game-card img {
+        height: 200px;
+      }
+    }
+  </style>
 </head>
 <body>
-    
+
+  <header>
+    <h1>Jogos em Oferta - Xbox Store</h1>
+  </header>
+
+  <div class="container">
+    <div class="games-grid">
+
+      <div class="game-card">
+        <img src="https://jploja.com/wp-content/uploads/2024/09/NBA-2k25-1.jpg" alt="NBA 2K25">
+        <div class="game-info">
+          <h2>NBA 2K25</h2>
+          <p class="price">R$149,99 <span class="old-price">R$200,45</span></p>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://jploja.com/wp-content/uploads/2024/02/WWE-2k24-1.jpg" alt="WWE 2K24">
+        <div class="game-info">
+          <h2>WWE 2K24</h2>
+          <p class="price">R$203,99 <span class="old-price">R$249,90</span></p>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://cdn.awsli.com.br/800x800/53/53761/produto/301545598/01-5ufl5ika62.jpg" alt="COD Black Op 6">
+        <div class="game-info">
+          <h2>Call Of Duty Black Ops 6</h2>
+          <p class="price">R$199,99 <span class="old-price">R$279,99</span></p>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://rihappy.vtexassets.com/arquivos/ids/6768658/17274529983515.jpg?v=638640043739470000" alt="FIFA 25">
+        <div class="game-info">
+          <h2>FIFA 25</h2>
+          <p class="price">R$99,89 <span class="old-price">R$299,00</span></p>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://www.wowgames.com.br/wp-content/uploads/2024/01/XONE-Palworld-jpg.webp" alt="Palworld">
+        <div class="game-info">
+          <h2>Palworld</h2>
+          <p class="price">R$99,66 <span class="old-price">R$149,99</span></p>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://gocdkeys.com/images/games/phasmophobia-xbox-one.jpg" alt="Phasmophobia">
+        <div class="game-info">
+          <h2>Phasmophobia</h2>
+          <p class="price">R$54,17 <span class="old-price">R$85,90</span></p>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://www.wowgames.com.br/wp-content/uploads/2024/07/XONE-StarWarsOutlaws-jpg.webp" alt="Star Wars Outlaws">
+        <div class="game-info">
+          <h2>Star Wars Outlaws</h2>
+          <p class="price">R$149,99 <span class="old-price">R$299,99</span></p>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://m.media-amazon.com/images/I/81I4zXPKfmL.jpg" alt="Dragon's Dogma II">
+        <div class="game-info">
+          <h2>Dragon's Dogma II</h2>
+          <p class="price">R$192,03 <span class="old-price">R$289,99</span></p>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSLMRhaVgPsdD9uWb9t4397f4Eov9Wty4ltppq7hqhTX3jSTp5pXhdthfwy2OqF6fxp2UOooMBo9oERm5MsAhuB_SwikISCCoXLb0CySXg" alt="Avatar: Frontiers of Pandora">
+        <div class="game-info">
+          <h2>Avatar: Frontiers of Pandora</h2>
+          <p class="price">R$63,90 <span class="old-price">R$149,99</span></p>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://products.eneba.games/resized-products/ck2iPqDumzN-KEs5r1nNrmbQ5NiuFAaYoijQNiCr6t0_350x200_3x-0.jpeg" alt="7 Days to Die">
+        <div class="game-info">
+          <h2>7 Days to Die</h2>
+          <p class="price">R$101,90 <span class="old-price">R$239,90</span></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </body>
 </html>
