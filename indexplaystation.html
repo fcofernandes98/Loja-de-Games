@@ -1,275 +1,157 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE HTML>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loja de Jogos - PlayStation</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #1a1a1d;
-      color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #003087;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-    }
-
-    header .logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    header .logo img {
-      width: 50px;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      margin: 0;
-    }
-
-      nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 20px 0 0;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-    }
-
-       nav ul li {
-      display: inline;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: #00aaff;
-    }
-
-    .inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .inner h2 {
-      color: #00aaff;
-      margin-bottom: 10px;
-    }
-
-    .inner p {
-      color: #ccc;
-      line-height: 1.6;
-    }
-
-    .tiles {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .produto {
-      background-color: #2c2f33;
-      border-radius: 10px;
-      overflow: hidden;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .produto:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-    }
-
-    .produto img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .titulo {
-      font-size: 1.1rem;
-      font-weight: bold;
-      margin: 10px 0 4px;
-      color: #fff;
-    }
-
-    .preco {
-      font-size: 1rem;
-      color: #00ffae;
-    }
-
-    .preco-antigo {
-      font-size: 0.85rem;
-      color: #888;
-      text-decoration: line-through;
-      margin-left: 6px;
-    }
-  </style>
+    <title>Loja de Jogos - Projeto Integrador</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        header, footer {
+            background-color: #1f1f1f;
+            padding: 20px;
+            text-align: center;
+        }
+        header .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        header .logo img {
+            width: 40px;
+            margin-right: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .tiles article {
+            background: #1e1e1e;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .tiles article:hover {
+            transform: scale(1.05);
+        }
+        .tiles img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .tiles h2 {
+            margin: 10px;
+        }
+        .tiles p {
+            margin: 0 10px 10px;
+            color: #ccc;
+        }
+        .button {
+            background: #e50914;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        footer form input {
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        .icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .icons a {
+            color: white;
+            font-size: 1.5em;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/PlayStation_logo.svg/1200px-PlayStation_logo.svg.png" alt="PS Logo">
-      <h1>Jogos PlayStation</h1>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#">Início</a></li>
-        <li><a href="#">Jogos</a></li>
-        <li><a href="#">Consoles</a></li>
-        <li><a href="#">Acessórios</a></li>
-        <li><a href="#">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <div class="logo">
+            <img src="images/logo.svg" alt="Logo" />
+            <h1>Loja de Jogos</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Jogos</a></li>
+                <li><a href="#">Consoles</a></li>
+                <li><a href="#">Acessórios</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <div class="inner">
-    <h2>Sobre a PlayStation</h2>
-    <p>
-      <strong>PlayStation</strong> é uma marca internacional de consoles de videogame criada pela empresa japonesa Sony Interactive Entertainment, conhecida pelos seus exclusivos como God of War, Uncharted, The Last of Us e muitos outros.
-    </p>
+    <div class="inner">
+        <h2>Bem-vindo à Loja de Jogos</h2>
+        <p>Aqui você encontra tudo sobre jogos: desde os clássicos até os lançamentos mais esperados. Explore por plataformas e categorias!</p>
+        <button class="button">Explorar Agora</button>
 
-    <h2>Jogos em Destaque</h2>
-    <section class="tiles">
-      <div class="produto">
-        <img src="https://m.media-amazon.com/images/I/61OZeW+pPYL._AC_UF1000,1000_QL80_.jpg" alt="The Last of Us Part II">
-        <div class="titulo">The Last of Us Part II</div>
-        <div class="preco">R$168,90 <span class="preco-antigo">R$190,90</span></div>
-      </div>
-
-      <div class="produto">
-        <img src="https://m.media-amazon.com/images/I/81XPzboI34S._AC_SX679_.jpg" alt="Ghost of Tsushima">
-        <div class="titulo">Ghost of Tsushima</div>
-        <div class="preco">R$203,99 <span class="preco-antigo">R$249,90</span></div>
-      </div>
-
-      <div class="produto">
-        <img src="https://cdn.awsli.com.br/800x800/53/53761/produto/29815822/4677d91514.jpg" alt="Marvel's Spider-Man PS4">
-        <div class="titulo">Marvel's Spider-Man PS4</div>
-        <div class="preco">R$124,99 <span class="preco-antigo">R$249,99</span></div>
-      </div>
-
-      <div class="produto">
-        <img src="https://cdn.awsli.com.br/800x800/53/53761/produto/13691607/563cf74011.jpg" alt="Uncharted 4">
-        <div class="titulo">Uncharted 4</div>
-        <div class="preco">R$59,99 <span class="preco-antigo">R$149,99</span></div>
-      </div>
-
-      <div class="produto">
-        <img src="https://m.media-amazon.com/images/I/81q4K9Qx+wL.jpg" alt="Watch Dogs Legion">
-        <div class="titulo">Watch Dogs Legion</div>
-        <div class="preco">R$99,89 <span class="preco-antigo">R$299,00</span></div>
-      </div>
-
-      <div class="produto">
-        <img src="https://m.media-amazon.com/images/I/81J-uEoQ6WL.jpg" alt="Final Fantasy VII">
-        <div class="titulo">Final Fantasy VII</div>
-        <div class="preco">R$149,99 <span class="preco-antigo">R$299,99</span></div>
-      </div>
-
-      <div class="produto">
-        <img src="https://m.media-amazon.com/images/I/81htlTqEckL._AC_UF1000,1000_QL80_.jpg" alt="GTA V">
-        <div class="titulo">Grand Theft Auto V</div>
-        <div class="preco">R$113,66 <span class="preco-antigo">R$249,99</span></div>
-      </div>
-
-      <div class="produto">
-        <img src="https://m.media-amazon.com/images/I/8136lnf0n2L.jpg" alt="GOW Ragnarok">
-        <div class="titulo">God of War Ragnarok</div>
-        <div class="preco">R$279,90 <span class="preco-antigo">R$349,99</span></div>
+        <h2 style="margin-top: 40px;">Destaques</h2>
+        <section class="tiles">
+            <article>
+                <img src="images/nintendo-personagens.jpg" alt="Nintendo">
+                <h2>Nintendo</h2>
+                <p>Jogos e consoles Nintendo. Diversão para todas as idades!</p>
+            </article>
+            <article>
+                <img src="images/PlayStation-personagens.jpg" alt="PlayStation">
+                <h2>PlayStation</h2>
+                <p>Explore os jogos mais vendidos e os clássicos da Sony.</p>
+            </article>
+            <article>
+                <img src="images/masterchief.jpg" alt="Xbox">
+                <h2>Xbox</h2>
+                <p>Jogos, assinaturas e os melhores exclusivos da Microsoft.</p>
+            </article>
+        </section>
     </div>
 
-      <div class="produto">
-        <img src="https://m.media-amazon.com/images/I/61MXORMRgML._AC_UF1000,1000_QL80_.jpg" alt="Horizon Forbidden West">
-        <div class="titulo">Horizon Forbidden West</div>
-        <div class="preco">R$229,90 <span class="preco-antigo">R$299,90</span></div>
-      </div>
-
-      <div class="produto">
-        <img src="https://m.media-amazon.com/images/I/71dOeR8TDjL.jpg" alt="Wo Long Fallen Dinasty">
-        <div class="titulo">Wo Long Fallen Dinasty</div>
-        <div class="preco">R$229,90 <span class="preco-antigo">R$299,90</span></div>
-      </div>
-
-      <div class="produto">
-        <img src="https://m.media-amazon.com/images/I/81-5Hwz8HbL._AC_UF1000,1000_QL80_.jpg" alt="The Witcher 3">
-        <div class="titulo">The Witcher 3</div>
-        <div class="preco">R$89,90 <span class="preco-antigo">R$199,90</span></div>
-      </div>
-
-      <div class="produto">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_739150-MLA53283119543_012023-O.webp" alt="Dead Space Remake">
-        <div class="titulo">Dead Space Remake</div>
-        <div class="preco">R$249,99 <span class="preco-antigo">R$349,90</span></div>
-      </div>
-
-      <div class="produto">
-        <img src="https://cdn.awsli.com.br/600x450/1919/1919257/produto/287233148/254645648-an1xl91d7y.jpg" alt="Hogwarts Legacy">
-        <div class="titulo">Hogwarts Legacy</div>
-        <div class="preco">R$229,90 <span class="preco-antigo">R$299,90</span></div>
-      </div>
-
-    <div class="produto">
-      <img src="https://cdn.awsli.com.br/2500x2500/0/810/produto/22108855768d09d7c04.jpg" alt="Final Fantasy XVI">
-      <div class="titulo">Final Fantasy XVI</div>
-      <div class="preco">R$299,90 <span class="preco-antigo">R$399,90</span></div>
-    </div>
-
-    <div class="produto">
-      <img src="https://m.media-amazon.com/images/I/71ksB1D3FIL.jpg" alt="Street Fighter VI">
-      <div class="titulo">Street Fighter VI</div>
-      <div class="preco">R$249,90 <span class="preco-antigo">R$349,90</span></div>
-    </div>
-
-    <div class="produto">
-      <img src="https://m.media-amazon.com/images/I/61MqGRmb7HL._AC_UF1000,1000_QL80_.jpg" alt="Diablo IV">
-      <div class="titulo">Diablo IV</div>
-      <div class="preco">R$349,90 <span class="preco-antigo">R$449,90</span></div>
-    </div>
-
-      <div class="produto">
-        <img src="https://m.media-amazon.com/images/I/616e7cE5kbL._AC_UF1000,1000_QL80_.jpg" alt="Like a Dragon Ishin">
-        <div class="titulo">Like a Dragon Ishin</div>
-        <div class="preco">R$199,90 <span class="preco-antigo">R$249,90</span></div>
-      </div>
-
-      <div class="produto">
-        <img src="https://m.media-amazon.com/images/I/81F925s0ZAL._AC_UF1000,1000_QL80_.jpg" alt="Wild Hearts">
-        <div class="titulo">Wild Hearts</div>
-        <div class="preco">R$249,90 <span class="preco-antigo">R$349,90</span></div>
-      </div>
-
-    <div class="produto">
-      <img src="https://m.media-amazon.com/images/I/81wSlwccDDL._AC_UF1000,1000_QL80_.jpg" alt="Atomic Heart">
-      <div class="titulo">Atomic Heart</div>
-      <div class="preco">R$199,90 <span class="preco-antigo">R$249,99</span></div>
-    </div>
-
-    <div class="produto">
-      <img src="https://m.media-amazon.com/images/I/716G8O97EkL.jpg" alt="Dead Island 2">
-      <div class="titulo">Dead Island 2</div>
-      <div class="preco">R$229,90 <span class="preco-antigo">R$299,90</span></div>
-    </div>
-
-
-    </section>
-  </div>
+    <footer>
+        <h2>Login</h2>
+        <form>
+            <input type="text" placeholder="Nome" />
+            <input type="email" placeholder="Email" />
+            <input type="submit" class="button" value="Entrar" />
+        </form>
+        <div class="icons">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>© 2025 Loja de Jogos. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
