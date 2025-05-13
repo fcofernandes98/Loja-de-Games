@@ -1,54 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loja de Jogos/PáginaPlayStation</title>
+  <title>Loja de Jogos - PlayStation</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #121212;
-      color: #ffffff;
-      padding: 40px;
+      background-color: #1a1a1d;
+      color: #f4f4f4;
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
+      padding: 40px;
     }
 
     .produto {
-      background-color: white;
+      background-color: #2c2f33;
+      border-radius: 10px;
       width: 220px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       padding: 12px;
       text-align: center;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .produto:hover {
-      transform: scale(1.03);
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
     }
 
     .produto img {
       width: 100%;
-      border-radius: 4px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 6px;
     }
 
     .titulo {
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: bold;
-      margin: 10px 0 5px;
+      margin: 10px 0 4px;
+      color: #fff;
     }
 
     .preco {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #111;
+      font-size: 1rem;
+      color: #00ffae;
     }
 
     .preco-antigo {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #888;
       text-decoration: line-through;
       margin-left: 6px;
@@ -58,7 +61,7 @@
 <body>
 
   <div class="produto">
-    <img src="https://m.media-amazon.com/images/I/61OZeW+pPYL._AC_UF1000,1000_QL80_.jpg" alt="The Last of Us part II">
+    <img src="https://m.media-amazon.com/images/I/61OZeW+pPYL._AC_UF1000,1000_QL80_.jpg" alt="The Last of Us Part II">
     <div class="titulo">The Last of Us Part II</div>
     <div class="preco">R$168,90 <span class="preco-antigo">R$190,90</span></div>
   </div>
@@ -70,7 +73,7 @@
   </div>
 
   <div class="produto">
-    <img src="https://cdn.awsli.com.br/800x800/53/53761/produto/29815822/4677d91514.jpg" alt="Spider-Man PS4">
+    <img src="https://cdn.awsli.com.br/800x800/53/53761/produto/29815822/4677d91514.jpg" alt="Marvel's Spider-Man PS4">
     <div class="titulo">Marvel's Spider-Man PS4</div>
     <div class="preco">R$124,99 <span class="preco-antigo">R$249,99</span></div>
   </div>
@@ -82,7 +85,7 @@
   </div>
 
   <div class="produto">
-    <img src="https://m.media-amazon.com/images/I/81htlTqEckL._AC_UF1000,1000_QL80_.jpg" alt="GTA V">
+    <img src="https://m.media-amazon.com/images/I/81htlTqEckL._AC_UF1000,1000_QL80_.jpg" alt="Grand Theft Auto V">
     <div class="titulo">Grand Theft Auto V</div>
     <div class="preco">R$113,66 <span class="preco-antigo">R$249,99</span></div>
   </div>
@@ -96,8 +99,9 @@
   <div class="produto">
     <img src="https://m.media-amazon.com/images/I/81J-uEoQ6WL.jpg" alt="Final Fantasy VII">
     <div class="titulo">Final Fantasy VII</div>
-    <div class="preco">149,99<span class="preco-antigo">299,99</span></div>
+    <div class="preco">R$149,99 <span class="preco-antigo">R$299,99</span></div>
   </div>
+
 
 </body>
 </html>
