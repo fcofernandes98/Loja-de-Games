@@ -1,11 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Item de Loja</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .produto {
+      background-color: white;
+      width: 220px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 12px;
+      text-align: center;
+    }
+
+    .produto img {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .titulo {
+      font-size: 1rem;
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+
+    .preco {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #111;
+    }
+
+    .preco-antigo {
+      font-size: 0.9rem;
+      color: #888;
+      text-decoration: line-through;
+    }
+
+  </style>
 </head>
 <body>
-    
+
+  <div class="produto">
+    <img src="https://m.media-amazon.com/images/I/61OZeW+pPYL._AC_UF1000,1000_QL80_.jpg" alt="Capa do jogo The Last of Us part II">
+    <div class="titulo">The Last of Us Part II</div>
+    <div class="preco">R$168,90 <span class="preco-antigo">De: R$190,90</span></div>
+  </div>
+
 </body>
 </html>
