@@ -126,6 +126,7 @@
 
     /* Desenvolvidor por: Carlos Henrique*/
     /* Botão Adicionar ao Carrinho */
+
     .botao {
       display: inline-block;
       padding: 5px 10px;
@@ -385,7 +386,7 @@
 
         if (this.checked) {
           carrinho.push({ title: gameTitle, price: gamePrice });
-          botaoEl.textContent = "Adicionado";
+          botaoEl.textContent = "";
           cartCount++;
         } else {
           const idx = carrinho.findIndex(item => item.title === gameTitle);
