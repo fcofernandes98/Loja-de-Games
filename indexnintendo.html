@@ -352,26 +352,71 @@
     <p>© 2025 Loja de Jogos Nintendo. Todos os direitos reservados.</p>
   </footer>
 
+  <!-- Aqui é o Modal que aparece ao clicar no carrinho na parte superior da page -->
 
+  <div id="cart-modal"
+    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
+    <div
+      style="background:#fff; color:#000; padding:20px; max-width:500px; width:90%; border-radius:10px; position:relative;">
+      <h2 style="margin-bottom:15px;">Carrinho</h2>
+      <ul id="cart-items" style="list-style:none; padding:0; margin-bottom:20px;"></ul>
+      <button onclick="toggleCartModal()"
+        style="background:#e60012; color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">Fechar</button>
+    </div>
+  </div>
+
+  <!-- Aqui começa as funções e manipulações de conteúdo -->
 
   <script>
     let cartCount = 0;
     const cartCountEl = document.getElementById("cart-count");
+    const cartItemsEl = document.getElementById("cart-items");
+    const cartModal = document.getElementById("cart-modal");
 
-    // Aqui é onde ele seleciona todos os botões de adicionar
     const toggles = document.querySelectorAll('.toggle');
+    const carrinho = [];
 
-    toggles.forEach((toggle) => {
+    toggles.forEach((toggle, index) => {
       toggle.addEventListener('change', function () {
+        const gameCard = toggle.closest('.game-card');
+        const gameTitle = gameCard.querySelector('h3').textContent;
+        const gamePrice = gameCard.querySelector('.price').textContent;
+        const botaoEl = toggle.nextElementSibling;
+
         if (this.checked) {
+          carrinho.push({ title: gameTitle, price: gamePrice });
+          botaoEl.textContent = "Adicionado";
           cartCount++;
         } else {
+          const idx = carrinho.findIndex(item => item.title === gameTitle);
+          if (idx !== -1) carrinho.splice(idx, 1);
+          botaoEl.textContent = "Adicionar ao carrinho";
           cartCount--;
         }
+
         cartCountEl.textContent = cartCount;
       });
     });
+
+    function toggleCartModal() {
+      if (cartModal.style.display === "flex") {
+        cartModal.style.display = "none";
+      } else {
+        cartItemsEl.innerHTML = "";
+        if (carrinho.length === 0) {
+          cartItemsEl.innerHTML = "<li>Seu carrinho está vazio.</li>";
+        } else {
+          carrinho.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.title} - ${item.price}`;
+            cartItemsEl.appendChild(li);
+          });
+        }
+        cartModal.style.display = "flex";
+      }
+    }
   </script>
+
 
 
 </body>
