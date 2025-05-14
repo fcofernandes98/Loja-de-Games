@@ -120,35 +120,44 @@
     }
 
     .toggle {
-    display: none;
-  }
+      display: none;
+    }
 
 
-  /* Desenvolvidor por: Carlos Henrique*/
-  /* Botão Adicionar ao Carrinho */
-  .botao {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: #7b1414;
-    color: white;
-    text-align: center;
-    border-radius: 5px;
-    cursor: pointer;
-    user-select: none;
-  }
+    /* Desenvolvidor por: Carlos Henrique*/
+    /* Botão Adicionar ao Carrinho */
+    .botao {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #ff4d4d;
+      color: white;
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+      user-select: none;
+    }
 
-  .toggle:checked + .botao {
-    background-color: #28a745;
-    content: "Adicionado";
-  }
+    .botao-container {
+      display: none;
+      margin-top: 10px;
+    }
 
-  .toggle + .botao::after {
-    content: "➕ 🛒";
-  }
+    .game-card:hover .botao-container {
+      display: block;
+    }
 
-  .toggle:checked + .botao::after {
-    content: "Adicionado ✅";
-  }
+    .toggle:checked+.botao {
+      background-color: #0ddc17;
+      content: "Adicionado ao carrinho";
+    }
+
+    .toggle+.botao::after {
+      content: "Adicionar ao carrinho";
+    }
+
+    .toggle:checked+.botao::after {
+      content: "Adicionado ao carrinho";
+    }
 
     footer {
       background-color: #1f1f1f;
@@ -196,10 +205,12 @@
         <div class="game-info">
           <h3>The Legend of Zelda: Breath of the Wild</h3>
           <span class="price">R$ 299,00</span>
-          <label>
-            <input type="checkbox" class="toggle" />
-            <span class="botao"></span>
-          </label>
+          <div class="botao-container">
+            <label>
+              <input type="checkbox" class="toggle" />
+              <span class="botao"></span>
+            </label>
+          </div>
         </div>
       </div>
 
@@ -210,6 +221,12 @@
         <div class="game-info">
           <h3>Super Smash Bros. Ultimate</h3>
           <span class="price">R$ 279,00</span>
+          <div class="botao-container">
+            <label>
+              <input type="checkbox" class="toggle" />
+              <span class="botao"></span>
+            </label>
+          </div>
         </div>
       </div>
 
@@ -220,6 +237,12 @@
         <div class="game-info">
           <h3>Mario Kart 8 Deluxe</h3>
           <span class="price">R$ 249,00</span>
+          <div class="botao-container">
+            <label>
+              <input type="checkbox" class="toggle" />
+              <span class="botao"></span>
+            </label>
+          </div>
         </div>
       </div>
 
@@ -228,6 +251,12 @@
         <div class="game-info">
           <h3>Super Mario Odyssey</h3>
           <span class="price">R$ 279,00</span>
+          <div class="botao-container">
+            <label>
+              <input type="checkbox" class="toggle" />
+              <span class="botao"></span>
+            </label>
+          </div>
         </div>
       </div>
 
@@ -238,6 +267,12 @@
         <div class="game-info">
           <h3>Animal Crossing: New Horizons</h3>
           <span class="price">R$ 249,00</span>
+          <div class="botao-container">
+            <label>
+              <input type="checkbox" class="toggle" />
+              <span class="botao"></span>
+            </label>
+          </div>
         </div>
       </div>
 
@@ -248,6 +283,12 @@
         <div class="game-info">
           <h3>Metroid Dread</h3>
           <span class="price">R$ 229,00</span>
+          <div class="botao-container">
+            <label>
+              <input type="checkbox" class="toggle" />
+              <span class="botao"></span>
+            </label>
+          </div>
         </div>
       </div>
 
@@ -256,6 +297,12 @@
         <div class="game-info">
           <h3>Donkey Kong Country: Tropical Freeze</h3>
           <span class="price">R$ 199,00</span>
+          <div class="botao-container">
+            <label>
+              <input type="checkbox" class="toggle" />
+              <span class="botao"></span>
+            </label>
+          </div>
         </div>
       </div>
 
@@ -266,6 +313,12 @@
         <div class="game-info">
           <h3>Pokémon Legends: Arceus</h3>
           <span class="price">R$ 299,00</span>
+          <div class="botao-container">
+            <label>
+              <input type="checkbox" class="toggle" />
+              <span class="botao"></span>
+            </label>
+          </div>
         </div>
       </div>
 
@@ -274,6 +327,12 @@
         <div class="game-info">
           <h3>Luigi’s Mansion 3</h3>
           <span class="price">R$ 249,00</span>
+          <div class="botao-container">
+            <label>
+              <input type="checkbox" class="toggle" />
+              <span class="botao"></span>
+            </label>
+          </div>
         </div>
       </div>
 
