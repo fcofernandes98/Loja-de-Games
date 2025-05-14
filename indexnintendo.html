@@ -167,6 +167,15 @@
       color: #999;
     }
   </style>
+
+  <div id="cart-icon" onclick="toggleCartModal()"
+    style="position: absolute; top: 30px; right: 30px; font-size: 24px; cursor: pointer;">
+    <i class="bi bi-cart3"></i>
+    <span id="cart-count"
+      style="background: #fff; color: #e60012; border-radius: 50%; padding: 2px 8px; font-size: 14px; margin-left: 5px;">0</span>
+  </div>
+
+
 </head>
 
 <body>
@@ -342,6 +351,28 @@
   <footer>
     <p>© 2025 Loja de Jogos Nintendo. Todos os direitos reservados.</p>
   </footer>
+
+
+
+  <script>
+    let cartCount = 0;
+    const cartCountEl = document.getElementById("cart-count");
+
+    // Aqui é onde ele seleciona todos os botões de adicionar
+    const toggles = document.querySelectorAll('.toggle');
+
+    toggles.forEach((toggle) => {
+      toggle.addEventListener('change', function () {
+        if (this.checked) {
+          cartCount++;
+        } else {
+          cartCount--;
+        }
+        cartCountEl.textContent = cartCount;
+      });
+    });
+  </script>
+
 
 </body>
 
