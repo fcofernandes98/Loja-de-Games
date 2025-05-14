@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loja de Jogos - PlayStation</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,6 +19,7 @@
       color: white;
       text-align: center;
       padding: 20px 0;
+      position: relative;
     }
 
     header .logo {
@@ -36,7 +38,7 @@
       margin: 0;
     }
 
-      nav ul {
+    nav ul {
       list-style: none;
       padding: 0;
       margin: 20px 0 0;
@@ -45,7 +47,7 @@
       gap: 30px;
     }
 
-       nav ul li {
+    nav ul li {
       display: inline;
     }
 
@@ -90,6 +92,7 @@
       overflow: hidden;
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
     }
 
     .produto:hover {
@@ -122,72 +125,161 @@
       margin-left: 6px;
     }
 
-      footer {
-    background-color: #1a1a1d;
-    color: #f4f4f4;
-    text-align: center;
-    padding: 20px;
-  }
+    footer {
+      background-color: #1a1a1d;
+      color: #f4f4f4;
+      text-align: center;
+      padding: 20px;
+    }
 
-  footer h2 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
+    footer h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
 
-  footer form {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
+    footer form {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
 
-  footer form input[type="text"],
-  footer form input[type="email"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    width: 200px;
-  }
+    footer form input[type="text"],
+    footer form input[type="email"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      width: 200px;
+    }
 
-  footer form input[type="submit"] {
-    background-color: #e50914;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+    footer form input[type="submit"] {
+      background-color: #e50914;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-  footer form input[type="submit"]:hover {
-    background-color: #b00710;
-  }
+    footer form input[type="submit"]:hover {
+      background-color: #b00710;
+    }
 
-  .icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 10px;
-  }
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
 
-  .icons a {
-    color: white;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
-  }
+    .icons a {
+      color: white;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
 
-  .icons a:hover {
-    color: #00aaff;
-  }
+    .icons a:hover {
+      color: #00aaff;
+    }
 
-  footer p {
-    font-size: 0.9rem;
-    color: #ccc;
-    margin-top: 10px;
-  }
-        
+    footer p {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-top: 10px;
+    }
+    
+    /* Estilos do carrinho */
+    #cart-icon {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+    }
+    
+    #cart-count {
+      background: #fff;
+      color: #003087;
+      border-radius: 50%;
+      padding: 2px 8px;
+      font-size: 14px;
+      margin-left: 5px;
+    }
+    
+    /* Modal do carrinho */
+    #cart-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #cart-modal > div {
+      background: #fff;
+      color: #000;
+      padding: 20px;
+      max-width: 500px;
+      width: 90%;
+      border-radius: 10px;
+      position: relative;
+    }
+    
+    #cart-items {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    
+    /* Botão de adicionar ao carrinho */
+    .botao-container {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      display: none;
+    }
+    
+    .produto:hover .botao-container {
+      display: block;
+    }
+    
+    .botao {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #00aaff;
+      color: white;
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+      user-select: none;
+      border: none;
+      font-size: 0.9rem;
+    }
+    
+    .toggle {
+      display: none;
+    }
+    
+    .toggle:checked + .botao {
+      background-color: #0ddc17;
+    }
+    
+    .toggle + .botao::after {
+      content: "Adicionar";
+    }
+    
+    .toggle:checked + .botao::after {
+      content: "Adicionado";
+    }
   </style>
 </head>
 <body>
@@ -205,6 +297,12 @@
         <li><a href="#">Contato</a></li>
       </ul>
     </nav>
+    
+    <!-- Ícone do carrinho -->
+    <div id="cart-icon" onclick="toggleCartModal()">
+      <i class="bi bi-cart3"></i>
+      <span id="cart-count">0</span>
+    </div>
   </header>
 
   <div class="inner">
@@ -219,139 +317,316 @@
         <img src="https://m.media-amazon.com/images/I/61OZeW+pPYL._AC_UF1000,1000_QL80_.jpg" alt="The Last of Us Part II">
         <div class="titulo">The Last of Us Part II</div>
         <div class="preco">R$168,90 <span class="preco-antigo">R$190,90</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="The Last of Us Part II" data-price="R$168,90"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
       <div class="produto">
         <img src="https://m.media-amazon.com/images/I/81XPzboI34S._AC_SX679_.jpg" alt="Ghost of Tsushima">
         <div class="titulo">Ghost of Tsushima</div>
         <div class="preco">R$203,99 <span class="preco-antigo">R$249,90</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Ghost of Tsushima" data-price="R$203,99"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
       <div class="produto">
         <img src="https://cdn.awsli.com.br/800x800/53/53761/produto/29815822/4677d91514.jpg" alt="Marvel's Spider-Man PS4">
         <div class="titulo">Marvel's Spider-Man PS4</div>
         <div class="preco">R$124,99 <span class="preco-antigo">R$249,99</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Marvel's Spider-Man PS4" data-price="R$124,99"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
       <div class="produto">
         <img src="https://cdn.awsli.com.br/800x800/53/53761/produto/13691607/563cf74011.jpg" alt="Uncharted 4">
         <div class="titulo">Uncharted 4</div>
         <div class="preco">R$59,99 <span class="preco-antigo">R$149,99</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Uncharted 4" data-price="R$59,99"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
       <div class="produto">
         <img src="https://m.media-amazon.com/images/I/81q4K9Qx+wL.jpg" alt="Watch Dogs Legion">
         <div class="titulo">Watch Dogs Legion</div>
         <div class="preco">R$99,89 <span class="preco-antigo">R$299,00</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Watch Dogs Legion" data-price="R$99,89"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
       <div class="produto">
         <img src="https://m.media-amazon.com/images/I/81J-uEoQ6WL.jpg" alt="Final Fantasy VII">
         <div class="titulo">Final Fantasy VII</div>
         <div class="preco">R$149,99 <span class="preco-antigo">R$299,99</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Final Fantasy VII" data-price="R$149,99"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
       <div class="produto">
         <img src="https://m.media-amazon.com/images/I/81htlTqEckL._AC_UF1000,1000_QL80_.jpg" alt="GTA V">
         <div class="titulo">Grand Theft Auto V</div>
         <div class="preco">R$113,66 <span class="preco-antigo">R$249,99</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Grand Theft Auto V" data-price="R$113,66"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
       <div class="produto">
         <img src="https://m.media-amazon.com/images/I/8136lnf0n2L.jpg" alt="GOW Ragnarok">
         <div class="titulo">God of War Ragnarok</div>
         <div class="preco">R$279,90 <span class="preco-antigo">R$349,99</span></div>
-    </div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="God of War Ragnarok" data-price="R$279,90"/>
+            <span class="botao"></span>
+          </label>
+        </div>
+      </div>
 
       <div class="produto">
         <img src="https://m.media-amazon.com/images/I/61MXORMRgML._AC_UF1000,1000_QL80_.jpg" alt="Horizon Forbidden West">
         <div class="titulo">Horizon Forbidden West</div>
         <div class="preco">R$229,90 <span class="preco-antigo">R$299,90</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Horizon Forbidden West" data-price="R$229,90"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
       <div class="produto">
         <img src="https://m.media-amazon.com/images/I/71dOeR8TDjL.jpg" alt="Wo Long Fallen Dinasty">
         <div class="titulo">Wo Long Fallen Dinasty</div>
         <div class="preco">R$229,90 <span class="preco-antigo">R$299,90</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Wo Long Fallen Dinasty" data-price="R$229,90"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
       <div class="produto">
         <img src="https://m.media-amazon.com/images/I/81-5Hwz8HbL._AC_UF1000,1000_QL80_.jpg" alt="The Witcher 3">
         <div class="titulo">The Witcher 3</div>
         <div class="preco">R$89,90 <span class="preco-antigo">R$199,90</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="The Witcher 3" data-price="R$89,90"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
       <div class="produto">
         <img src="https://http2.mlstatic.com/D_NQ_NP_739150-MLA53283119543_012023-O.webp" alt="Dead Space Remake">
         <div class="titulo">Dead Space Remake</div>
         <div class="preco">R$249,99 <span class="preco-antigo">R$349,90</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Dead Space Remake" data-price="R$249,99"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
       <div class="produto">
         <img src="https://cdn.awsli.com.br/600x450/1919/1919257/produto/287233148/254645648-an1xl91d7y.jpg" alt="Hogwarts Legacy">
         <div class="titulo">Hogwarts Legacy</div>
         <div class="preco">R$229,90 <span class="preco-antigo">R$299,90</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Hogwarts Legacy" data-price="R$229,90"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
-    <div class="produto">
-      <img src="https://cdn.awsli.com.br/2500x2500/0/810/produto/22108855768d09d7c04.jpg" alt="Final Fantasy XVI">
-      <div class="titulo">Final Fantasy XVI</div>
-      <div class="preco">R$299,90 <span class="preco-antigo">R$399,90</span></div>
-    </div>
+      <div class="produto">
+        <img src="https://cdn.awsli.com.br/2500x2500/0/810/produto/22108855768d09d7c04.jpg" alt="Final Fantasy XVI">
+        <div class="titulo">Final Fantasy XVI</div>
+        <div class="preco">R$299,90 <span class="preco-antigo">R$399,90</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Final Fantasy XVI" data-price="R$299,90"/>
+            <span class="botao"></span>
+          </label>
+        </div>
+      </div>
 
-    <div class="produto">
-      <img src="https://m.media-amazon.com/images/I/71ksB1D3FIL.jpg" alt="Street Fighter VI">
-      <div class="titulo">Street Fighter VI</div>
-      <div class="preco">R$249,90 <span class="preco-antigo">R$349,90</span></div>
-    </div>
+      <div class="produto">
+        <img src="https://m.media-amazon.com/images/I/71ksB1D3FIL.jpg" alt="Street Fighter VI">
+        <div class="titulo">Street Fighter VI</div>
+        <div class="preco">R$249,90 <span class="preco-antigo">R$349,90</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Street Fighter VI" data-price="R$249,90"/>
+            <span class="botao"></span>
+          </label>
+        </div>
+      </div>
 
-    <div class="produto">
-      <img src="https://m.media-amazon.com/images/I/61MqGRmb7HL._AC_UF1000,1000_QL80_.jpg" alt="Diablo IV">
-      <div class="titulo">Diablo IV</div>
-      <div class="preco">R$349,90 <span class="preco-antigo">R$449,90</span></div>
-    </div>
+      <div class="produto">
+        <img src="https://m.media-amazon.com/images/I/61MqGRmb7HL._AC_UF1000,1000_QL80_.jpg" alt="Diablo IV">
+        <div class="titulo">Diablo IV</div>
+        <div class="preco">R$349,90 <span class="preco-antigo">R$449,90</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Diablo IV" data-price="R$349,90"/>
+            <span class="botao"></span>
+          </label>
+        </div>
+      </div>
 
       <div class="produto">
         <img src="https://m.media-amazon.com/images/I/616e7cE5kbL._AC_UF1000,1000_QL80_.jpg" alt="Like a Dragon Ishin">
         <div class="titulo">Like a Dragon Ishin</div>
         <div class="preco">R$199,90 <span class="preco-antigo">R$249,90</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Like a Dragon Ishin" data-price="R$199,90"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
       <div class="produto">
         <img src="https://m.media-amazon.com/images/I/81F925s0ZAL._AC_UF1000,1000_QL80_.jpg" alt="Wild Hearts">
         <div class="titulo">Wild Hearts</div>
         <div class="preco">R$249,90 <span class="preco-antigo">R$349,90</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Wild Hearts" data-price="R$249,90"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
-    <div class="produto">
-      <img src="https://m.media-amazon.com/images/I/81wSlwccDDL._AC_UF1000,1000_QL80_.jpg" alt="Atomic Heart">
-      <div class="titulo">Atomic Heart</div>
-      <div class="preco">R$199,90 <span class="preco-antigo">R$249,99</span></div>
-    </div>
+      <div class="produto">
+        <img src="https://m.media-amazon.com/images/I/81wSlwccDDL._AC_UF1000,1000_QL80_.jpg" alt="Atomic Heart">
+        <div class="titulo">Atomic Heart</div>
+        <div class="preco">R$199,90 <span class="preco-antigo">R$249,99</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Atomic Heart" data-price="R$199,90"/>
+            <span class="botao"></span>
+          </label>
+        </div>
+      </div>
 
-    <div class="produto">
-      <img src="https://m.media-amazon.com/images/I/716G8O97EkL.jpg" alt="Dead Island 2">
-      <div class="titulo">Dead Island 2</div>
-      <div class="preco">R$229,90 <span class="preco-antigo">R$299,90</span></div>
-    </div>
-
-
+      <div class="produto">
+        <img src="https://m.media-amazon.com/images/I/716G8O97EkL.jpg" alt="Dead Island 2">
+        <div class="titulo">Dead Island 2</div>
+        <div class="preco">R$229,90 <span class="preco-antigo">R$299,90</span></div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Dead Island 2" data-price="R$229,90"/>
+            <span class="botao"></span>
+          </label>
+        </div>
+      </div>
     </section>
   </div>
-    <footer>
-        <h2>Login</h2>
-        <form>
-            <input type="text" placeholder="Nome" />
-            <input type="email" placeholder="Email" />
-            <input type="submit" class="button" value="Entrar" />
-        </form>
-        <div class="icons">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fas fa-envelope"></i></a>
-        </div>
-        <p>© 2025 Loja de Jogos. Todos os direitos reservados.</p>
-    </footer>
+  
+  <!-- Modal do carrinho -->
+  <div id="cart-modal">
+    <div>
+      <h2>Carrinho</h2>
+      <ul id="cart-items"></ul>
+      <button onclick="toggleCartModal()" style="background:#003087; color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">Fechar</button>
+    </div>
+  </div>
+
+  <footer>
+    <h2>Login</h2>
+    <form>
+      <input type="text" placeholder="Nome" />
+      <input type="email" placeholder="Email" />
+      <input type="submit" class="button" value="Entrar" />
+    </form>
+    <div class="icons">
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>© 2025 Loja de Jogos. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    let cartCount = 0;
+    const cartCountEl = document.getElementById("cart-count");
+    const cartItemsEl = document.getElementById("cart-items");
+    const cartModal = document.getElementById("cart-modal");
+    const carrinho = [];
+
+    // Adiciona evento de clique para todos os botões de adicionar ao carrinho
+    document.querySelectorAll('.toggle').forEach(toggle => {
+      toggle.addEventListener('change', function() {
+        const gameTitle = this.getAttribute('data-title');
+        const gamePrice = this.getAttribute('data-price');
+        const botaoEl = this.nextElementSibling;
+
+        if (this.checked) {
+          carrinho.push({ title: gameTitle, price: gamePrice });
+          cartCount++;
+        } else {
+          const idx = carrinho.findIndex(item => item.title === gameTitle);
+          if (idx !== -1) carrinho.splice(idx, 1);
+          cartCount--;
+        }
+
+        cartCountEl.textContent = cartCount;
+      });
+    });
+
+    // Função para abrir/fechar o modal do carrinho
+    function toggleCartModal() {
+      if (cartModal.style.display === "flex") {
+        cartModal.style.display = "none";
+      } else {
+        cartItemsEl.innerHTML = "";
+        if (carrinho.length === 0) {
+          cartItemsEl.innerHTML = "<li>Seu carrinho está vazio.</li>";
+        } else {
+          carrinho.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.title} - ${item.price}`;
+            li.style.padding = "8px 0";
+            li.style.borderBottom = "1px solid #eee";
+            cartItemsEl.appendChild(li);
+          });
+        }
+        cartModal.style.display = "flex";
+      }
+    }
+  </script>
 </body>
 </html>

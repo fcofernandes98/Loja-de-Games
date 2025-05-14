@@ -31,13 +31,22 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
+            margin-top: 10px;
         }
         nav a {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.1em;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
+        nav a:hover {
+            background-color: #ff4b2b;
+        }
+
         .inner {
             max-width: 1200px;
             margin: 0 auto;
@@ -69,27 +78,38 @@
             margin: 0 10px 10px;
             color: #ccc;
         }
+
         .button {
-            background: #e50914;
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
             color: white;
             border: none;
-            padding: 10px 20px;
-            margin-top: 20px;
-            border-radius: 5px;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 8px;
             cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #ff4b2b;
+        }
+
         footer form input {
             margin: 5px;
             padding: 10px;
             border-radius: 5px;
             border: none;
         }
+
         .icons {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin-top: 10px;
         }
+
         .icons a {
             color: white;
             font-size: 1.5em;
@@ -130,9 +150,9 @@
         <section class="tiles">
             <article>
                 <a href="indexnintendo.html">
-                <img src="images/nintendo-personagens.jpg" alt="Nintendo">
-                <h2>Nintendo</h2>
-                <p>Jogos e consoles Nintendo. Diversão para todas as idades!</p>
+                    <img src="images/nintendo-personagens.jpg" alt="Nintendo">
+                    <h2>Nintendo</h2>
+                    <p>Jogos e consoles Nintendo. Diversão para todas as idades!</p>
                 </a>
             </article>
             <article>

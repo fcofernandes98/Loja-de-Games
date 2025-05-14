@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loja Xbox - Vitrine de Jogos</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <style>
     * {
       box-sizing: border-box;
@@ -22,6 +23,7 @@
       padding: 30px 20px;
       text-align: center;
       box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      position: relative;
     }
 
     header h1 {
@@ -49,6 +51,7 @@
       transition: transform 0.3s ease;
       display: flex;
       flex-direction: column;
+      position: relative;
     }
 
     .game-card:hover {
@@ -89,6 +92,97 @@
       margin-left: 6px;
     }
 
+    /* Ícone do carrinho */
+    #cart-icon {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+    }
+    
+    #cart-count {
+      background: #fff;
+      color: #107C10;
+      border-radius: 50%;
+      padding: 2px 8px;
+      font-size: 14px;
+      margin-left: 5px;
+    }
+    
+    /* Modal do carrinho */
+    #cart-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #cart-modal > div {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 20px;
+      max-width: 500px;
+      width: 90%;
+      border-radius: 10px;
+      position: relative;
+      border: 1px solid #107C10;
+    }
+    
+    #cart-items {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    
+    /* Botão de adicionar ao carrinho */
+    .botao-container {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      display: none;
+    }
+    
+    .game-card:hover .botao-container {
+      display: block;
+    }
+    
+    .botao {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #107C10;
+      color: white;
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+      user-select: none;
+      border: none;
+      font-size: 0.9rem;
+    }
+    
+    .toggle {
+      display: none;
+    }
+    
+    .toggle:checked + .botao {
+      background-color: #0ddc17;
+    }
+    
+    .toggle + .botao::after {
+      content: "Adicionar";
+    }
+    
+    .toggle:checked + .botao::after {
+      content: "Adicionado";
+    }
+
     @media (max-width: 768px) {
       header h1 {
         font-size: 2em;
@@ -97,6 +191,11 @@
       .game-card img {
         height: 200px;
       }
+      
+      #cart-icon {
+        top: 20px;
+        right: 20px;
+      }
     }
   </style>
 </head>
@@ -104,6 +203,11 @@
 
   <header>
     <h1>Jogos em Oferta - Xbox Store</h1>
+    <!-- Ícone do carrinho -->
+    <div id="cart-icon" onclick="toggleCartModal()">
+      <i class="bi bi-cart3"></i>
+      <span id="cart-count">0</span>
+    </div>
   </header>
 
   <div class="container">
@@ -115,6 +219,12 @@
           <h2>NBA 2K25</h2>
           <p class="price">R$149,99 <span class="old-price">R$200,45</span></p>
         </div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="NBA 2K25" data-price="R$149,99"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
       <div class="game-card">
@@ -122,6 +232,12 @@
         <div class="game-info">
           <h2>WWE 2K24</h2>
           <p class="price">R$203,99 <span class="old-price">R$249,90</span></p>
+        </div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="WWE 2K24" data-price="R$203,99"/>
+            <span class="botao"></span>
+          </label>
         </div>
       </div>
 
@@ -131,6 +247,12 @@
           <h2>Call Of Duty Black Ops 6</h2>
           <p class="price">R$199,99 <span class="old-price">R$279,99</span></p>
         </div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Call Of Duty Black Ops 6" data-price="R$199,99"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
       <div class="game-card">
@@ -138,6 +260,12 @@
         <div class="game-info">
           <h2>FIFA 25</h2>
           <p class="price">R$99,89 <span class="old-price">R$299,00</span></p>
+        </div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="FIFA 25" data-price="R$99,89"/>
+            <span class="botao"></span>
+          </label>
         </div>
       </div>
 
@@ -147,6 +275,12 @@
           <h2>Palworld</h2>
           <p class="price">R$99,66 <span class="old-price">R$149,99</span></p>
         </div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Palworld" data-price="R$99,66"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
       <div class="game-card">
@@ -154,6 +288,12 @@
         <div class="game-info">
           <h2>Phasmophobia</h2>
           <p class="price">R$54,17 <span class="old-price">R$85,90</span></p>
+        </div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Phasmophobia" data-price="R$54,17"/>
+            <span class="botao"></span>
+          </label>
         </div>
       </div>
 
@@ -163,6 +303,12 @@
           <h2>Star Wars Outlaws</h2>
           <p class="price">R$149,99 <span class="old-price">R$299,99</span></p>
         </div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Star Wars Outlaws" data-price="R$149,99"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
       <div class="game-card">
@@ -170,6 +316,12 @@
         <div class="game-info">
           <h2>Dragon's Dogma II</h2>
           <p class="price">R$192,03 <span class="old-price">R$289,99</span></p>
+        </div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Dragon's Dogma II" data-price="R$192,03"/>
+            <span class="botao"></span>
+          </label>
         </div>
       </div>
 
@@ -179,6 +331,12 @@
           <h2>Avatar: Frontiers of Pandora</h2>
           <p class="price">R$63,90 <span class="old-price">R$149,99</span></p>
         </div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="Avatar: Frontiers of Pandora" data-price="R$63,90"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
       <div class="game-card">
@@ -187,10 +345,74 @@
           <h2>7 Days to Die</h2>
           <p class="price">R$101,90 <span class="old-price">R$239,90</span></p>
         </div>
+        <div class="botao-container">
+          <label>
+            <input type="checkbox" class="toggle" data-title="7 Days to Die" data-price="R$101,90"/>
+            <span class="botao"></span>
+          </label>
+        </div>
       </div>
 
     </div>
   </div>
+
+  <!-- Modal do carrinho -->
+  <div id="cart-modal">
+    <div>
+      <h2 style="color: #5cff5c;">Carrinho</h2>
+      <ul id="cart-items"></ul>
+      <button onclick="toggleCartModal()" style="background:#107C10; color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">Fechar</button>
+    </div>
+  </div>
+
+  <script>
+    let cartCount = 0;
+    const cartCountEl = document.getElementById("cart-count");
+    const cartItemsEl = document.getElementById("cart-items");
+    const cartModal = document.getElementById("cart-modal");
+    const carrinho = [];
+
+    // Adiciona evento de clique para todos os botões de adicionar ao carrinho
+    document.querySelectorAll('.toggle').forEach(toggle => {
+      toggle.addEventListener('change', function() {
+        const gameTitle = this.getAttribute('data-title');
+        const gamePrice = this.getAttribute('data-price');
+        const botaoEl = this.nextElementSibling;
+
+        if (this.checked) {
+          carrinho.push({ title: gameTitle, price: gamePrice });
+          cartCount++;
+        } else {
+          const idx = carrinho.findIndex(item => item.title === gameTitle);
+          if (idx !== -1) carrinho.splice(idx, 1);
+          cartCount--;
+        }
+
+        cartCountEl.textContent = cartCount;
+      });
+    });
+
+    // Função para abrir/fechar o modal do carrinho
+    function toggleCartModal() {
+      if (cartModal.style.display === "flex") {
+        cartModal.style.display = "none";
+      } else {
+        cartItemsEl.innerHTML = "";
+        if (carrinho.length === 0) {
+          cartItemsEl.innerHTML = "<li>Seu carrinho está vazio.</li>";
+        } else {
+          carrinho.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.title} - ${item.price}`;
+            li.style.padding = "8px 0";
+            li.style.borderBottom = "1px solid #333";
+            cartItemsEl.appendChild(li);
+          });
+        }
+        cartModal.style.display = "flex";
+      }
+    }
+  </script>
 
 </body>
 </html>
