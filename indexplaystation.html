@@ -280,23 +280,50 @@
     .toggle:checked + .botao::after {
       content: "Adicionado";
     }
-  </style>
+   nav ul li {
+            position: relative;
+        }
+
+         .submenu {
+            display: none;
+            position: absolute;
+            top: 10%;
+            left: 0;
+            background-color: #333;
+            padding: 30%;
+            border-radius: 5px;
+        }
+
+        nav ul li:hover .submenu {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/PlayStation_logo.svg/1200px-PlayStation_logo.svg.png" alt="PS Logo">
-      <h1>Jogos PlayStation</h1>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="">Jogos</a></li>
-        <li><a href="#">Consoles</a></li>
-        <li><a href="#">Acessórios</a></li>
-        <li><a href="#">Contato</a></li>
-      </ul>
-    </nav>
+    <header>
+        <div class="logo">
+            <img src="./images/logo.svg" alt="Logo" />
+            <h1>Loja de Jogos</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+             <li>
+                    <a href="#">Jogos</a>
+                    <ul class="submenu">
+                        <li><a href="./indexXbox.html">Xbox</a></li>
+                        <hr>
+                        <li><a href="./indexnintendo.html">Nintendo</a></li>
+                        
+                      
+                    </ul>
+                </li>
+                <li><a href="./console.html">Consoles</a></li>
+                <li><a href="./acessorios.html">Acessórios</a></li>
+                <li><a href="./indexsuporte.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
     
     <!-- Ícone do carrinho -->
     <div id="cart-icon" onclick="toggleCartModal()">
