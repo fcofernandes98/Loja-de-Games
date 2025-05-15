@@ -6,16 +6,26 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
         <title>Acessórios - Loja de Jogos</title>
             <style>
+                * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                }
+
                 body {
-                font-family: 'Segoe UI', sans-serif;
-                background-color: #121212;
-                color: #fff;
+                font-family:  'Segoe UI', sans-serif;
+                background-color: #1a1a1d;
+                color: #f4f4f4;
+                margin: 0;
+                padding: 0;
                 }
 
                 header {
-                background-color: green;
-                padding: 30px 20px;
+                background-color: #003087;
+                color: white;
                 text-align: center;
+                padding: 20px 0;
+                position: relative;
                 }
 
                 header .logo {
@@ -26,55 +36,63 @@
                 }
 
                 header .logo img {
-                width: 40px;
+                width: 50px;
                 }
 
                 header h1 {
-                font-size: 2em;
-                color: #fff;
+                font-size: 2rem;
+                margin: 0;
                 }
 
                 nav ul {
                 list-style: none;
+                padding: 0;
+                margin: 20px 0 0;
                 display: flex;
                 justify-content: center;
-                margin-top: 15px;
-                gap: 25px;
-                flex-wrap: wrap;
+                gap: 30px;
                 }
 
-                nav a {
-                color: #fff;
+                nav ul li {
+                display: inline;
+                }
+
+                nav ul li a {
                 text-decoration: none;
+                color: white;
                 font-weight: bold;
+                font-size: 1rem;
+                transition: color 0.3s ease;
+                }
+
+                nav ul li a:hover {
+                color: #00aaff;
                 }
 
                 .inner {
                 max-width: 1200px;
                 margin: 0 auto;
-                padding: 40px 20px;
+                padding: 20px;
                 }
 
                 .inner h2 {
-                font-size: 1.8em;
-                margin-bottom: 15px;
-                color: greenyellow;
+                color: #00aaff;
+                margin-bottom: 10px;
                 }
 
                 .inner p {
-                font-size: 1em;
                 color: #ccc;
                 line-height: 1.6;
                 }
 
                 .accessories-grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 25px;
-                margin-top: 40px;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+                margin-top: 20px;
                 }
 
-                .game-card {
+                .accessories-card {
                 background-color: #1e1e1e;
                 border-radius: 10px;
                 overflow: hidden;
@@ -85,7 +103,8 @@
                 }
 
                 .accessories-card:hover {
-                transform: scale(1.03);
+                transform: scale(1.05);
+                
                 }
 
                 .accessories-card img {
@@ -94,34 +113,138 @@
                 object-fit: cover;
                 }
 
-                .game-info {
-                padding: 15px;
-                flex-grow: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                }
-
-                .game-info h3 {
-                font-size: 1em;
-                margin-bottom: 10px;
+                .titulo {
+                font-size: 1.1rem;
+                font-weight: bold;
+                margin: 10px 0 4px;
+                color: #fff;
                 }
 
                 .price {
-                color:greenyellow;
+                color: green;
                 font-weight: bold;
                 }
 
+                
+
+               
+                
+
+                
+
+                .icons {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin-bottom: 10px;
+                }
+
+                .icons a {
+                color: white;
+                font-size: 1.5rem;
+                transition: color 0.3s ease;
+                }
+
+                .icons a:hover {
+                color: #00aaff;
+                }
+
+                
+                
+                #cart-icon {
+                position: absolute;
+                top: 30px;
+                right: 30px;
+                font-size: 24px;
+                cursor: pointer;
+                color: white;
+                }
+                
+                #cart-count {
+                background: #fff;
+                color: #003087;
+                border-radius: 50%;
+                padding: 2px 8px;
+                font-size: 14px;
+                margin-left: 5px;
+                }
+                
+                
+                #cart-modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.8);
+                z-index: 1000;
+                justify-content: center;
+                align-items: center;
+                }
+                
+                #cart-modal > div {
+                background: #fff;
+                color: #000;
+                padding: 20px;
+                max-width: 500px;
+                width: 90%;
+                border-radius: 10px;
+                position: relative;
+                }
+                
+                #cart-items {
+                list-style: none;
+                padding: 0;
+                margin-bottom: 20px;
+                }
+                
+                
+                .botao-container {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                display: none;
+                }
+                
+                .accessories-card:hover .botao-container {
+                display: block;
+                }
+                
+                .botao {
+                display: inline-block;
+                padding: 5px 10px;
+                background-color: #00aaff;
+                color: white;
+                text-align: center;
+                border-radius: 5px;
+                cursor: pointer;
+                user-select: none;
+                border: none;
+                font-size: 0.9rem;
+                }
+                
                 .toggle {
                 display: none;
                 }
+                
+                .toggle:checked + .botao {
+                background-color: #0ddc17;
+                }
+                
+                .toggle + .botao::after {
+                content: "Adicionar";
+                }
+                
+                .toggle:checked + .botao::after {
+                content: "Adicionado";
+                }
             </style>
-    
         </head>
         <body>
             <header>
             <div class="logo">
-            <img src="" alt="Acessórios Logo">
+            <img src="images/logos/controle-de-video-game.png" alt="Acessórios Logo">
             <h1>Acessórios</h1>
             </div>
             <nav>
@@ -186,5 +309,128 @@
                     </div>
                 </div>
             </div>
+
+            
+
+            <div class="accessories-card">
+                <img src="images/xbox2020-cntlr-frnt-mkt-1x1-rgb_z2qw.png"alt="Controle XBOX">
+                <div class="game-info">
+                    <h3>Controle sem fio Xbox - Preto</h3>
+                    <span class="price">R$ 409,00</span>
+                    <div class="botao-container">
+                        <label>
+                        <input type="checkbox" class="toggle" />
+                        <span class="botao"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accessories-card">
+                <img src="images/xbox-series-x-wireless-headset.jpg"alt="Headset XBOX">
+                <div class="game-info">
+                    <h3>Microsoft 8li-00001 Headset Com Fio Xbox</h3>
+                    <span class="price">R$ 702,00</span>
+                    <div class="botao-container">
+                        <label>
+                        <input type="checkbox" class="toggle" />
+                        <span class="botao"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accessories-card">
+                <img src="images/volante.webp"alt="Volantes Nitendoswitch">
+                <div class="game-info">
+                    <h3>Kit 2 Volantes Direção Controle Para Nintendo Switch Oled</h3>
+                    <span class="price">R$ 77,00</span>
+                    <div class="botao-container">
+                        <label>
+                        <input type="checkbox" class="toggle" />
+                        <span class="botao"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accessories-card">
+                <img src="images/controle nitendo.webp"alt="controles Nitendoswitch">
+                <div class="game-info">
+                    <h3>Controle joystick sem fio Nintendo Switch Joy-Con</h3>
+                    <span class="price">R$ 449,99</span>
+                    <div class="botao-container">
+                        <label>
+                        <input type="checkbox" class="toggle" />
+                        <span class="botao"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            
+
+            
+
+            <div id="cart-modal">
+                <div>
+                <h2>Carrinho</h2>
+                <ul id="cart-items"></ul>
+                <button onclick="toggleCartModal()" style="background:#003087; color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">Fechar</button>
+                </div>
+            </div>
+            <br />
+
+            <script>
+                let cartCount = 0;
+                const cartCountEl = document.getElementById("cart-count");
+                const cartItemsEl = document.getElementById("cart-items");
+                const cartModal = document.getElementById("cart-modal");
+                const carrinho = [];
+
+                
+                document.querySelectorAll('.toggle').forEach(toggle => {
+                toggle.addEventListener('change', function() {
+                    const gameTitle = this.getAttribute('data-title');
+                    const gamePrice = this.getAttribute('data-price');
+                    const botaoEl = this.nextElementSibling;
+
+                    if (this.checked) {
+                    carrinho.push({ title: gameTitle, price: gamePrice });
+                    cartCount++;
+                    } else {
+                    const idx = carrinho.findIndex(item => item.title === gameTitle);
+                    if (idx !== -1) carrinho.splice(idx, 1);
+                    cartCount--;
+                    }
+
+                    cartCountEl.textContent = cartCount;
+                });
+                });
+
+                // Função para abrir/fechar o modal do carrinho
+                function toggleCartModal() {
+                if (cartModal.style.display === "flex") {
+                    cartModal.style.display = "none";
+                } else {
+                    cartItemsEl.innerHTML = "";
+                    if (carrinho.length === 0) {
+                    cartItemsEl.innerHTML = "<li>Seu carrinho está vazio.</li>";
+                    } else {
+                    carrinho.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = `${item.title} - ${item.price}`;
+                        li.style.padding = "8px 0";
+                        li.style.borderBottom = "1px solid #eee";
+                        cartItemsEl.appendChild(li);
+                    });
+                    }
+                    cartModal.style.display = "flex";
+                }
+                }
+            </script>
+
+            
+            
         </body>
     </html>
