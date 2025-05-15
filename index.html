@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="pt-br">
+<html>
 <head>
     <title>Loja de Jogos - Projeto Integrador</title>
     <meta charset="utf-8" />
@@ -9,169 +9,142 @@
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #232526 0%, #414345 100%);
-            color: #fff;
-            min-height: 100vh;
+            background-color: #121212;
+            color: #ffffff;
         }
         header, footer {
-            background: linear-gradient(90deg, #232526 0%, #ff4b2b 100%);
-            padding: 28px 20px 20px 20px;
+            background-color: #1f1f1f;
+            padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 10px #0003;
         }
         header .logo {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
         }
         header .logo img {
-            width: 48px;
+            width: 40px;
             margin-right: 10px;
-            filter: drop-shadow(0 0 8px #ff4b2b88);
-        }
-        header h1 {
-            font-size: 2.2em;
-            letter-spacing: 2px;
-            margin: 0;
         }
         nav ul {
             list-style: none;
             padding: 0;
             display: flex;
             justify-content: center;
-            gap: 32px;
-            margin: 18px 0 0 0;
+            gap: 30px;
+            margin-top: 10px;
         }
         nav a {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1em;
-            padding: 10px 18px;
-            border-radius: 6px;
-            transition: background 0.3s, color 0.3s;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
         nav a:hover {
-            background: #ff4b2b;
-            color: #fff;
+            background-color: #ff4b2b;
         }
+
         .inner {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px 0 20px;
+            padding: 40px 20px;
         }
         .tiles {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 28px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
         .tiles article {
-            background: #232526;
-            border-radius: 14px;
+            background: #1e1e1e;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 18px #0002;
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            transition: transform 0.3s ease;
         }
         .tiles article:hover {
-            transform: translateY(-8px) scale(1.04);
-            box-shadow: 0 8px 32px #ff4b2b44;
+            transform: scale(1.05);
         }
         .tiles img {
             width: 100%;
-            height: 170px;
+            height: 180px;
             object-fit: cover;
-            border-bottom: 2px solid #ff4b2b44;
         }
         .tiles h2 {
-            margin: 18px 10px 8px 10px;
-            font-size: 1.2em;
-            color: #ff4b2b;
+            margin: 10px;
         }
         .tiles p {
-            margin: 0 14px 16px 14px;
+            margin: 0 10px 10px;
             color: #ccc;
-            font-size: 1em;
         }
-        .section-title {
-            margin-top: 48px;
-            margin-bottom: 18px;
-            color: #ff4b2b;
-            font-size: 1.5em;
-            letter-spacing: 1px;
-        }
+
         .button {
             background: linear-gradient(90deg, #ff416c, #ff4b2b);
             color: white;
             border: none;
-            padding: 13px 28px;
+            padding: 15px 30px;
             font-size: 1.1em;
             font-weight: bold;
             text-transform: uppercase;
             border-radius: 8px;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
-            margin-top: 10px;
         }
         .button:hover {
             transform: scale(1.05);
             box-shadow: 0 0 15px #ff4b2b;
         }
-        footer {
-            margin-top: 60px;
-            border-top: 1px solid #ff4b2b44;
-        }
-        footer h2 {
-            margin-bottom: 10px;
-            color: #fff;
-        }
-        footer form {
-            margin-bottom: 10px;
-        }
+
         footer form input {
             margin: 5px;
             padding: 10px;
             border-radius: 5px;
             border: none;
-            font-size: 1em;
         }
+
         .icons {
             display: flex;
             justify-content: center;
-            gap: 18px;
+            gap: 15px;
             margin-top: 10px;
         }
+
         .icons a {
-            color: #fff;
-            font-size: 1.7em;
-            transition: color 0.2s;
+            color: white;
+            font-size: 1.5em;
         }
-        .icons a:hover {
-            color: #ff4b2b;
+
+        a:link,
+        a:visited,
+        a:hover,
+        a:active {
+            color: inherit;
+            text-decoration: none;
         }
-        footer p {
-            color: #eee;
-            font-size: 0.95em;
-            margin-top: 12px;
+         nav ul li {
+            position: relative;
         }
-        @media (max-width: 700px) {
-            .inner {
-                padding: 20px 5vw 0 5vw;
-            }
-            .tiles img {
-                height: 120px;
-            }
+
+        .submenu {
+            display: none;
+            position:absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            padding: 20%;
+            border-radius: 5%;
+        }
+
+        nav ul li:hover .submenu {
+            display: block;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="images/logo.svg" alt="Logo" />
+            <img src="./images/logo.svg" alt="Logo" />
             <h1>Loja de Jogos</h1>
         </div>
         <nav>
@@ -195,41 +168,30 @@
     </header>
 
     <div class="inner">
-        <h2 class="section-title">Bem-vindo à Loja de Jogos</h2>
+        <h2>Bem-vindo à Loja de Jogos</h2>
         <p>Aqui você encontra tudo sobre jogos: desde os clássicos até os lançamentos mais esperados. Explore por plataformas e categorias!</p>
+        <button class="button">Explorar Agora</button>
 
-        <h2 class="section-title">Jogos em Destaque</h2>
+        <h2 style="margin-top: 40px;">Destaques</h2>
         <section class="tiles">
             <article>
-                <img src="https://i.guim.co.uk/img/media/67edb515d6a2b19ef10b002c6bdd44b40b284316/112_0_1734_1041/master/1734.jpg?width=465&dpr=1&s=none&crop=none" alt="Zelda Breath of the Wild">
-                <h2>Zelda Breath Of The Wild</h2>
-                <p>Explore um mundo aberto junto com o Link com o mais novo jogo da franquia Zelda!</p>
+                <a href="indexnintendo.html">
+                    <img src="images/nintendo-personagens.jpg" alt="Nintendo">
+                    <h2>Nintendo</h2>
+                    <p>Jogos e consoles Nintendo. Diversão para todas as idades!</p>
+                </a>
             </article>
             <article>
-                <img src="https://gmedia.playstation.com/is/image/SIEPDC/god-of-war-raganok-clean-keyart-01-en-10mar22" alt="GOW Ragnarok">
-                <h2>God of War</h2>
-                <p>Explore os reinos da mitologia nórdica junto de Kratos e Atreus em mais uma aventura do deus da guerra.</p>
+                <a href="indexplaystation.html"></a>
+                <img src="images/PlayStation-personagens.jpg" alt="PlayStation">
+                <h2>PlayStation</h2>
+                <p>Explore os jogos mais vendidos e os clássicos da Sony.</p>
             </article>
             <article>
-                <img src="https://sm.ign.com/ign_br/news/a/activision/activision-working-on-custom-call-of-duty-download-options-a_sq5v.jpg" alt="Call of Duty Black Ops 6">
-                <h2>Call of Duty Black Ops 6</h2>
-                <p>War never changes... entre no mais novo jogo da grande franquia de FPS Call of Duty.</p>
-            </article>
-        </section>
-
-        <h2 class="section-title">Consoles em Destaque</h2>
-        <section class="tiles">
-            <article>
-                <img src="https://imgs.pontofrio.com.br/1569668001/3xg.jpg?imwidth=500" alt="PlayStation 5 Digital Edition">
-                <h2>PlayStation 5 Digital Edition</h2>
-            </article>
-            <article>
-                <img src="https://imgs.casasbahia.com.br/1569495902/1xg.jpg?imwidth=500" alt="Xbox Series X 1TB">
-                <h2>Xbox Series X 1TB</h2>
-            </article>
-            <article>
-                <img src="https://infostore.vtexassets.com/arquivos/ids/231874-800-auto?v=637792403031870000&width=800&height=auto&aspect=true" alt="Nintendo Switch OLED">
-                <h2>Nintendo Switch OLED</h2>
+                <a href="indexXbox.html"></a>
+                <img src="images/masterchief.jpg" alt="Xbox">
+                <h2>Xbox</h2>
+                <p>Jogos, assinaturas e os melhores exclusivos da Microsoft.</p>
             </article>
         </section>
     </div>
@@ -237,8 +199,8 @@
     <footer>
         <h2>Login</h2>
         <form>
-            <input type="text" placeholder="Nome" required />
-            <input type="email" placeholder="Email" required />
+            <input type="text" placeholder="Nome" />
+            <input type="email" placeholder="Email" />
             <input type="submit" class="button" value="Entrar" />
         </form>
         <div class="icons">
