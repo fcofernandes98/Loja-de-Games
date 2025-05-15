@@ -122,21 +122,47 @@
             color: inherit;
             text-decoration: none;
         }
+         nav ul li {
+            position: relative;
+        }
+
+        .submenu {
+            display: none;
+            position:absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            padding: 20%;
+            border-radius: 5%;
+        }
+
+        nav ul li:hover .submenu {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="images/logo.svg" alt="Logo" />
+            <img src="./images/logo.svg" alt="Logo" />
             <h1>Loja de Jogos</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="file:///C:/Users/Pichau/AppData/Local/Temp/Rar$EXa19444.37055/Loja-de-Games-main/index.html">Início</a></li>
-                <li><a href="#">Jogos</a></li>
-                <li><a href="file:///C:/Users/Pichau/AppData/Local/Temp/Rar$EXa19444.34116/Loja-de-Games-main/console.html">Consoles</a></li>
-                <li><a href="file:///C:/Users/Pichau/AppData/Local/Temp/Rar$EXa19444.32769/Loja-de-Games-main/acessorios.html">Acessórios</a></li>
-                <li><a href="file:///C:/Users/Pichau/AppData/Local/Temp/Rar$EXa9548.31309/Loja-de-Games-main/indexsuporte.html">Contato</a></li>
+                <li><a href="index.html">Início</a></li>
+             <li>
+                    <a href="#">Jogos</a>
+                    <ul class="submenu">
+                        <li><a href="./indexXbox.html">Xbox</a></li>
+                        <hr>
+                        <li><a href="./indexnintendo.html">Nintendo</a></li>
+                        <hr>
+                        <li><a href="./indexplaystation.html">Playstation</a></li>
+                    </ul>
+                </li>
+                <li><a href="./console.html">Consoles</a></li>
+                <li><a href="./acessorios.html">Acessórios</a></li>
+                <li><a href="./indexsuporte.html">Contato</a></li>
             </ul>
         </nav>
     </header>

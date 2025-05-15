@@ -146,7 +146,6 @@
     .game-card:hover .botao-container {
       display: block;
     }
-
     .toggle:checked+.botao {
       background-color: #0ddc17;
       content: "Adicionado ao carrinho";
@@ -388,12 +387,12 @@
 
         if (this.checked) {
           carrinho.push({ title: gameTitle, price: gamePrice });
-          botaoEl.textContent = "";
+          
           cartCount++;
         } else {
           const idx = carrinho.findIndex(item => item.title === gameTitle);
           if (idx !== -1) carrinho.splice(idx, 1);
-          botaoEl.textContent = "Adicionar ao carrinho";
+          
           cartCount--;
         }
 
