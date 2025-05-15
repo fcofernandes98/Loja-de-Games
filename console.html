@@ -305,22 +305,50 @@
         right: 20px;
       }
     }
-  </style>
+  nav ul li {
+            position: relative;
+        }
+
+        .submenu {
+            display: none;
+            position:absolute;
+            top: 0%;
+            left: 0;
+            background-color: #333;
+            padding: 20%;
+            border-radius: 5%;
+        }
+
+        nav ul li:hover .submenu {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="./TechShop - Eletr�nicos_files/3652191.png" alt="Loja de Jogos Logo">
-      <h1>Loja de Jogos</h1>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#">Início</a></li>
-        <li><a href="#">Jogos</a></li>
-        <li><a href="#">Acessórios</a></li>
-        <li><a href="#">Contato</a></li>
-      </ul>
-    </nav>
+    <header>
+        <div class="logo">
+            <img src="./images/logo.svg" alt="Logo" />
+            <h1>Loja de Jogos</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+             <li>
+                    <a href="#">Jogos</a>
+                    <ul class="submenu">
+                        <li><a href="./indexXbox.html">Xbox</a></li>
+                        <hr>
+                        <li><a href="./indexnintendo.html">Nintendo</a></li>
+                        <hr>
+                        <li><a href="./indexplaystation.html">Playstation</a></li>
+                    </ul>
+                </li>
+                <li><a href="./console.html">Consoles</a></li>
+                <li><a href="./acessorios.html">Acessorios</a></li>
+                <li><a href="./indexsuporte.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
     
     <!-- Ícone do carrinho -->
     <div id="cart-icon" onclick="toggleCartModal()">
@@ -332,7 +360,7 @@
   <div class="inner">
     <h2>Sobre a Loja de Jogos</h2>
     <p>
-      A <strong>Loja de Jogos</strong> é especializada em games e consoles de alta qualidade, oferecendo os melhores produtos com garantia e suporte técnico especializado. Nossa missão é proporcionar a melhor experiência de compra para gamers com atendimento personalizado.
+      A <strong>Loja de Jogos</strong>  foca em games e consoles de alta qualidade, oferecendo os melhores produtos com garantia e suporte tecnico especializado. Queremos proporcionar, para gamers, atendimento especial e interativo.
     </p>
 
     <h2>Consoles em Destaque</h2>
