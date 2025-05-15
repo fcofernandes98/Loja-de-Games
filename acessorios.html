@@ -1,199 +1,308 @@
 <!DOCTYPE html>
-    <html lang="pt-BR">
-        <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-        <title>Acessórios - Loja de Jogos</title>
-            <style>
-                body {
-                font-family: 'Segoe UI', sans-serif;
-                background-color: #121212;
-                color: #fff;
-                }
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <title>Acessórios - Loja de Jogos</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-                header {
-                background-color: green;
-                padding: 30px 20px;
-                text-align: center;
-                }
+    body {
+      background-color: #0f172a;
+      color: white;
+      padding-bottom: 100px;
+    }
 
-                header .logo {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 12px;
-                }
+    header {
+      background-color: #1e293b;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
 
-                header .logo img {
-                width: 40px;
-                }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
 
-                header h1 {
-                font-size: 2em;
-                color: #fff;
-                }
+    .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
 
-                nav ul {
-                list-style: none;
-                display: flex;
-                justify-content: center;
-                margin-top: 15px;
-                gap: 25px;
-                flex-wrap: wrap;
-                }
+    nav {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
 
-                nav a {
-                color: #fff;
-                text-decoration: none;
-                font-weight: bold;
-                }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
 
-                .inner {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 40px 20px;
-                }
+    nav ul li {
+      position: relative;
+    }
 
-                .inner h2 {
-                font-size: 1.8em;
-                margin-bottom: 15px;
-                color: greenyellow;
-                }
+    nav a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 15px;
+      transition: background 0.3s;
+    }
 
-                .inner p {
-                font-size: 1em;
-                color: #ccc;
-                line-height: 1.6;
-                }
+    nav a:hover {
+      background-color: #334155;
+      border-radius: 5px;
+    }
 
-                .accessories-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 25px;
-                margin-top: 40px;
-                }
+    .submenu {
+      display: none;
+      position: absolute;
+      background-color: #1e293b;
+      top: 100%;
+      left: 0;
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 1000;
+    }
 
-                .game-card {
-                background-color: #1e1e1e;
-                border-radius: 10px;
-                overflow: hidden;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-                transition: transform 0.3s ease;
-                display: flex;
-                flex-direction: column;
-                }
+    li:hover .submenu {
+      display: block;
+    }
 
-                .accessories-card:hover {
-                transform: scale(1.03);
-                }
+    .submenu li {
+      margin: 5px 0;
+    }
 
-                .accessories-card img {
-                width: 100%;
-                height: 220px;
-                object-fit: cover;
-                }
+    .inner {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+    }
 
-                .game-info {
-                padding: 15px;
-                flex-grow: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                }
+    .accessories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
 
-                .game-info h3 {
-                font-size: 1em;
-                margin-bottom: 10px;
-                }
+    .accessories-card {
+      background-color: #1e293b;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      text-align: center;
+    }
 
-                .price {
-                color:greenyellow;
-                font-weight: bold;
-                }
+    .accessories-card img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
 
-                .toggle {
-                display: none;
-                }
-            </style>
-    
-        </head>
-        <body>
-            <header>
-            <div class="logo">
-            <img src="" alt="Acessórios Logo">
-            <h1>Acessórios</h1>
-            </div>
-            <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li>
-                    <a href="#">Jogos</a>
-                    <ul class="submenu">
-                        <li><a href="./indexXbox.html">Xbox</a></li>
-                        <hr>
-                        <li><a href="./indexnintendo.html">Nintendo</a></li>
-                        <hr>
-                        <li><a href="./indexplaystation.html">Playstation</a></li>
-                    </ul>
-                </li>
-                <li><a href="./console.html">Consoles</a></li>
-                <li><a href="./acessorios.html">Acessórios</a></li>
-                <li><a href="./indexsuporte.html">Contato</a></li>
-            </ul>
-        </nav>
-        </header>
+    .game-info {
+      margin-top: 10px;
+    }
 
-        <div class="inner">
-            <h2>Sobre os Acessórios</h2>
-            <p>
-                <strong>Acessórios</strong> A história dos acessórios de jogosacompanha o desenvolvimento dos jogos eletrônicos, desde os primeiros computadores até os modernos consoles e PC.<br />
-                 Estes acessórios, que vão desde controles a equipamentos mais inovadores, evoluíram para oferecer novas formas de interação e experiência de jogo. 
-            </p>
+    .price {
+      color: #38bdf8;
+      font-weight: bold;
+    }
 
-            <h2>Acessórios Populares</h2>
-            <div class="accessories-grid">
+    .botao-container {
+      margin-top: 10px;
+    }
 
-            <div class="accessories-card">
-                <img src="images/Controle do ps5.jpg"alt="CTRL PS5">
-                <div class="game-info">
-                    <h3>Controle PS5 dual sense </h3>
-                    <span class="price">R$ 429,00</span>
-                    <div class="botao-container">
-                        <label>
-                        <input type="checkbox" class="toggle" />
-                        <span class="botao"></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
+    .botao {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
 
-            <div class="accessories-card">
-                <img src="images/sony_playstation_5_pulse_3d_08.jpg"alt="Headset PS5">
-                <div class="game-info">
-                    <h3>Headset sem fio PULSE 3D - PlayStation 5 </h3>
-                    <span class="price">R$ 649,90</span>
-                    <div class="botao-container">
-                        <label>
-                        <input type="checkbox" class="toggle" />
-                        <span class="botao"></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
+    .botao:hover {
+      background-color: #1d4ed8;
+    }
 
-            <div class="accessories-card">
-                <img src="images/ps-portal-remote-player-keyart-01-en-18aug23.webp"alt="PORTÁTIL PS5">
-                <div class="game-info">
-                    <h3>PlayStation Portal Reprodutor Portátil </h3>
-                    <span class="price">R$ 1.450,00</span>
-                    <div class="botao-container">
-                        <label>
-                        <input type="checkbox" class="toggle" />
-                        <span class="botao"></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </body>
-    </html>
+    #cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    #cart-count {
+      background: red;
+      border-radius: 50%;
+      font-size: 14px;
+      padding: 2px 6px;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+    }
+
+    #cart-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    #cart-modal > div {
+      background: #fff;
+      color: #000;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    #cart-items {
+      list-style: none;
+      margin: 20px 0;
+      padding: 0;
+    }
+
+    #cart-items li {
+      margin-bottom: 10px;
+    }
+
+    #cart-modal button {
+      background: #003087;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="images/logos/controle-de-video-game.png" alt="Acessórios Logo">
+      <h1>Acessórios</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li>
+          <a href="#">Jogos</a>
+          <ul class="submenu">
+            <li><a href="./indexXbox.html">Xbox</a></li>
+            <hr>
+            <li><a href="./indexnintendo.html">Nintendo</a></li>
+            <hr>
+            <li><a href="./indexplaystation.html">Playstation</a></li>
+          </ul>
+        </li>
+        <li><a href="console.html">Consoles</a></li>
+        <li><a href="acessorios.html">Acessórios</a></li>
+        <li><a href="indexsuporte.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <i id="cart-icon" class="bi bi-cart-fill" onclick="toggleCartModal()">
+    <span id="cart-count">0</span>
+  </i>
+
+  <div class="inner">
+    <h2>Acessórios Populares</h2>
+    <div class="accessories-grid" id="product-list">
+      <!-- Produtos são inseridos via JS -->
+    </div>
+  </div>
+
+  <div id="cart-modal">
+    <div>
+      <h2>Carrinho</h2>
+      <ul id="cart-items"></ul>
+      <button onclick="toggleCartModal()">Fechar</button>
+    </div>
+  </div>
+
+  <script>
+    const produtos = [
+      { titulo: "Controle PS5 dual sense", preco: "R$ 429,00", imagem: "images/Controle do ps5.jpg" },
+      { titulo: "Headset sem fio PULSE 3D - PlayStation 5", preco: "R$ 649,90", imagem: "images/sony_playstation_5_pulse_3d_08.jpg" },
+      { titulo: "PlayStation Portal Reprodutor Portátil", preco: "R$ 1.450,00", imagem: "images/ps-portal-remote-player-keyart-01-en-18aug23.webp" },
+      { titulo: "Controle sem fio Xbox - Preto", preco: "R$ 409,00", imagem: "images/xbox2020-cntlr-frnt-mkt-1x1-rgb_z2qw.png" },
+      { titulo: "Microsoft 8li-00001 Headset Com Fio Xbox", preco: "R$ 702,00", imagem: "images/xbox-series-x-wireless-headset.jpg" },
+      { titulo: "Kit 2 Volantes Nintendo Switch", preco: "R$ 77,00", imagem: "images/volante.webp" },
+      { titulo: "Controle Joy-Con Nintendo Switch", preco: "R$ 449,99", imagem: "images/controle nitendo.webp" },
+    ];
+
+    const carrinho = [];
+    const productList = document.getElementById('product-list');
+    const cartItemsEl = document.getElementById('cart-items');
+    const cartModal = document.getElementById('cart-modal');
+    const cartCountEl = document.getElementById('cart-count');
+
+    produtos.forEach(produto => {
+      const card = document.createElement('div');
+      card.className = 'accessories-card';
+      card.innerHTML = `
+        <img src="${produto.imagem}" alt="${produto.titulo}">
+        <div class="game-info">
+          <h3>${produto.titulo}</h3>
+          <span class="price">${produto.preco}</span>
+          <div class="botao-container">
+            <button class="botao" onclick='adicionarCarrinho("${produto.titulo}", "${produto.preco}")'>Adicionar</button>
+          </div>
+        </div>
+      `;
+      productList.appendChild(card);
+    });
+
+    function adicionarCarrinho(titulo, preco) {
+      carrinho.push({ titulo, preco });
+      atualizarCarrinho();
+    }
+
+    function atualizarCarrinho() {
+      cartCountEl.textContent = carrinho.length;
+    }
+
+    function toggleCartModal() {
+      if (cartModal.style.display === "flex") {
+        cartModal.style.display = "none";
+      } else {
+        cartItemsEl.innerHTML = "";
+        if (carrinho.length === 0) {
+          cartItemsEl.innerHTML = "<li>Seu carrinho está vazio.</li>";
+        } else {
+          carrinho.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.titulo} - ${item.preco}`;
+            cartItemsEl.appendChild(li);
+          });
+        }
+        cartModal.style.display = "flex";
+      }
+    }
+  </script>
+</body>
+</html>
