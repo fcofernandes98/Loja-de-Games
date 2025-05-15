@@ -227,50 +227,23 @@
         gap: 10px;
       }
     }
-  nav ul li {
-            position: relative;
-        }
-
-         .submenu {
-            display: none;
-            position: absolute;
-            top: 110%;
-            left: 0;
-            background-color: #333;
-            padding: 30%;
-            border-radius: 5px;
-        }
-
-        nav ul li:hover .submenu {
-            display: block;
-        }
-    </style>
+  </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="./images/logo.svg" alt="Logo" />
-            <h1>Loja de Jogos</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="./index.html">Início</a></li>
-             <li>
-                    <a href="#">Jogos</a>
-                    <ul class="submenu">
-                        <li><a href="./indexplaystation.html">Playstation</a></li>
-                        <hr>
-                        <li><a href="./indexnintendo.html">Nintendo</a></li>
-                        
-                      
-                    </ul>
-                </li>
-                <li><a href="./console.html">Consoles</a></li>
-                <li><a href="./acessorios.html">Acessórios</a></li>
-                <li><a href="./indexsuporte.html">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+
+  <header>
+    <h1>Jogos em Oferta - Xbox Store</h1>
+    
+    <!-- Menu de navegação -->
+    <nav>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Jogos</a></li>
+        <li><a href="#">Consoles</a></li>
+        <li><a href="#">Acessórios</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
     
     <!-- Ícone do carrinho -->
     <div id="cart-icon" onclick="toggleCartModal()">
@@ -278,8 +251,7 @@
       <span id="cart-count">0</span>
     </div>
   </header>
-<br>
-<br>
+
   <div class="container">
     <div class="games-grid">
 
@@ -424,158 +396,17 @@
       </div>
 
       <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/71dOeR8TDjL.jpg" alt="Wo Long Fallen Dinasty">
+        <img src="https://m.media-amazon.com/images/I/71+0x1J6ZLL._AC_UF1000,1000_QL80_.jpg" alt="Assassin's Creed Mirage">
         <div class="game-info">
-          <h2>Wo Long Fallen Dinasty</h2>
-          <p class="price">R$229,90 <span class="old-price">R$299,90</span></p>
+          <h2>Assassin's Creed Mirage</h2>
+          <p class="price">R$199,90 <span class="old-price">R$299,90</span></p>
         </div>
         <div class="botao-container">
           <label>
-            <input type="checkbox" class="toggle" data-title="Wo Long Fallen Dinasty" data-price="R$229,90"/>
+            <input type="checkbox" class="toggle" data-title="Assassin's Creed Mirage" data-price="R$199,90"/>
             <span class="botao"></span>
           </label>
         </div>
-      </div>
-
-      <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/81-5Hwz8HbL._AC_UF1000,1000_QL80_.jpg" alt="The Witcher 3">
-        <div class="game-info">
-          <h2>The Witcher 3</h2>
-          <p class="price">R$89,90 <span class="old-price">R$199,90</span></p>
-        </div>
-        <div class="botao-container">
-          <label>
-            <input type="checkbox" class="toggle" data-title="The Witcher 3" data-price="R$89,90"/>
-            <span class="botao"></span>
-          </label>
-        </div>
-      </div>
-
-      <div class="game-card">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_739150-MLA53283119543_012023-O.webp" alt="Dead Space Remake">
-        <div class="game-info">
-          <h2>Dead Space Remake</h2>
-          <p class="price">R$249,99 <span class="old-price">R$349,90</span></p>
-        </div>
-        <div class="botao-container">
-          <label>
-            <input type="checkbox" class="toggle" data-title="Dead Space Remake" data-price="R$249,99"/>
-            <span class="botao"></span>
-          </label>
-        </div>
-      </div>
-
-      <div class="game-card">
-        <img src="https://cdn.awsli.com.br/600x450/1919/1919257/produto/287233148/254645648-an1xl91d7y.jpg" alt="Hogwarts Legacy">
-        <div class="game-info">
-          <h2>Hogwarts Legacy</h2>
-          <p class="price">R$229,90 <span class="old-price">R$299,90</span></p>
-        </div>
-        <div class="botao-container">
-          <label>
-            <input type="checkbox" class="toggle" data-title="Hogwarts Legacy" data-price="R$229,90"/>
-            <span class="botao"></span>
-          </label>
-        </div>
-      </div>
-
-      <div class="game-card">
-        <img src="https://cdn.awsli.com.br/2500x2500/0/810/produto/22108855768d09d7c04.jpg" alt="Final Fantasy XVI">
-        <div class="game-info">
-          <h2>Final Fantasy XVI</h2>
-          <p class="price">R$299,90 <span class="old-price">R$399,90</span></p>
-        </div>
-        <div class="botao-container">
-          <label>
-            <input type="checkbox" class="toggle" data-title="Final Fantasy XVI" data-price="R$299,90"/>
-            <span class="botao"></span>
-          </label>
-        </div>
-      </div>
-
-      <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/71ksB1D3FIL.jpg" alt="Street Fighter VI">
-        <div class="game-info">
-          <h2>Street Fighter VI</h2>
-          <p class="price">R$249,90 <span class="old-price">R$349,90</span></p>
-        </div>
-        <div class="botao-container">
-          <label>
-            <input type="checkbox" class="toggle" data-title="Street Fighter VI" data-price="R$249,90"/>
-            <span class="botao"></span>
-          </label>
-        </div>
-      </div>
-
-      <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/61MqGRmb7HL._AC_UF1000,1000_QL80_.jpg" alt="Diablo IV">
-        <div class="game-info">
-          <h2>Diablo IV</h2>
-          <p class="price">R$349,90 <span class="old-price">R$449,90</span></p>
-        </div>
-        <div class="botao-container">
-          <label>
-            <input type="checkbox" class="toggle" data-title="Diablo IV" data-price="R$349,90"/>
-            <span class="botao"></span>
-          </label>
-        </div>
-      </div>
-
-      <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/616e7cE5kbL._AC_UF1000,1000_QL80_.jpg" alt="Like a Dragon Ishin">
-        <div class="game-info">
-          <h2>Like a Dragon Ishin</h2>
-          <p class="price">R$199,90 <span class="old-price">R$249,90</span></p>
-        </div>
-        <div class="botao-container">
-          <label>
-            <input type="checkbox" class="toggle" data-title="Like a Dragon Ishin" data-price="R$199,90"/>
-            <span class="botao"></span>
-          </label>
-        </div>
-      </div>
-
-      <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/81F925s0ZAL._AC_UF1000,1000_QL80_.jpg" alt="Wild Hearts">
-        <div class="game-info">
-          <h2>Wild Hearts</h2>
-          <p class="price">R$249,90 <span class="old-price">R$349,90</span></p>
-        </div>
-        <div class="botao-container">
-          <label>
-            <input type="checkbox" class="toggle" data-title="Wild Hearts" data-price="R$249,90"/>
-            <span class="botao"></span>
-          </label>
-        </div>
-      </div>
-
-      <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/81wSlwccDDL._AC_UF1000,1000_QL80_.jpg" alt="Atomic Heart">
-        <div class="game-info">
-          <h2>Atomic Heart</h2>
-          <p class="price">R$199,90 <span class="old-price">R$249,99</span></p>
-        </div>
-        <div class="botao-container">
-          <label>
-            <input type="checkbox" class="toggle" data-title="Atomic Heart" data-price="R$199,90"/>
-            <span class="botao"></span>
-          </label>
-        </div>
-      </div>
-
-      <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/716G8O97EkL.jpg" alt="Dead Island 2">
-        <div class="game-info">
-          <h2>Dead Island 2</h2>
-          <p class="price">R$229,90 <span class="old-price">R$299,90</span></p>
-        </div>
-        <div class="botao-container">
-          <label>
-            <input type="checkbox" class="toggle" data-title="Dead Island 2" data-price="R$229,90"/>
-            <span class="botao"></span>
-          </label>
-        </div>
-      </div>
 
     </div>
   </div>
