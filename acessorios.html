@@ -21,7 +21,7 @@
                 }
 
                 header {
-                background-color: green;
+                background-color: #003087;
                 color: white;
                 text-align: center;
                 padding: 20px 0;
@@ -66,7 +66,7 @@
                 }
 
                 nav ul li a:hover {
-                color: greenyellow;
+                color: #00aaff;
                 }
 
                 .inner {
@@ -76,7 +76,7 @@
                 }
 
                 .inner h2 {
-                color: greenyellow;
+                color: #00aaff;
                 margin-bottom: 10px;
                 }
 
@@ -121,9 +121,14 @@
                 }
 
                 .price {
-                color: greenyellow;
+                color: green;
                 font-weight: bold;
                 }
+
+                
+
+               
+                
 
                 
 
@@ -234,21 +239,6 @@
                 .toggle:checked + .botao::after {
                 content: "Adicionado";
                 }
-                .submenu {
-            display: none;
-            position:absolute;
-            top: 0%;
-            left: 0;
-            background-color: #333;
-            padding: 20%;
-            border-radius: 5%;
-        }
-
-        nav ul li:hover .submenu {
-            display: block;
-        }
-
-
             </style>
         </head>
         <body>
@@ -259,29 +249,22 @@
             </div>
             <nav>
             <ul>
-                <li><a href="./index.html">Início</a></li>
-             <li>
+                <li><a href="index.html">Início</a></li>
+                   <li>
                     <a href="#">Jogos</a>
                     <ul class="submenu">
-                        <li><a href="./indexplaystation.html">Playstation</a></li>
+                        <li><a href="./indexXbox.html">Xbox</a></li>
                         <hr>
                         <li><a href="./indexnintendo.html">Nintendo</a></li>
-                        
-                      
+                        <hr>
+                        <li><a href="./indexplaystation.html">Playstation</a></li>
                     </ul>
                 </li>
-                <li><a href="./console.html">Consoles</a></li>
-                <li><a href=>Acessórios</a></li>
-                <li><a href="./indexsuporte.html">Contato</a></li>
+                <li><a href="console.html">Consoles</a></li>
+                <li><a href="acessorios.html">Acessórios</a></li>
+                <li><a href="indexsuporte.html">Contato</a></li>
             </ul>
-        </nav>
             </nav>
-        </header>
-        <header>
-            <div id="cart-icon" onclick="toggleCartModal()">
-            <i class="bi bi-cart3"></i>
-            <span id="cart-count">0</span>
-            </div>
         </header>
 
         <div class="inner">
@@ -434,7 +417,7 @@
                 });
                 });
 
-                
+                // Função para abrir/fechar o modal do carrinho
                 function toggleCartModal() {
                 if (cartModal.style.display === "flex") {
                     cartModal.style.display = "none";
