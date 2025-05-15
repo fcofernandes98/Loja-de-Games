@@ -21,7 +21,7 @@
                 }
 
                 header {
-                background-color: #003087;
+                background-color: green;
                 color: white;
                 text-align: center;
                 padding: 20px 0;
@@ -66,7 +66,7 @@
                 }
 
                 nav ul li a:hover {
-                color: #00aaff;
+                color: greenyellow;
                 }
 
                 .inner {
@@ -76,7 +76,7 @@
                 }
 
                 .inner h2 {
-                color: #00aaff;
+                color: greenyellow;
                 margin-bottom: 10px;
                 }
 
@@ -121,14 +121,9 @@
                 }
 
                 .price {
-                color: green;
+                color: greenyellow;
                 font-weight: bold;
                 }
-
-                
-
-               
-                
 
                 
 
@@ -256,6 +251,12 @@
                 <li><a href="#">Contato</a></li>
             </ul>
             </nav>
+        </header>
+        <header>
+            <div id="cart-icon" onclick="toggleCartModal()">
+            <i class="bi bi-cart3"></i>
+            <span id="cart-count">0</span>
+            </div>
         </header>
 
         <div class="inner">
@@ -408,7 +409,7 @@
                 });
                 });
 
-                // Função para abrir/fechar o modal do carrinho
+                
                 function toggleCartModal() {
                 if (cartModal.style.display === "flex") {
                     cartModal.style.display = "none";
