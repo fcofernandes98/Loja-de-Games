@@ -21,28 +21,27 @@
                 }
 
                 header {
-                background-color: #121212;
+                background-color: #1f1f1f;
                 color: white;
                 text-align: center;
                 padding: 20px 0;
                 position: relative;
                 }
 
-                header .logo {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 12px;
-                }
-
-                header .logo img {
-                width: 50px;
-                }
-
-                header h1 {
-                font-size: 2rem;
-                margin: 0;
-                }
+                header, footer {
+            background-color: #1f1f1f;
+            padding: 20px;
+            text-align: center;
+        }
+        header .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        header .logo img {
+            width: 40px;
+            margin-right: 10px;
+        }
 
                 nav ul {
                 list-style: none;
@@ -61,7 +60,7 @@
                 text-decoration: none;
                 color: white;
                 font-weight: bold;
-                font-size: 1rem;
+                font-size: 1.1rem;
                 transition: color 0.3s ease;
                 }
 
@@ -253,30 +252,29 @@
         </head>
         <body>
             <header>
-            <div class="logo">
-            <img src="images/logos/controle-de-video-game.png" alt="Acessórios Logo">
-            <h1>Acessórios</h1>
-            </div>
-            <nav>
+        <div class="logo">
+            <img src="./images/logo.svg" alt="Logo" />
+            <h1>Loja de Jogos</h1>
+        </div>
+        <nav>
             <ul>
-                <li><a href="./index.html">Início</a></li>
-             <li>
+                <li><a href="index.html">Início</a></li>
+                <li>
                     <a href="#">Jogos</a>
                     <ul class="submenu">
-                        <li><a href="./indexplaystation.html">Playstation</a></li>
+                        <li><a href="./indexXbox.html">Xbox</a></li>
                         <hr>
                         <li><a href="./indexnintendo.html">Nintendo</a></li>
-                        
-                      
+                        <hr>
+                        <li><a href="./indexplaystation.html">Playstation</a></li>
                     </ul>
                 </li>
                 <li><a href="./console.html">Consoles</a></li>
-                <li><a href=>Acessórios</a></li>
+                <li><a href="./acessorios.html">Acessórios</a></li>
                 <li><a href="./indexsuporte.html">Contato</a></li>
             </ul>
         </nav>
-            </nav>
-        </header>
+    </header>
         <header>
             <div id="cart-icon" onclick="toggleCartModal()">
             <i class="bi bi-cart3"></i>
