@@ -11,19 +11,24 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #121212;
             color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         header, footer {
             background-color: #1f1f1f;
-            padding: 20px;
+            padding: 20px 0;
             text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
         header .logo {
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 10px;
         }
         header .logo img {
-            width: 40px;
+            width: 48px;
             margin-right: 10px;
         }
         nav ul {
@@ -32,39 +37,47 @@
             display: flex;
             justify-content: center;
             gap: 30px;
-            margin-top: 10px;
+            margin: 15px 0 0 0;
         }
         nav a {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1em;
-            padding: 8px 12px;
+            padding: 8px 16px;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s, color 0.3s;
         }
-        nav a:hover {
+        nav a:hover, nav a:focus {
             background-color: #ff4b2b;
+            color: #fff;
         }
 
         .inner {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 40px 20px 60px 20px;
+            flex: 1;
         }
         .tiles {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 24px;
+            margin-top: 30px;
         }
         .tiles article {
             background: #1e1e1e;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .tiles article:hover {
-            transform: scale(1.05);
+            transform: scale(1.04);
+            box-shadow: 0 4px 16px #ff4b2b55;
         }
         .tiles img {
             width: 100%;
@@ -72,11 +85,14 @@
             object-fit: cover;
         }
         .tiles h2 {
-            margin: 10px;
+            margin: 16px 10px 8px 10px;
+            font-size: 1.3em;
         }
         .tiles p {
-            margin: 0 10px 10px;
+            margin: 0 10px 16px 10px;
             color: #ccc;
+            font-size: 1em;
+            text-align: center;
         }
 
         .button {
@@ -91,28 +107,41 @@
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
         }
-        .button:hover {
+        .button:hover, .button:focus {
             transform: scale(1.05);
             box-shadow: 0 0 15px #ff4b2b;
         }
 
-        footer form input {
-            margin: 5px;
+        footer form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        footer form input[type="text"],
+        footer form input[type="email"] {
+            margin: 0;
             padding: 10px;
             border-radius: 5px;
             border: none;
+            min-width: 180px;
         }
 
         .icons {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 18px;
             margin-top: 10px;
         }
 
         .icons a {
             color: white;
-            font-size: 1.5em;
+            font-size: 1.6em;
+            transition: color 0.2s;
+        }
+        .icons a:hover {
+            color: #ff4b2b;
         }
 
         a:link,
@@ -121,6 +150,17 @@
         a:active {
             color: inherit;
             text-decoration: none;
+        }
+        @media (max-width: 700px) {
+            .tiles {
+                grid-template-columns: 1fr;
+            }
+            .inner {
+                padding: 20px 5px 60px 5px;
+            }
+            nav ul {
+                gap: 12px;
+            }
         }
     </style>
 </head>
@@ -133,7 +173,15 @@
         <nav>
             <ul>
                 <li><a href="./index.html">Início</a></li>
-                <li><a href="#">Jogos</a></li>
+                <li>
+                    <a href="#">Jogos</a>
+                    <ul class="submenu">
+                        <li><a href="./indexnintendo.html">Nintendo</a></li>
+                        <li><a href="./indexXbox.html">Xbox</a></li>
+                        <li><a href="./indexplaystation.html">Playstation</a></li>
+                    </ul>
+                
+                </li>
                 <li><a href="./console.html">Consoles</a></li>
                 <li><a href="./acessorios.html">Acessórios</a></li>
                 <li><a href="./indexsuporte.html">Suporte</a></li>
@@ -148,12 +196,11 @@
         <h2 style="margin-top: 40px;">Quem nós somos?</h2>
         <p>Somos uma loja de jogos e itens relacionados a videogame localizada em Fortaleza, capital do Estado do Ceará. Nossa missão é vender nossos produtos para pessoas de todo o Brasil com o objetivo de garantir o divertimento para todas as idades e gostos!</p>
         <section class="tiles">
-        <h2>Explore Página de Jogos</h2>
+            <h2 style="grid-column: 1 / -1; text-align:center;">Explore Página de Jogos</h2>
             <article>
-                    <img src="images/nintendo-personagens.jpg" alt="Nintendo">
-                    <h2>Nintendo</h2>
-                    <p>Jogos e consoles Nintendo. Diversão para todas as idades! Franquias lendárias do mundo dos jogos como Mario, Zelda, Pokémon e muito mais!</p>
-                </a>
+                <img src="images/nintendo-personagens.jpg" alt="Nintendo">
+                <h2>Nintendo</h2>
+                <p>Jogos e consoles Nintendo. Diversão para todas as idades! Franquias lendárias do mundo dos jogos como Mario, Zelda, Pokémon e muito mais!</p>
             </article>
             <article>
                 <img src="images/PlayStation-personagens.jpg" alt="PlayStation">
@@ -181,7 +228,7 @@
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fas fa-envelope"></i></a>
         </div>
-        <p>© 2025 Loja de Jogos. Todos os direitos reservados.</p>
+        <p style="margin-top:15px; color:#ccc;">© 2025 Loja de Jogos. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
