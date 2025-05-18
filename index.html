@@ -367,19 +367,24 @@
         <section class="tiles">
             <h2 style="grid-column: 1 / -1; text-align:center;">Explore Página de Jogos</h2>
             <article>
-                <img src="images/nintendo-personagens.jpg" alt="Nintendo">
+                <a href="./index.html" style="display: block; text-decoration: none; color: inherit;"><img src="images/nintendo-personagens.jpg" alt="Nintendo">
                 <h2>Nintendo</h2>
                 <p>Jogos e consoles Nintendo. Diversão para todas as idades! Franquias lendárias do mundo dos jogos como Mario, Zelda, Pokémon e muito mais!</p>
+                </a>
             </article>
             <article>
+                <a href="./indexplaystation.html" style="display: block; text-decoration: none; color: inherit;">
                 <img src="images/PlayStation-personagens.jpg" alt="PlayStation">
                 <h2>PlayStation</h2>
                 <p>Explore os jogos mais vendidos e os clássicos da Sony, com seus diversos jogos exclusivos de alta qualidade como God of War, The Last of Us e Uncharted.</p>
+                </a>
             </article>
             <article>
+                <a href="./indexXbox.html" style="display: block; text-decoration: none; color: inherit;">
                 <img src="images/masterchief.jpg" alt="Xbox">
                 <h2>Xbox</h2>
                 <p>Jogos, assinaturas e os melhores exclusivos da Microsoft, ótimos para jogar com colegas seja local ou online com tecnologias de última geração.</p>
+                </a>
             </article>
         </section>
     </div>
@@ -421,11 +426,41 @@
                 price: "R$ 219,90"
             },
             {
-                img: "https://image.api.playstation.com/vulcan/ap/rnd/202110/2000/YMUoJUYNX0xWk6eTKuZLr5Iw.jpg",
-                title: "Elden Ring",
-                desc: "Explore o mundo de Elden Ring, o premiado RPG de ação da FromSoftware.",
+                img: "https://cdn.ome.lt/NdbkGvoKC9vx4ClynECjqo_ZOis=/1200x630/smart/extras/conteudos/The_Last_of_Us_2_final_diferente.jpg",
+                title: "The Last of Us II",
+                desc: "Jogue a sequência da história da Ellie em The Last of Us II, premiado jogo da Sony.",
+                price: "R$ 168,90"
+            },
+
+            {
+                img: "https://assets.nintendo.com/image/upload/q_auto/f_auto/ncom/software/switch/70010000012332/ac4d1fc9824876ce756406f0525d50c57ded4b2a666f6dfe40a6ac5c3563fad9",
+                title: "Super Smash Bros",
+                desc: "Diversão com os amigos! Jogue o jogo de luta com os personagens mais clássicos da Nintendo e personagens convidados.",
+                price: "R$ 279,00"
+            },
+
+            {
+                img: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1623730/c961ac047294838bfe382bf193ade5c64b19e573/capsule_616x353.jpg?t=1737094038",
+                title: "Palworld",
+                desc: "Explore um mundo aberto do jogo de sobrevivência Palworld, conhecidos como 'Pokémons de armas', tente pegar todos os 'Pals'!",
+                price: "R$ 199,90"
+            },
+
+            {
+                img: "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000095203/12d36a4c9bbf43a4babba2f203e1e271ef08de143349e08231dff56fd2bef70e",
+                title: "Street Fighter VI",
+                desc: "Jogue o mais recente jogo da clássica franquia de jogos de luta Street Fighter VI!",
+                price: "R$ 199,90"
+            },
+
+            {
+                img: "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F03c433b0-f112-4978-93a4-f939bdf8f548_1920x1080.jpeg",
+                title: "Call of Duty Black Ops 6",
+                desc: "War never change... Jogue o clássico dos fps Call of Duty com o título mais recente da saga Black Ops.",
                 price: "R$ 199,90"
             }
+
+
         ];
 
         let currentSlide = 0;
