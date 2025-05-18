@@ -129,12 +129,14 @@
         .inner h2 {
             text-shadow: 0 2px 12px #0008;
         }
-        .tiles {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 32px;
-            margin-top: 40px;
-        }
+        /* Alternativa usando grid */
+    .tiles {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 32px;
+        margin-top: 40px;
+        justify-items: center;
+    }
         .tiles article {
             background: linear-gradient(120deg, #232526 60%, #414345 100%);
             border-radius: 18px;
@@ -159,6 +161,8 @@
             box-shadow: 0 2px 12px #ff4b2b22;
         }
         .tiles h2 {
+            flex-basis: 100%;
+            text-align: center;
             margin: 18px 10px 8px 10px;
             font-size: 1.4em;
             color: #ff4b2b;
@@ -412,7 +416,7 @@
         </div>
 
         <section class="tiles">
-            <h2 style="grid-column: 1 / -1; text-align:center; color:#ff4b2b; margin-bottom:18px; text-shadow:0 2px 12px #0008;">Explore Página de Jogos</h2>
+            <h2 style="grid-column: 1 / -1; text-align:center; color:#ff4b2b; margin-bottom:18px; text-shadow:0 2px 12px #0008;">Explore as Páginas de Jogos</h2>
             <article>
                 <a href="./indexnintendo.html" style="display: block; text-decoration: none; color: inherit;">
                     <img src="images/nintendo-personagens.jpg" alt="Nintendo">
