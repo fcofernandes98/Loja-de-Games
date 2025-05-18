@@ -56,10 +56,6 @@
             transition: background-color 0.3s ease;
         }
 
-        nav a:hover {
-            background-color: #ff4b2b;
-        }
-
     .inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -296,16 +292,23 @@
 
         .submenu {
             display: none;
-            position:absolute;
+            position: absolute;
             top: 0%;
+            margin-top: 30px;
             left: 0;
             background-color: #333;
             padding: 20%;
             border-radius: 5%;
+            text-align: justify;
         }
 
         nav ul li:hover .submenu {
-            display: block;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav a:hover {
+            background-color: #ff4b2b;
         }
     </style>
 </head>
@@ -322,9 +325,7 @@
                     <a href="#">Jogos</a>
                     <ul class="submenu">
                         <li><a href="./indexXbox.html">Xbox</a></li>
-                        <hr>
                         <li><a href="./indexnintendo.html">Nintendo</a></li>
-                        <hr>
                         <li><a href="./indexplaystation.html">Playstation</a></li>
                     </ul>
                 </li>

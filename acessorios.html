@@ -20,53 +20,46 @@
                 padding: 0;
                 }
 
-                header {
-                background-color: #1f1f1f;
-                color: white;
-                text-align: center;
-                padding: 20px 0;
-                position: relative;
-                }
-
-                header, footer {
+                header,
+        footer {
             background-color: #1f1f1f;
             padding: 20px;
             text-align: center;
         }
+
         header .logo {
             display: flex;
             align-items: center;
             justify-content: center;
         }
+
         header .logo img {
             width: 40px;
             margin-right: 10px;
         }
 
-                nav ul {
-                list-style: none;
-                padding: 0;
-                margin: 20px 0 0;
-                display: flex;
-                justify-content: center;
-                gap: 30px;
-                }
+    nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 10px;
+        }
 
-                nav ul li {
-                display: inline;
-                }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
 
-                nav ul li a {
-                text-decoration: none;
-                color: white;
-                font-weight: bold;
-                font-size: 1.1rem;
-                transition: color 0.3s ease;
-                }
-
-                nav ul li a:hover {
-                color: greenyellow;
-                }
+        nav a:hover {
+            background-color: #ff4b2b;
+        }
 
                 .inner {
                 max-width: 1200px;
