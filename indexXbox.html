@@ -26,6 +26,18 @@
       position: relative;
     }
 
+    header .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      size: 10px;
+    }
+
+    header .logo img {
+      width: 50px;
+    }
+
     header h1 {
       font-size: 2.5em;
       color: #fff;
@@ -44,6 +56,10 @@
       flex-wrap: wrap;
     }
 
+    nav ul li a{
+      transition: color 0.3s ease;
+    }
+     
     nav a {
       color: white;
       text-decoration: none;
@@ -54,7 +70,7 @@
     }
 
     nav a:hover {
-      background-color: rgba(255,255,255,0.2);
+      color: #0ddc17;
     }
 
     .container {
@@ -183,7 +199,7 @@
     .botao {
       display: inline-block;
       padding: 5px 10px;
-      background-color: #107C10;
+      background-color: #0ddc17;
       color: white;
       text-align: center;
       border-radius: 5px;
@@ -255,14 +271,11 @@
         <nav>
             <ul>
                 <li><a href="./index.html">Início</a></li>
-             <li>
+                <li>
                     <a href="#">Jogos</a>
                     <ul class="submenu">
                         <li><a href="./indexplaystation.html">Playstation</a></li>
-                        <hr>
                         <li><a href="./indexnintendo.html">Nintendo</a></li>
-                        
-                      
                     </ul>
                 </li>
                 <li><a href="./console.html">Consoles</a></li>
