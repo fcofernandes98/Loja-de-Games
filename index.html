@@ -236,12 +236,231 @@
         </nav>
     </header>
 
+
+  
     <div class="inner">
         <h2>Bem-vindo à Loja de Jogos</h2>
         <p>Aqui você encontra tudo sobre jogos: desde os clássicos até os lançamentos mais esperados. Explore por plataformas e categorias!</p>
 
         <h2 style="margin-top: 40px;">Quem nós somos?</h2>
         <p>Somos uma loja de jogos e itens relacionados a videogame localizada em Fortaleza, capital do Estado do Ceará. Nossa missão é vender nossos produtos para pessoas de todo o Brasil com o objetivo de garantir o divertimento para todas as idades e gostos!</p>
+
+
+<div class="carousel-container" style="max-width:900px;margin:30px auto 0;">
+    <div class="carousel-slide" id="carousel-slide">
+    </div>
+    <div class="carousel-controls">
+        <button id="prev-slide" aria-label="Anterior" class="carousel-arrow"><i class="fa fa-chevron-left"></i></button>
+        <div id="carousel-dots"></div>
+        <button id="next-slide" aria-label="Próximo" class="carousel-arrow"><i class="fa fa-chevron-right"></i></button>
+    </div>
+</div>
+
+<style>
+.carousel-container {
+    background: #181f2b;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px #0005;
+    padding: 0 0 20px 0;
+    position: relative;
+}
+.carousel-slide {
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+}
+.carousel-item {
+    display: none;
+    flex: 1 0 100%;
+    align-items: stretch;
+    justify-content: stretch;
+    transition: opacity 0.5s;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.carousel-item.active {
+    display: flex;
+    position: relative;
+    opacity: 1;
+    z-index: 2;
+}
+.carousel-img {
+    width: 60%;
+    object-fit: cover;
+    border-radius: 18px 0 0 18px;
+    height: 340px;
+}
+.carousel-info {
+    width: 40%;
+    background: linear-gradient(120deg, #232323 80%, #ff4b2b22 100%);
+    color: #fff;
+    padding: 32px 28px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0 18px 18px 0;
+}
+.carousel-info h2 {
+    font-size: 2em;
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+.carousel-info p {
+    font-size: 1.1em;
+    margin-bottom: 18px;
+    color: #ccc;
+}
+.carousel-info .carousel-price {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ff4b2b;
+}
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 12px;
+}
+.carousel-arrow {
+    background: #232323;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.carousel-arrow:hover {
+    background: #ff4b2b;
+}
+#carousel-dots {
+    display: flex;
+    gap: 8px;
+}
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #444;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.carousel-dot.active {
+    background: #ff4b2b;
+}
+@media (max-width: 800px) {
+    .carousel-slide, .carousel-item.active {
+        flex-direction: column;
+        min-height: 420px;
+    }
+    .carousel-img, .carousel-info {
+        width: 100%;
+        border-radius: 18px 18px 0 0;
+        height: 220px;
+    }
+    .carousel-info {
+        border-radius: 0 0 18px 18px;
+        height: auto;
+        padding: 18px 12px 18px 12px;
+    }
+}
+</style>
+
+<script>
+const carouselGames = [
+    {
+        img: "https://www.deviante.com.br/wp-content/uploads/2017/03/zelda-breath-of-the-wild-ID.jpg",
+        title: "Zelda Breath of The Wild",
+        desc: "Jogue o mundo aberto juntamente com Link no complexo e rico universo de The Legend of Zelda",
+        price: "R$ 249,90"
+    },
+    {
+        img: "https://cdn1.epicgames.com/spt-assets/edaff839f0734d16bc89d2ddb1dc9339/steel-magnolia-15owu.jpg",
+        title: "God of War Ragnarok",
+        desc: "Jogue o premiado exclusivo da Sony e acompanhe a aventura do novo Kratos com seu filho Atreus na mitologia nórdica.",
+        price: "R$ 299,90"
+    },
+    {
+        img: "https://www.caseking.de/blog/wp-content/uploads/2021/11/Blog-DE-Halo-Infinite.png",
+        title: "Halo Infinite",
+        desc: "Jogue o aclamado jogo da lendária franquia exclusiva de Xbox, Halo Infinite.",
+        price: "R$ 219,90"
+    },
+    {
+        img: "https://image.api.playstation.com/vulcan/ap/rnd/202110/2000/YMUoJUYNX0xWk6eTKuZLr5Iw.jpg",
+        title: "Elden Ring",
+        desc: "Explore o mundo de Elden Ring, o premiado RPG de ação da FromSoftware.",
+        price: "R$ 349,90"
+    }
+];
+
+let currentSlide = 0;
+let carouselInterval;
+
+function renderCarousel() {
+    const slide = document.getElementById('carousel-slide');
+    const dots = document.getElementById('carousel-dots');
+    slide.innerHTML = '';
+    dots.innerHTML = '';
+    carouselGames.forEach((game, idx) => {
+        const item = document.createElement('div');
+        item.className = 'carousel-item' + (idx === currentSlide ? ' active' : '');
+        item.innerHTML = `
+            <img src="${game.img}" alt="${game.title}" class="carousel-img">
+            <div class="carousel-info">
+                <h2>${game.title}</h2>
+                <p>${game.desc}</p>
+                <div class="carousel-price">${game.price}</div>
+            </div>
+        `;
+        slide.appendChild(item);
+
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (idx === currentSlide ? ' active' : '');
+        dot.onclick = () => { goToSlide(idx); };
+        dots.appendChild(dot);
+    });
+}
+
+function goToSlide(idx) {
+    currentSlide = idx;
+    renderCarousel();
+    resetCarouselInterval();
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % carouselGames.length;
+    renderCarousel();
+    resetCarouselInterval();
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + carouselGames.length) % carouselGames.length;
+    renderCarousel();
+    resetCarouselInterval();
+}
+
+function resetCarouselInterval() {
+    clearInterval(carouselInterval);
+    carouselInterval = setInterval(nextSlide, 5000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderCarousel();
+    document.getElementById('next-slide').onclick = nextSlide;
+    document.getElementById('prev-slide').onclick = prevSlide;
+    carouselInterval = setInterval(nextSlide, 5000);
+});
+</script>
+
         <section class="tiles">
             <h2 style="grid-column: 1 / -1; text-align:center;">Explore Página de Jogos</h2>
             <article>
