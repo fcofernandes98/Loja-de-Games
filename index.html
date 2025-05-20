@@ -125,7 +125,7 @@
             visibility: visible;
         }
         .container {
-            max-width: 1300px;
+            max-width: 1600px;
             margin: 30px auto;
             padding: 0 20px;
             flex: 1;
@@ -147,6 +147,84 @@
             background: var(--blood-red);
             margin: 15px auto;
         }
+        /* CAROUSEL */
+        #carousel-container {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            position: relative;
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .carousel-slide {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 370px;
+        }
+        .carousel-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 18px;
+            width: 100%;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .carousel-arrow {
+            background: #232834;
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.3em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            transition: background 0.2s, transform 0.2s;
+            margin: 0 8px;
+            cursor: pointer;
+            outline: none;
+            pointer-events: auto;
+        }
+        .carousel-arrow:hover {
+            background: #181c23;
+            transform: scale(1.08);
+        }
+        .carousel-arrow i {
+            color: #fff;
+            font-size: 1.2em;
+            margin: 0;
+            padding: 0;
+        }
+        #carousel-dots {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 0 10px;
+        }
+        .carousel-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: none;
+            background: #444;
+            margin: 0 2px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .carousel-dot.active {
+            background: var(--blood-red);
+        }
+        /* RESTANTE DO CSS IGUAL */
         .games-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -383,6 +461,15 @@
             color: #888;
             font-size: 0.9em;
         }
+        @media (max-width: 900px) {
+            #carousel-container {
+                max-width: 98vw;
+                min-height: 320px;
+            }
+            .carousel-slide {
+                min-height: 220px;
+            }
+        }
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2em;
@@ -416,37 +503,6 @@
                 position: static;
             }
         }
-
-        /* ...existing code... */
-
-    /* Estilo bonito para as setas do carrossel */
-    .carousel-arrow {
-        background: #232834;
-        border: none;
-        border-radius: 50%;
-        width: 38px;
-        height: 38px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        font-size: 1.3em;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-        transition: background 0.2s, transform 0.2s;
-        margin: 0 8px;
-        cursor: pointer;
-        outline: none;
-    }
-    .carousel-arrow:hover {
-        background: #181c23;
-        transform: scale(1.08);
-    }
-    .carousel-arrow i {
-        color: #fff;
-        font-size: 1.2em;
-        margin: 0;
-        padding: 0;
-    }
     </style>
 </head>
 <body>
@@ -480,7 +536,7 @@
 
     <div class="container">
         <h1 class="section-title">JOGOS EM DESTAQUE</h1>
-        <div id="carousel-container" style="max-width:900px;margin:0 auto 40px auto;">
+        <div id="carousel-container">
             <div class="carousel-slide" id="carousel-slide"></div>
             <div class="carousel-controls">
                 <button id="prev-slide" aria-label="Anterior" class="carousel-arrow"><i class="fa fa-chevron-left"></i></button>
@@ -616,8 +672,8 @@
             card.style.boxShadow = '0 6px 32px 0 rgba(0,0,0,0.6)';
             card.style.alignItems = 'stretch';
             card.style.margin = '0 auto';
-            card.style.maxWidth = '800px';
-            card.style.minHeight = '280px';
+            card.style.maxWidth = '1100px';
+            card.style.minHeight = '340px';
 
             // Imagem à esquerda
             const imgDiv = document.createElement('div');
@@ -626,16 +682,16 @@
             imgDiv.style.display = 'flex';
             imgDiv.style.alignItems = 'center';
             imgDiv.style.justifyContent = 'center';
-            imgDiv.style.padding = '18px 0 18px 18px';
+            imgDiv.style.padding = '28px 0 28px 28px';
 
             const img = document.createElement('img');
             img.src = game.img;
             img.alt = game.title;
             img.style.width = '100%';
-            img.style.maxWidth = '320px';
-            img.style.height = '200px';
+            img.style.maxWidth = '420px';
+            img.style.height = '280px';
             img.style.objectFit = 'cover';
-            img.style.borderRadius = '12px';
+            img.style.borderRadius = '16px';
             imgDiv.appendChild(img);
 
             // Info à direita
@@ -644,12 +700,12 @@
             infoDiv.style.display = 'flex';
             infoDiv.style.flexDirection = 'column';
             infoDiv.style.justifyContent = 'center';
-            infoDiv.style.padding = '28px 32px 28px 28px';
+            infoDiv.style.padding = '38px 42px 38px 38px';
 
             // Título
             const title = document.createElement('h2');
             title.textContent = game.title;
-            title.style.fontSize = '2em';
+            title.style.fontSize = '2.2em';
             title.style.fontWeight = 'bold';
             title.style.marginBottom = '18px';
             title.style.color = '#fff';
@@ -658,12 +714,12 @@
             const desc = document.createElement('p');
             desc.textContent = getGameDescription(game.title);
             desc.style.color = '#ccc';
-            desc.style.fontSize = '1.1em';
+            desc.style.fontSize = '1.15em';
             desc.style.marginBottom = '22px';
 
             // Preço
             const price = document.createElement('div');
-            price.innerHTML = `R$ <span style="color:var(--neon-green);font-size:1.5em;font-weight:bold;">${game.price.toFixed(2).replace('.', ',')}</span>
+            price.innerHTML = `R$ <span style="color:var(--neon-green);font-size:1.7em;font-weight:bold;">${game.price.toFixed(2).replace('.', ',')}</span>
                 <span style="color:#888;text-decoration:line-through;font-size:1em;margin-left:10px;">R$${game.oldPrice.toFixed(2).replace('.', ',')}</span>`;
             price.style.marginBottom = '18px';
             price.style.fontSize = '1.2em';
