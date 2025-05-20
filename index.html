@@ -1,369 +1,504 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-    <title>Loja de Jogos - Projeto Integrador</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FATALITY SHOP - A Loja Definitiva para Gamers</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        body {
+        :root {
+            --blood-red: #d10000;
+            --dark-red: #8b0000;
+            --gold: #ffd700;
+            --dark-bg: #0a0a0a;
+            --neon-green: #0ddc17;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #232526 0%, #414345 100%);
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Bahnschrift', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            background-image: radial-gradient(circle, #1a1a1a 1px, transparent 1px);
+            background-size: 20px 20px;
             color: #ffffff;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
-        header, footer {
-            background: linear-gradient(90deg, #232526 0%, #ff4b2b 100%);
-            padding: 20px 0;
+
+        /* HEADER STYLES */
+        header {
+            background: linear-gradient(to right, #000, var(--dark-red));
+            padding: 15px 0;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: relative;
+            border-bottom: 3px solid var(--gold);
         }
+
         header .logo {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
         }
+
         header .logo img {
-            width: 54px;
-            margin-right: 10px;
-            filter: drop-shadow(0 0 8px #ff4b2b88);
+            width: 240px;
+            filter: drop-shadow(0 0 5px var(--blood-red));
         }
+
         header h1 {
-            font-size: 2.2em;
-            letter-spacing: 1.5px;
+            font-size: 2.8em;
             color: #fff;
-            text-shadow: 0 2px 8px #ff4b2b44;
+            text-shadow: 2px 2px 0px var(--blood-red),
+                         4px 4px 0px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+            font-family: 'Arial Black', sans-serif;
         }
+
+        .slogan {
+            color: var(--neon-green);
+            font-size: 1.2em;
+            text-shadow: 0 0 5px var(--neon-green);
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        /* NAVIGATION */
         nav ul {
             list-style: none;
-            padding: 0;
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin: 15px 0 0 0;
-            position: relative;
+            gap: 25px;
+            margin-top: 20px;
+            flex-wrap: wrap;
         }
+
         nav ul li {
             position: relative;
         }
+
         nav a {
-            color: #fff;
+            color: white;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.15em;
-            padding: 10px 22px;
-            border-radius: 7px;
-            transition: background 0.3s, color 0.3s, box-shadow 0.2s;
-            cursor: pointer;
-            display: block;
-        }
-        nav a:hover, nav a:focus {
-            background: linear-gradient(90deg, #ff4b2b 60%, #ff416c 100%);
-            color: #fff;
-            box-shadow: 0 2px 12px #ff4b2b55;
-        }
-        /* Submenu estilos */
-        .submenu {
-            display: none;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 110%;
-            background: #232323;
-            box-shadow: 0 4px 16px #00000044;
-            border-radius: 10px;
-            min-width: 180px;
-            z-index: 10;
-            flex-direction: column;
-            padding: 8px 0;
-            margin: 0;
-        }
-        .submenu li {
-            width: 100%;
-        }
-        .submenu a {
-            display: block;
-            padding: 14px 24px;
             font-size: 1.1em;
-            border-radius: 6px;
-            color: #fff;
-            background: none;
-            transition: background 0.2s, color 0.2s;
-            font-weight: bold;
-        }
-        .submenu a:hover, .submenu a:focus {
-            background: #ff4b2b;
-            color: #fff;
-        }
-        nav ul li:hover > .submenu,
-        nav ul li:focus-within > .submenu {
-            display: flex;
-        }
-        /* Responsivo */
-        @media (max-width: 700px) {
-            nav ul {
-                flex-direction: column;
-                gap: 0;
-            }
-            nav ul li {
-                width: 100%;
-            }
-            .submenu {
-                position: static;
-                box-shadow: none;
-                border-radius: 0;
-                min-width: unset;
-                transform: none;
-            }
-        }
-        .inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px 60px 20px;
-            flex: 1;
-        }
-        .inner h2 {
-            text-shadow: 0 2px 12px #0008;
-        }
-        /* Alternativa usando grid */
-    .tiles {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-        gap: 32px;
-        margin-top: 40px;
-        justify-items: center;
-    }
-        .tiles article {
-            background: linear-gradient(120deg, #232526 60%, #414345 100%);
-            border-radius: 18px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 2px 12px #0007;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 1.5px solid #ff4b2b33;
-        }
-        .tiles article:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 24px #ff4b2b55;
-            border-color: #ff4b2b88;
-        }
-        .tiles img {
-            width: 100%;
-            height: 190px;
-            object-fit: cover;
-            border-radius: 18px 18px 0 0;
-            box-shadow: 0 2px 12px #ff4b2b22;
-        }
-        .tiles h2 {
-            flex-basis: 100%;
-            text-align: center;
-            margin: 18px 10px 8px 10px;
-            font-size: 1.4em;
-            color: #ff4b2b;
-            text-shadow: 0 2px 8px #0006;
-        }
-        .tiles p {
-            margin: 0 10px 18px 10px;
-            color: #eee;
-            font-size: 1.07em;
-            text-align: center;
-        }
-        .button {
-            background: linear-gradient(90deg, #ff416c, #ff4b2b);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.1em;
-            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
             text-transform: uppercase;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .button:hover, .button:focus {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px #ff4b2b;
-        }
-        footer {
-            margin-top: 40px;
-        }
-        footer h2 {
-            color: #ff4b2b;
-            margin-bottom: 10px;
             letter-spacing: 1px;
         }
-        footer form {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        footer form input[type="text"],
-        footer form input[type="email"] {
-            margin: 0;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            min-width: 180px;
-            background: #232323;
+
+        nav a:hover {
+            background-color: var(--blood-red);
             color: #fff;
-            font-size: 1em;
+            box-shadow: 0 0 15px var(--blood-red);
+            transform: translateY(-2px);
         }
-        .icons {
-            display: flex;
-            justify-content: center;
-            gap: 18px;
-            margin-top: 10px;
+
+        /* SUBMENU */
+/* ================================================== */
+/* ESTILOS DO SUBMENU - VERSÃO COMPACTA SEM ESPAÇOS */
+/* ================================================== */
+
+/* Container principal do submenu (inicialmente invisível) */
+.submenu {
+    opacity: 0;                /* Totalmente transparente */
+    visibility: hidden;        /* Escondido da visualização */
+    position: absolute;        /* Posicionamento absoluto em relação ao menu pai */
+    top: 100%;                 /* Posicionado logo abaixo do item do menu */
+    left: 0;                   /* Alinhado à esquerda do item pai */
+    background-color: #222;    /* Cor de fundo escura */
+    padding: 0;                /* SEM espaçamento interno (remove o espaço azul) */
+    border-radius: 0 0 5px 5px; /* Bordas arredondadas apenas na parte inferior */
+    min-width: 160px;          /* Largura mínima do submenu */
+    z-index: 100;              /* Garante que fique acima de outros elementos */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Sombra para efeito de profundidade */
+    border-top: 3px solid var(--blood-red); /* Linha vermelha no topo como detalhe */
+    font-size: 1em;         /* Tamanho de fonte reduzido */
+    transition: opacity 0.2s ease, visibility 0.2s ease; /* Animação suave de aparecimento */
+}
+
+/* Cada item da lista do submenu */
+.submenu li {
+    width: 100%;              /* Ocupa 100% da largura disponível */
+    margin: 0;                /* Remove qualquer margem entre itens */
+}
+
+/* Links clicáveis do submenu */
+.submenu a {
+    display: block;           /* Transforma em bloco para preencher toda a área */
+    padding: 5px 10px;        /* Espaçamento interno mínimo (5px topo/baixo, 10px laterais) */
+    color: #ddd;              /* Cor do texto cinza claro */
+    transition: background-color 0.15s; /* Transição suave da cor de fundo */
+}
+
+/* Efeito quando o mouse passa sobre os links */
+.submenu a:hover {
+    background-color: var(--dark-red); /* Fundo vermelho escuro */
+    color: #fff;              /* Texto branco no hover */
+}
+
+/* Regras para exibir o submenu quando:
+   - O mouse está sobre o item do menu principal (li:hover)
+   - OU sobre o próprio submenu */
+nav ul li:hover .submenu,
+.submenu:hover {
+    opacity: 1;               /* Torna totalmente visível */
+    visibility: visible;      /* Mostra o elemento */
+}
+        /* MAIN CONTENT */
+        .container {
+            max-width: 1300px;
+            margin: 30px auto;
+            padding: 0 20px;
+            flex: 1;
         }
-        .icons a {
-            color: white;
-            font-size: 1.6em;
-            transition: color 0.2s, transform 0.2s;
-        }
-        .icons a:hover {
-            color: #ff4b2b;
-            transform: scale(1.15);
-        }
-        a:link,
-        a:visited,
-        a:hover,
-        a:active {
-            color: inherit;
-            text-decoration: none;
-        }
-        /* Carousel styles */
-        .carousel-container {
-            background: linear-gradient(120deg, #232526 60%, #414345 100%);
-            border-radius: 22px;
-            box-shadow: 0 4px 24px #0005;
-            padding: 0 0 20px 0;
+
+        .section-title {
+            font-size: 2.5em;
+            text-align: center;
+            margin: 40px 0;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green);
             position: relative;
-            border: 2px solid #ff4b2b33;
+            letter-spacing: 2px;
         }
-        .carousel-slide {
-            position: relative;
-            min-height: 340px;
-            display: flex;
-            align-items: stretch;
+
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--blood-red);
+            margin: 15px auto;
+        }
+
+        /* GAMES GRID */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .game-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
             overflow: hidden;
-        }
-        .carousel-item {
-            display: none;
-            flex: 1 0 100%;
-            align-items: stretch;
-            justify-content: stretch;
-            transition: opacity 0.5s;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-        .carousel-item.active {
-            display: flex;
-            position: relative;
-            opacity: 1;
-            z-index: 2;
-        }
-        .carousel-img {
-            width: 60%;
-            object-fit: cover;
-            border-radius: 22px 0 0 22px;
-            height: 340px;
-            box-shadow: 0 2px 16px #ff4b2b22;
-        }
-        .carousel-info {
-            width: 40%;
-            background: linear-gradient(120deg, #232323 80%, #ff4b2b22 100%);
-            color: #fff;
-            padding: 32px 28px 28px 28px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            border-radius: 0 22px 22px 0;
+            position: relative;
+            border: 1px solid #333;
         }
-        .carousel-info h2 {
-            font-size: 2em;
-            margin: 0 0 10px 0;
-            font-weight: bold;
-            color: #ff4b2b;
-            text-shadow: 0 2px 8px #0006;
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px var(--blood-red);
+            border-color: var(--blood-red);
         }
-        .carousel-info p {
-            font-size: 1.1em;
-            margin-bottom: 18px;
-            color: #eee;
+
+        .game-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 2px solid #2c2c2c;
         }
-        .carousel-info .carousel-price {
-            font-size: 1.3em;
-            font-weight: bold;
+
+        .game-info {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .game-info h2 {
+            font-size: 1.2em;
             margin-bottom: 10px;
             color: #fff;
-            background: #ff4b2b;
-            padding: 6px 18px;
-            border-radius: 8px;
+            min-height: 50px;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--neon-green);
+            text-shadow: 0 0 5px var(--neon-green);
+        }
+
+        .price .old-price {
+            font-size: 0.9rem;
+            color: #888;
+            text-decoration: line-through;
+            margin-left: 6px;
+        }
+
+        /* BUTTONS */
+        .botao-container {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            display: none;
+        }
+
+        .game-card:hover .botao-container {
+            display: block;
+        }
+
+        .botao {
             display: inline-block;
-            box-shadow: 0 2px 8px #ff4b2b44;
-        }
-        .carousel-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 18px;
-            margin-top: 12px;
-        }
-        .carousel-arrow {
-            background: #232323;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 42px;
-            height: 42px;
-            font-size: 1.3em;
+            padding: 8px 15px;
+            background: linear-gradient(to bottom, var(--blood-red), var(--dark-red));
+            color: white;
+            text-align: center;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            box-shadow: 0 2px 8px #ff4b2b33;
+            user-select: none;
+            border: none;
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
         }
-        .carousel-arrow:hover {
-            background: #ff4b2b;
+
+        .botao:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--blood-red);
+        }
+
+        .toggle {
+            display: none;
+        }
+
+        .toggle:checked + .botao {
+            background: linear-gradient(to bottom, var(--neon-green), #0a8a11);
+        }
+
+        .toggle + .botao::after {
+            content: "Adicionar";
+        }
+
+        .toggle:checked + .botao::after {
+            content: "Adicionado ✓";
+        }
+
+        /* CART STYLES */
+        #cart-icon {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        #cart-icon:hover {
+            color: var(--neon-green);
             transform: scale(1.1);
         }
-        #carousel-dots {
-            display: flex;
-            gap: 8px;
-        }
-        .carousel-dot {
-            width: 14px;
-            height: 14px;
+        
+        #cart-count {
+            background: #fff;
+            color: var(--blood-red);
             border-radius: 50%;
-            background: #444;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
+            padding: 2px 8px;
+            font-size: 14px;
+            margin-left: 5px;
+            font-weight: bold;
         }
-        .carousel-dot.active {
-            background: #ff4b2b;
+        
+        /* CART MODAL */
+        #cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #cart-modal > div {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 25px;
+            max-width: 600px;
+            width: 90%;
+            border-radius: 10px;
+            position: relative;
+            border: 2px solid var(--blood-red);
+            box-shadow: 0 0 30px var(--blood-red);
+        }
+        
+        #cart-items {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        #cart-items li {
+            padding: 10px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #cart-items li:last-child {
+            border-bottom: none;
+        }
+
+        .cart-total {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: var(--neon-green);
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .cart-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .cart-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .cart-buttons button:hover {
+            transform: translateY(-2px);
+        }
+
+        .close-cart {
+            background: #333;
+            color: white;
+        }
+
+        .checkout {
+            background: linear-gradient(to bottom, var(--blood-red), var(--dark-red));
+            color: white;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(to right, #000, #222);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+            border-top: 3px solid var(--blood-red);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .footer-section h3 {
+            color: var(--neon-green);
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5em;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--neon-green);
             transform: scale(1.2);
         }
-        @media (max-width: 900px) {
-            .carousel-slide, .carousel-item.active {
-                flex-direction: column;
-                min-height: 420px;
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
             }
-            .carousel-img, .carousel-info {
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .games-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+
+            .game-card img {
+                height: 200px;
+            }
+            
+            #cart-icon {
+                top: 20px;
+                right: 20px;
+            }
+            
+            nav ul {
+                gap: 10px;
+            }
+
+            .submenu {
+                position: static;
+                display: none;
                 width: 100%;
-                border-radius: 22px 22px 0 0;
-                height: 220px;
+                box-shadow: none;
+                border-radius: 0;
             }
-            .carousel-info {
-                border-radius: 0 0 22px 22px;
-                height: auto;
-                padding: 18px 12px 18px 12px;
+
+            nav ul li:hover .submenu {
+                display: block;
+                position: static;
             }
         }
     </style>
@@ -371,8 +506,9 @@
 <body>
     <header>
         <div class="logo">
-            <img src="images/logo.svg" alt="Logo" />
-            <h1>Loja de Jogos</h1>
+            <img src="images/logoprincipal.png" alt="FATALITY SHOP Logo">
+            <h1>FATALITY SHOP</h1>
+            <p class="slogan">WHERE GAMERS MEET THEIR DESTINY</p>
         </div>
         <nav>
             <ul>
@@ -381,190 +517,353 @@
                     <a href="#">Jogos</a>
                     <ul class="submenu">
                         <li><a href="./indexXbox.html">Xbox</a></li>
+                        <li><a href="./indexplaystation.html">PlayStation</a></li>
                         <li><a href="./indexnintendo.html">Nintendo</a></li>
-                        <li><a href="./indexplaystation.html">Playstation</a></li>
                     </ul>
                 </li>
                 <li><a href="./console.html">Consoles</a></li>
                 <li><a href="./acessorios.html">Acessórios</a></li>
-                <li><a href="./indexsuporte.html" target="_blank">Suporte</a></li>
+                <li><a href="./indexsuporte.html">Suporte</a></li>
             </ul>
         </nav>
+        
+        <!-- Ícone do carrinho -->
+        <div id="cart-icon" onclick="toggleCartModal()">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </div>
     </header>
 
-    <div class="inner">
-        <h2 style="font-size:2.1em; color:#fff; text-align:center; margin-bottom:10px;">Bem-vindo à Loja de Jogos</h2>
-        <p style="text-align:center; font-size:1.13em; color:#eee; margin-bottom:35px;">
-            Aqui você encontra tudo sobre jogos: desde os clássicos até os lançamentos mais esperados.<br>
-            Explore por plataformas e categorias!
-        </p>
+    <div class="container">
+        <h1 class="section-title">JOGOS EM DESTAQUE</h1>
+        
+        <div class="games-grid">
+            <div class="game-card">
+                <img src="https://jploja.com/wp-content/uploads/2024/09/NBA-2k25-1.jpg" alt="NBA 2K25">
+                <div class="game-info">
+                    <h2>NBA 2K25</h2>
+                    <p class="price">R$149,99 <span class="old-price">R$200,45</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="NBA 2K25" data-price="149.99"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
 
-        <h2 style="margin-top: 40px; color:#ff4b2b; text-align:center;">Quem nós somos?</h2>
-        <p style="text-align:center; color:#ddd; font-size:1.08em;">
-            Somos uma loja de jogos e itens relacionados a videogame localizada em Fortaleza, capital do Estado do Ceará.<br>
-            Nossa missão é vender nossos produtos para pessoas de todo o Brasil com o objetivo de garantir o divertimento para todas as idades e gostos!
-        </p>
+            <div class="game-card">
+                <img src="https://jploja.com/wp-content/uploads/2024/02/WWE-2k24-1.jpg" alt="WWE 2K24">
+                <div class="game-info">
+                    <h2>WWE 2K24</h2>
+                    <p class="price">R$203,99 <span class="old-price">R$249,90</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="WWE 2K24" data-price="203.99"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
 
-        <h2 style="margin:50px auto 20px auto; text-align:center; font-size:2em; color:#ff4b2b; letter-spacing:1px; text-shadow:0 2px 12px #0008;">Jogos em Destaque</h2>
-        <div class="carousel-container" style="max-width:900px;margin:0 auto 40px auto;">
-            <div class="carousel-slide" id="carousel-slide"></div>
-            <div class="carousel-controls">
-                <button id="prev-slide" aria-label="Anterior" class="carousel-arrow"><i class="fa fa-chevron-left"></i></button>
-                <div id="carousel-dots"></div>
-                <button id="next-slide" aria-label="Próximo" class="carousel-arrow"><i class="fa fa-chevron-right"></i></button>
+            <div class="game-card">
+                <img src="https://cdn1.epicgames.com/spt-assets/edaff839f0734d16bc89d2ddb1dc9339/steel-magnolia-15owu.jpg" alt="COD Black Op 6">
+                <div class="game-info">
+                    <h2>Call Of Duty Black Ops 6</h2>
+                    <p class="price">R$199,99 <span class="old-price">R$279,99</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="Call Of Duty Black Ops 6" data-price="199.99"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://rihappy.vtexassets.com/arquivos/ids/6768658/17274529983515.jpg?v=638640043739470000" alt="FIFA 25">
+                <div class="game-info">
+                    <h2>FIFA 25</h2>
+                    <p class="price">R$99,89 <span class="old-price">R$299,00</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="FIFA 25" data-price="99.89"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://www.wowgames.com.br/wp-content/uploads/2024/01/XONE-Palworld-jpg.webp" alt="Palworld">
+                <div class="game-info">
+                    <h2>Palworld</h2>
+                    <p class="price">R$99,66 <span class="old-price">R$149,99</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="Palworld" data-price="99.66"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://gocdkeys.com/images/games/phasmophobia-xbox-one.jpg" alt="Phasmophobia">
+                <div class="game-info">
+                    <h2>Phasmophobia</h2>
+                    <p class="price">R$54,17 <span class="old-price">R$85,90</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="Phasmophobia" data-price="54.17"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://www.wowgames.com.br/wp-content/uploads/2024/07/XONE-StarWarsOutlaws-jpg.webp" alt="Star Wars Outlaws">
+                <div class="game-info">
+                    <h2>Star Wars Outlaws</h2>
+                    <p class="price">R$149,99 <span class="old-price">R$299,99</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="Star Wars Outlaws" data-price="149.99"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://m.media-amazon.com/images/I/81I4zXPKfmL.jpg" alt="Dragon's Dogma II">
+                <div class="game-info">
+                    <h2>Dragon's Dogma II</h2>
+                    <p class="price">R$192,03 <span class="old-price">R$289,99</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="Dragon's Dogma II" data-price="192.03"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
             </div>
         </div>
+    </div>
 
-        <section class="tiles">
-            <h2 style="grid-column: 1 / -1; text-align:center; color:#ff4b2b; margin-bottom:18px; text-shadow:0 2px 12px #0008;">Explore as Páginas de Jogos</h2>
-            <article>
-                <a href="./indexnintendo.html" style="display: block; text-decoration: none; color: inherit;">
-                    <img src="images/nintendo-personagens.jpg" alt="Nintendo">
-                    <h2>Nintendo</h2>
-                    <p>Jogos e consoles Nintendo. Diversão para todas as idades! Franquias lendárias do mundo dos jogos como Mario, Zelda, Pokémon e muito mais!</p>
-                </a>
-            </article>
-            <article>
-                <a href="./indexplaystation.html" style="display: block; text-decoration: none; color: inherit;">
-                    <img src="images/PlayStation-personagens.jpg" alt="PlayStation">
-                    <h2>PlayStation</h2>
-                    <p>Explore os jogos mais vendidos e os clássicos da Sony, com seus diversos jogos exclusivos de alta qualidade como God of War, The Last of Us e Uncharted.</p>
-                </a>
-            </article>
-            <article>
-                <a href="./indexXbox.html" style="display: block; text-decoration: none; color: inherit;">
-                    <img src="images/masterchief.jpg" alt="Xbox">
-                    <h2>Xbox</h2>
-                    <p>Jogos, assinaturas e os melhores exclusivos da Microsoft, ótimos para jogar com colegas seja local ou online com tecnologias de última geração.</p>
-                </a>
-            </article>
-        </section>
+    <!-- Modal do carrinho teste-->
+    <div id="cart-modal">
+        <div>
+            <h2 style="color: var(--neon-green); text-align: center; margin-bottom: 20px;">SEU CARRINHO</h2>
+            <ul id="cart-items"></ul>
+            <div class="cart-total" id="cart-total">Total: R$0,00</div>
+            <div class="cart-buttons">
+                <button class="close-cart" onclick="toggleCartModal()">Continuar Comprando</button>
+                <button class="checkout">Finalizar Compra</button>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <h2>Login</h2>
-        <form>
-            <input type="text" placeholder="Nome" />
-            <input type="email" placeholder="Email" />
-            <input type="submit" class="button" value="Entrar" />
-        </form>
-        <div class="icons">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fas fa-envelope"></i></a>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>A FATALITY SHOP é a loja definitiva para gamers hardcore. Oferecemos os melhores jogos, consoles e acessórios.</p>
+                <p>Fortaleza - CE, Brasil</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <p><a href="./index.html">Início</a></p>
+                <p><a href="./indexnintendo.html">Nintendo</a></p>
+                <p><a href="./indexXbox.html">Xbox</a></p>
+                <p><a href="./indexplaystation.html">PlayStation</a></p>
+                <p><a href="./console.html">Consoles</a></p>
+                <p><a href="./acessorios.html">Acessórios</a></p>
+                <p><a href="./indexsuporte.html">Suporte</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+                <p style="margin-top: 15px;">contato@fatalityshop.com.br</p>
+            </div>
         </div>
-        <p style="margin-top:15px; color:#ccc;">© 2025 Loja de Jogos. Todos os direitos reservados.</p>
+        
+        <div class="copyright">
+            &copy; 2025 FATALITY SHOP. Todos os direitos reservados. | Desenvolvido por Eduardo
+        </div>
     </footer>
 
     <script>
-        const carouselGames = [
-            {
-                img: "https://www.deviante.com.br/wp-content/uploads/2017/03/zelda-breath-of-the-wild-ID.jpg",
-                title: "Zelda Breath of The Wild",
-                desc: "Jogue o mundo aberto juntamente com Link no complexo e rico universo de The Legend of Zelda, uma das franquias de destaques da Nintendo.",
-                price: "R$ 299,00"
-            },
-            {
-                img: "https://cdn1.epicgames.com/spt-assets/edaff839f0734d16bc89d2ddb1dc9339/steel-magnolia-15owu.jpg",
-                title: "God of War Ragnarok",
-                desc: "Jogue o premiado exclusivo da Sony e acompanhe a aventura do novo Kratos com seu filho Atreus na mitologia nórdica.",
-                price: "R$ 279,90"
-            },
-            {
-                img: "https://jogandocasualmente.com.br/wp-content/uploads/2022/01/review-halo-infinite-xbox-series-s-capa.jpg",
-                title: "Halo Infinite",
-                desc: "Jogue o aclamado jogo da lendária franquia exclusiva de Xbox, Halo Infinite.",
-                price: "R$ 219,90"
-            },
-            {
-                img: "https://cdn.ome.lt/NdbkGvoKC9vx4ClynECjqo_ZOis=/1200x630/smart/extras/conteudos/The_Last_of_Us_2_final_diferente.jpg",
-                title: "The Last of Us II",
-                desc: "Jogue a sequência da história da Ellie em The Last of Us II, premiado jogo da Sony.",
-                price: "R$ 168,90"
-            },
-            {
-                img: "https://assets.nintendo.com/image/upload/q_auto/f_auto/ncom/software/switch/70010000012332/ac4d1fc9824876ce756406f0525d50c57ded4b2a666f6dfe40a6ac5c3563fad9",
-                title: "Super Smash Bros",
-                desc: "Diversão com os amigos! Jogue o jogo de luta com os personagens mais clássicos da Nintendo e personagens convidados.",
-                price: "R$ 279,00"
-            },
-            {
-                img: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1623730/c961ac047294838bfe382bf193ade5c64b19e573/capsule_616x353.jpg?t=1737094038",
-                title: "Palworld",
-                desc: "Explore um mundo aberto do jogo de sobrevivência Palworld, conhecidos como 'Pokémons de armas', tente pegar todos os 'Pals'!",
-                price: "R$ 99,66"
-            },
-            {
-                img: "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch-2/70010000095203/12d36a4c9bbf43a4babba2f203e1e271ef08de143349e08231dff56fd2bef70e",
-                title: "Street Fighter VI",
-                desc: "Jogue o mais recente jogo da clássica franquia de jogos de luta Street Fighter VI!",
-                price: "R$ 249,90"
-            },
-            {
-                img: "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F03c433b0-f112-4978-93a4-f939bdf8f548_1920x1080.jpeg",
-                title: "Call of Duty Black Ops 6",
-                desc: "War never change... Jogue o clássico dos fps Call of Duty com o título mais recente da saga Black Ops.",
-                price: "R$ 199,99"
-            }
-        ];
+        let cartCount = 0;
+        let cartTotal = 0;
+        const cartCountEl = document.getElementById("cart-count");
+        const cartItemsEl = document.getElementById("cart-items");
+        const cartTotalEl = document.getElementById("cart-total");
+        const cartModal = document.getElementById("cart-modal");
+        const carrinho = [];
 
-        let currentSlide = 0;
-        let carouselInterval;
+        // Adiciona evento de clique para todos os botões de adicionar ao carrinho
+        document.querySelectorAll('.toggle').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const gameTitle = this.getAttribute('data-title');
+                const gamePrice = parseFloat(this.getAttribute('data-price'));
+                const botaoEl = this.nextElementSibling;
 
-        function renderCarousel() {
-            const slide = document.getElementById('carousel-slide');
-            const dots = document.getElementById('carousel-dots');
-            slide.innerHTML = '';
-            dots.innerHTML = '';
-            carouselGames.forEach((game, idx) => {
-                const item = document.createElement('div');
-                item.className = 'carousel-item' + (idx === currentSlide ? ' active' : '');
-                item.innerHTML = `
-                    <img src="${game.img}" alt="${game.title}" class="carousel-img">
-                    <div class="carousel-info">
-                        <h2>${game.title}</h2>
-                        <p>${game.desc}</p>
-                        <div class="carousel-price">${game.price}</div>
-                    </div>
-                `;
-                slide.appendChild(item);
+                if (this.checked) {
+                    // Adiciona efeito sonoro (simulado)
+                    playSoundEffect('add');
+                    
+                    carrinho.push({ 
+                        title: gameTitle, 
+                        price: gamePrice,
+                        quantity: 1
+                    });
+                    cartCount++;
+                    cartTotal += gamePrice;
+                } else {
+                    // Remove item do carrinho
+                    const idx = carrinho.findIndex(item => item.title === gameTitle);
+                    if (idx !== -1) {
+                        cartTotal -= carrinho[idx].price * carrinho[idx].quantity;
+                        carrinho.splice(idx, 1);
+                        cartCount--;
+                    }
+                }
 
-                const dot = document.createElement('button');
-                dot.className = 'carousel-dot' + (idx === currentSlide ? ' active' : '');
-                dot.onclick = () => { goToSlide(idx); };
-                dots.appendChild(dot);
+                updateCartDisplay();
             });
+        });
+
+        // Função para atualizar a exibição do carrinho
+        function updateCartDisplay() {
+            cartCountEl.textContent = cartCount;
+            cartTotalEl.textContent = `Total: R$${cartTotal.toFixed(2).replace('.', ',')}`;
+            
+            // Atualiza o modal se estiver aberto
+            if (cartModal.style.display === "flex") {
+                renderCartItems();
+            }
         }
 
-        function goToSlide(idx) {
-            currentSlide = idx;
-            renderCarousel();
-            resetCarouselInterval();
+        // Função para renderizar os itens do carrinho
+        function renderCartItems() {
+            cartItemsEl.innerHTML = "";
+            
+            if (carrinho.length === 0) {
+                cartItemsEl.innerHTML = "<li style='text-align:center; padding:20px;'>Seu carrinho está vazio.</li>";
+            } else {
+                carrinho.forEach(item => {
+                    const li = document.createElement('li');
+                    
+                    li.innerHTML = `
+                        <div style="flex:1;">${item.title}</div>
+                        <div style="width:100px; text-align:right;">
+                            R$${item.price.toFixed(2).replace('.', ',')}
+                        </div>
+                        <div style="width:80px; display:flex; align-items:center; justify-content:space-between;">
+                            <button onclick="changeQuantity('${item.title}', -1)" style="background:none; border:none; color:white; cursor:pointer; font-size:1.2em;">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="changeQuantity('${item.title}', 1)" style="background:none; border:none; color:white; cursor:pointer; font-size:1.2em;">+</button>
+                        </div>
+                        <button onclick="removeItem('${item.title}')" style="background:none; border:none; color:var(--blood-red); cursor:pointer; margin-left:10px;">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    `;
+                    
+                    li.style.display = 'flex';
+                    li.style.alignItems = 'center';
+                    li.style.gap = '15px';
+                    cartItemsEl.appendChild(li);
+                });
+            }
         }
 
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % carouselGames.length;
-            renderCarousel();
-            resetCarouselInterval();
+        // Função para alterar quantidade
+        function changeQuantity(title, change) {
+            const item = carrinho.find(i => i.title === title);
+            if (item) {
+                const newQuantity = item.quantity + change;
+                
+                if (newQuantity > 0) {
+                    cartTotal += item.price * change;
+                    item.quantity = newQuantity;
+                } else {
+                    // Remove se quantidade chegar a zero
+                    removeItem(title);
+                }
+                
+                updateCartDisplay();
+                playSoundEffect('click');
+            }
         }
 
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + carouselGames.length) % carouselGames.length;
-            renderCarousel();
-            resetCarouselInterval();
+        // Função para remover item
+        function removeItem(title) {
+            const idx = carrinho.findIndex(item => item.title === title);
+            if (idx !== -1) {
+                cartTotal -= carrinho[idx].price * carrinho[idx].quantity;
+                carrinho.splice(idx, 1);
+                cartCount--;
+                
+                // Desmarca o checkbox correspondente
+                const checkbox = document.querySelector(`.toggle[data-title="${title}"]`);
+                if (checkbox) checkbox.checked = false;
+                
+                updateCartDisplay();
+                playSoundEffect('remove');
+            }
         }
 
-        function resetCarouselInterval() {
-            clearInterval(carouselInterval);
-            carouselInterval = setInterval(nextSlide, 5000);
+        // Função para abrir/fechar o modal do carrinho
+        function toggleCartModal() {
+            if (cartModal.style.display === "flex") {
+                cartModal.style.display = "none";
+                playSoundEffect('close');
+            } else {
+                renderCartItems();
+                cartModal.style.display = "flex";
+                playSoundEffect('open');
+            }
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            renderCarousel();
-            document.getElementById('next-slide').onclick = nextSlide;
-            document.getElementById('prev-slide').onclick = prevSlide;
-            carouselInterval = setInterval(nextSlide, 5000);
+        // Função para efeitos sonoros (simulados)
+        function playSoundEffect(type) {
+            // Na prática, você implementaria sons reais aqui
+            console.log(`Playing ${type} sound effect`);
+        }
+
+        // Evento para fechar o modal ao clicar fora
+        cartModal.addEventListener('click', function(e) {
+            if (e.target === cartModal) {
+                toggleCartModal();
+            }
+        });
+
+        // Evento para o botão de finalizar compra
+        document.querySelector('.checkout').addEventListener('click', function() {
+            if (carrinho.length > 0) {
+                alert('Compra finalizada! Obrigado por escolher a FATALITY SHOP!');
+                carrinho.length = 0;
+                cartCount = 0;
+                cartTotal = 0;
+                updateCartDisplay();
+                toggleCartModal();
+                
+                // Desmarca todos os checkboxes
+                document.querySelectorAll('.toggle').forEach(toggle => {
+                    toggle.checked = false;
+                });
+            } else {
+                alert('Seu carrinho está vazio!');
+            }
         });
     </script>
 </body>

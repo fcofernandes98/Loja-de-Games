@@ -1,514 +1,943 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8" />
-  <title>Loja de Jogos - Os Melhores Games e Consoles</title>
-  <link rel="stylesheet" href="https://icons.getbootstrap.com/icons/controller/">
-  <!-- Adicionando a fonte Montserrat do Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #121212;
-      color: #e0e0e0;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FATALITY SHOP - Consoles para Gamers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --blood-red: #d10000;
+            --dark-red: #8b0000;
+            --gold: #ffd700;
+            --dark-bg: #0a0a0a;
+            --neon-green: #0ddc17;
+        }
 
-    header,
-        footer {
-            background-color: #1f1f1f;
-            padding: 20px;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Bahnschrift', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            background-image: radial-gradient(circle, #1a1a1a 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER STYLES */
+        header {
+            background: linear-gradient(to right, #000, var(--dark-red));
+            padding: 15px 0;
             text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: relative;
+            border-bottom: 3px solid var(--gold);
         }
 
         header .logo {
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 15px;
         }
 
         header .logo img {
-            width: 40px;
-            margin-right: 10px;
+            width: 240px;
+            filter: drop-shadow(0 0 5px var(--blood-red));
         }
 
-    nav ul {
+        header h1 {
+            font-size: 2.8em;
+            color: #fff;
+            text-shadow: 2px 2px 0px var(--blood-red),
+                         4px 4px 0px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+            font-family: 'Arial Black', sans-serif;
+        }
+
+        .slogan {
+            color: var(--neon-green);
+            font-size: 1.2em;
+            text-shadow: 0 0 5px var(--neon-green);
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        /* NAVIGATION */
+        nav ul {
             list-style: none;
-            padding: 0;
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin-top: 10px;
+            gap: 25px;
+            margin-top: 20px;
+            flex-wrap: wrap;
         }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-    .inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 30px 20px;
-    }
-
-    .inner h2 {
-      color: #ffffff;
-      margin-bottom: 15px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #333333;
-      font-weight: 600; /* Aumentei o peso da fonte para 600 */
-    }
-
-    .inner p {
-      color: #b0b0b0;
-      line-height: 1.6;
-      font-weight: 400;
-    }
-
-    .tiles {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
-    }
-
-    .produto {
-      background-color: #1e1e1e;
-      border-radius: 8px;
-      overflow: hidden;
-      text-align: center;
-      transition: all 0.3s ease;
-      position: relative;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-      border: 1px solid #333333;
-    }
-
-    .produto:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-
-    .produto img {
-      width: 100%;
-      height: 200px;
-      object-fit: contain;
-      padding: 25px;
-      background-color: #252525;
-    }
-
-    .titulo {
-      font-size: 1.1rem;
-      font-weight: 500;
-      margin: 15px 0 5px;
-      color: #ffffff;
-    }
-
-    .preco {
-      font-size: 1.2rem;
-      color: #4CAF50;
-      font-weight: 600;
-    }
-
-    .preco-antigo {
-      font-size: 0.9rem;
-      color: #757575;
-      text-decoration: line-through;
-      margin-left: 6px;
-    }
-
-    footer {
-      background-color: #121212;
-      color: #b0b0b0;
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 50px;
-      border-top: 1px solid #333;
-    }
-
-    .icons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 15px;
-    }
-
-    .icons a {
-      color: #757575;
-      font-size: 1.5rem;
-      transition: color 0.3s ease;
-    }
-
-    .icons a:hover {
-      color: #ffffff;
-    }
-
-    footer p {
-      font-size: 0.9rem;
-      color: #757575;
-      margin-top: 15px;
-      font-weight: 400;
-    }
-    
-    /* Estilos do carrinho */
-    #cart-icon {
-      position: absolute;
-      top: 30px;
-      right: 30px;
-      font-size: 24px;
-      cursor: pointer;
-      color: #ffffff;
-    }
-    
-    #cart-count {
-      background: #4CAF50;
-      color: white;
-      border-radius: 50%;
-      padding: 2px 8px;
-      font-size: 14px;
-      margin-left: 5px;
-    }
-    
-    /* Modal do carrinho */
-    #cart-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.7);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    #cart-modal > div {
-      background: #1e1e1e;
-      color: #e0e0e0;
-      padding: 30px;
-      max-width: 500px;
-      width: 90%;
-      border-radius: 8px;
-      position: relative;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-      border: 1px solid #333;
-    }
-    
-    #cart-items {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 25px;
-      max-height: 300px;
-      overflow-y: auto;
-    }
-    
-    #cart-items li {
-      padding: 12px 0;
-      border-bottom: 1px solid #333;
-      color: #e0e0e0;
-      font-weight: 400;
-    }
-    
-    /* Botão de adicionar ao carrinho */
-    .botao-container {
-      margin: 15px 0;
-      display: none;
-    }
-    
-    .produto:hover .botao-container {
-      display: block;
-    }
-    
-    .botao {
-      display: inline-block;
-      padding: 8px 15px;
-      background-color: #333;
-      color: white;
-      text-align: center;
-      border-radius: 5px;
-      cursor: pointer;
-      user-select: none;
-      border: none;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-      width: 80%;
-      margin: 0 auto;
-      font-weight: 500;
-    }
-    
-    .botao:hover {
-      background-color: #444;
-    }
-    
-    .toggle {
-      display: none;
-    }
-    
-    .toggle:checked + .botao {
-      background-color: #4CAF50;
-    }
-    
-    .toggle + .botao::after {
-      content: "Adicionar ao carrinho";
-    }
-    
-    .toggle:checked + .botao::after {
-      content: "Adicionado ✓";
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.8rem;
-      }
-      
-      nav ul {
-        gap: 15px;
-        flex-wrap: wrap;
-      }
-      
-      .tiles {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      }
-      
-      #cart-icon {
-        top: 20px;
-        right: 20px;
-      }
-    }
-  nav ul li {
+        nav ul li {
             position: relative;
         }
 
-        .submenu {
-            display: none;
-            position: absolute;
-            top: 0%;
-            margin-top: 30px;
-            left: 0;
-            background-color: #333;
-            padding: 20%;
-            border-radius: 5%;
-            text-align: justify;
-        }
-
-        nav ul li:hover .submenu {
-            display: flex;
-            flex-direction: column;
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         nav a:hover {
-            background-color: #ff4b2b;
+            background-color: var(--blood-red);
+            color: #fff;
+            box-shadow: 0 0 15px var(--blood-red);
+            transform: translateY(-2px);
+        }
+
+        /* SUBMENU */
+      /* ================================================== */
+/* ESTILOS DO SUBMENU - VERSÃO COMPACTA SEM ESPAÇOS */
+/* ================================================== */
+
+/* Container principal do submenu (inicialmente invisível) */
+.submenu {
+    opacity: 0;                /* Totalmente transparente */
+    visibility: hidden;        /* Escondido da visualização */
+    position: absolute;        /* Posicionamento absoluto em relação ao menu pai */
+    top: 100%;                 /* Posicionado logo abaixo do item do menu */
+    left: 0;                   /* Alinhado à esquerda do item pai */
+    background-color: #222;    /* Cor de fundo escura */
+    padding: 0;                /* SEM espaçamento interno (remove o espaço azul) */
+    border-radius: 0 0 5px 5px; /* Bordas arredondadas apenas na parte inferior */
+    min-width: 160px;          /* Largura mínima do submenu */
+    z-index: 100;              /* Garante que fique acima de outros elementos */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Sombra para efeito de profundidade */
+    border-top: 3px solid var(--blood-red); /* Linha vermelha no topo como detalhe */
+    font-size: 0.85em;         /* Tamanho de fonte reduzido */
+    transition: opacity 0.2s ease, visibility 0.2s ease; /* Animação suave de aparecimento */
+}
+
+/* Cada item da lista do submenu */
+.submenu li {
+    width: 100%;              /* Ocupa 100% da largura disponível */
+    margin: 0;                /* Remove qualquer margem entre itens */
+}
+
+/* Links clicáveis do submenu */
+.submenu a {
+    display: block;           /* Transforma em bloco para preencher toda a área */
+    padding: 5px 10px;        /* Espaçamento interno mínimo (5px topo/baixo, 10px laterais) */
+    color: #ddd;              /* Cor do texto cinza claro */
+    transition: background-color 0.15s; /* Transição suave da cor de fundo */
+}
+
+/* Efeito quando o mouse passa sobre os links */
+.submenu a:hover {
+    background-color: var(--dark-red); /* Fundo vermelho escuro */
+    color: #fff;              /* Texto branco no hover */
+}
+
+/* Regras para exibir o submenu quando:
+   - O mouse está sobre o item do menu principal (li:hover)
+   - OU sobre o próprio submenu */
+nav ul li:hover .submenu,
+.submenu:hover {
+    opacity: 1;               /* Torna totalmente visível */
+    visibility: visible;      /* Mostra o elemento */
+}
+
+        /* MAIN CONTENT */
+        .container {
+            max-width: 1300px;
+            margin: 30px auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            text-align: center;
+            margin: 40px 0;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green);
+            position: relative;
+            letter-spacing: 2px;
+        }
+
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--blood-red);
+            margin: 15px auto;
+        }
+
+        /* CONSOLES GRID */
+        .consoles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .console-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid #333;
+        }
+
+        .console-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px var(--blood-red);
+            border-color: var(--blood-red);
+        }
+
+        .console-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            background-color: #2c2c2c;
+            padding: 20px;
+            border-bottom: 2px solid #2c2c2c;
+        }
+
+        .console-info {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .console-info h2 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #fff;
+            min-height: 50px;
+        }
+
+        .console-info p {
+            font-size: 0.9em;
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--neon-green);
+            text-shadow: 0 0 5px var(--neon-green);
+            margin-bottom: 10px;
+        }
+
+        .price .old-price {
+            font-size: 1rem;
+            color: #888;
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+
+        /* BUTTONS */
+        .botao-container {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            display: none;
+        }
+
+        .console-card:hover .botao-container {
+            display: block;
+        }
+
+        .botao {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(to bottom, var(--blood-red), var(--dark-red));
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            user-select: none;
+            border: none;
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .botao:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--blood-red);
+        }
+
+        .toggle {
+            display: none;
+        }
+
+        .toggle:checked + .botao {
+            background: linear-gradient(to bottom, var(--neon-green), #0a8a11);
+        }
+
+        .toggle + .botao::after {
+            content: "Adicionar";
+        }
+
+        .toggle:checked + .botao::after {
+            content: "Adicionado ✓";
+        }
+
+        /* CART STYLES */
+        #cart-icon {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        #cart-icon:hover {
+            color: var(--neon-green);
+            transform: scale(1.1);
+        }
+        
+        #cart-count {
+            background: #fff;
+            color: var(--blood-red);
+            border-radius: 50%;
+            padding: 2px 8px;
+            font-size: 14px;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+        
+        /* CART MODAL */
+        #cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #cart-modal > div {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 25px;
+            max-width: 600px;
+            width: 90%;
+            border-radius: 10px;
+            position: relative;
+            border: 2px solid var(--blood-red);
+            box-shadow: 0 0 30px var(--blood-red);
+        }
+        
+        #cart-items {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        #cart-items li {
+            padding: 10px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #cart-items li:last-child {
+            border-bottom: none;
+        }
+
+        .cart-total {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: var(--neon-green);
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .cart-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .cart-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .cart-buttons button:hover {
+            transform: translateY(-2px);
+        }
+
+        .close-cart {
+            background: #333;
+            color: white;
+        }
+
+        .checkout {
+            background: linear-gradient(to bottom, var(--blood-red), var(--dark-red));
+            color: white;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(to right, #000, #222);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+            border-top: 3px solid var(--blood-red);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .footer-section h3 {
+            color: var(--neon-green);
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5em;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--neon-green);
+            transform: scale(1.2);
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        /* BADGES */
+        .console-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--blood-red);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            z-index: 1;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .consoles-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .console-card img {
+                height: 200px;
+            }
+            
+            #cart-icon {
+                top: 20px;
+                right: 20px;
+            }
+            
+            nav ul {
+                gap: 10px;
+            }
+
+            .submenu {
+                position: static;
+                display: none;
+                width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            nav ul li:hover .submenu {
+                display: block;
+                position: static;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="./images/logo.svg" alt="Logo" />
-            <h1>Loja de Jogos</h1>
+            <img src="images/logoprincipal.png" alt="FATALITY SHOP Logo">
+            <h1>FATALITY SHOP</h1>
+            <p class="slogan">WHERE GAMERS MEET THEIR DESTINY</p>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-             <li>
+                <li><a href="./index.html">Início</a></li>
+                <li>
                     <a href="#">Jogos</a>
                     <ul class="submenu">
                         <li><a href="./indexXbox.html">Xbox</a></li>
+                        <li><a href="./indexplaystation.html">PlayStation</a></li>
                         <li><a href="./indexnintendo.html">Nintendo</a></li>
-                        <li><a href="./indexplaystation.html">Playstation</a></li>
                     </ul>
                 </li>
                 <li><a href="./console.html">Consoles</a></li>
-                <li><a href="./acessorios.html">Acessorios</a></li>
-                <li><a href="./indexsuporte.html" target="_blank">Suporte</a></li>
+                <li><a href="./acessorios.html">Acessórios</a></li>
+                <li><a href="./indexsuporte.html">Suporte</a></li>
             </ul>
         </nav>
+        
+        <!-- Ícone do carrinho -->
+        <div id="cart-icon" onclick="toggleCartModal()">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </div>
     </header>
-    
-    <!-- Ícone do carrinho -->
-    <div id="cart-icon" onclick="toggleCartModal()">
-      <i class="bi bi-cart3"></i>
-      <span id="cart-count">0</span>
+
+    <div class="container">
+        <h1 class="section-title">CONSOLES EM DESTAQUE</h1>
+        
+        <div class="consoles-grid">
+            <div class="console-card">
+                <div class="console-badge">Exclusivo</div>
+                <img src="./images/ps5.jpg" alt="PlayStation 5">
+                <div class="console-info">
+                    <h2>PlayStation 5</h2>
+                    <p>Console PlayStation 5 Edição Digital - 825GB SSD</p>
+                    <p class="price">R$4.299,90 <span class="old-price">R$4.999,90</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="PlayStation 5 Digital" data-price="4299.90"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="console-card">
+                <div class="console-badge">Mais Vendido</div>
+                <img src="./images/ps5,1.png" alt="PlayStation 5 com Leitor">
+                <div class="console-info">
+                    <h2>PlayStation 5 com Leitor</h2>
+                    <p>Console PlayStation 5 com Leitor de Discos - 825GB SSD</p>
+                    <p class="price">R$4.799,90 <span class="old-price">R$5.299,90</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="PlayStation 5 com Leitor" data-price="4799.90"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="console-card">
+                <div class="console-badge">Promoção</div>
+                <img src="./images/xboxx.png" alt="Xbox Series X">
+                <div class="console-info">
+                    <h2>Xbox Series X</h2>
+                    <p>Console Xbox Series X - 1TB SSD</p>
+                    <p class="price">R$4.499,90 <span class="old-price">R$4.999,90</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="Xbox Series X" data-price="4499.90"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="console-card">
+                <div class="console-badge">Melhor Custo</div>
+                <img src="./images/xboxs.png" alt="Xbox Series S">
+                <div class="console-info">
+                    <h2>Xbox Series S</h2>
+                    <p>Console Xbox Series S - 512GB SSD</p>
+                    <p class="price">R$2.299,90 <span class="old-price">R$2.799,90</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="Xbox Series S" data-price="2299.90"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="console-card">
+                <div class="console-badge">Lançamento</div>
+                <img src="./images/nitendooled.jpg" alt="Nintendo Switch OLED">
+                <div class="console-info">
+                    <h2>Nintendo Switch OLED</h2>
+                    <p>Console Nintendo Switch Modelo OLED - 64GB</p>
+                    <p class="price">R$2.499,90 <span class="old-price">R$2.999,90</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="Nintendo Switch OLED" data-price="2499.90"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="console-card">
+                <div class="console-badge">Clássico</div>
+                <img src="./images/switch.jpg" alt="Nintendo Switch">
+                <div class="console-info">
+                    <h2>Nintendo Switch</h2>
+                    <p>Console Nintendo Switch - 32GB</p>
+                    <p class="price">R$2.099,90 <span class="old-price">R$2.499,90</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="Nintendo Switch" data-price="2099.90"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="console-card">
+                <div class="console-badge">Edição Limitada</div>
+                <img src="./images/ps5god.jpg" alt="PS5 Edição God of War">
+                <div class="console-info">
+                    <h2>PS5 Edição God of War</h2>
+                    <p>Console PS5 Edição Especial God of War Ragnarök</p>
+                    <p class="price">R$5.199,90 <span class="old-price">R$5.799,90</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="PS5 Edição God of War" data-price="5199.90"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="console-card">
+                <div class="console-badge">Bundle</div>
+                <img src="./images/xboxpass.png" alt="Xbox Series X + Game Pass">
+                <div class="console-info">
+                    <h2>Xbox Series X + Game Pass</h2>
+                    <p>Console Xbox Series X + 12 meses Game Pass Ultimate</p>
+                    <p class="price">R$5.299,90 <span class="old-price">R$5.999,90</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="Xbox Series X + Game Pass" data-price="5299.90"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
     </div>
-  </header>
 
-  <div class="inner">
-    <h2>Sobre a Loja de Jogos</h2>
-    <p>
-      A <strong>Loja de Jogos</strong>  foca em games e consoles de alta qualidade, oferecendo os melhores produtos com garantia e suporte tecnico especializado. Queremos proporcionar, para gamers, atendimento especial e interativo.
-    </p>
-
-    <h2>Consoles em Destaque</h2>
-    <section class="tiles">
-      <div class="produto">
-        <img src="https://m.media-amazon.com/images/I/5194E5ZdV7L._AC_UF1000,1000_QL80_.jpg" alt="PlayStation 5">
-        <div class="titulo">PlayStation 5 Digital Edition</div>
-        <div class="preco">R$3.899,90 <span class="preco-antigo">R$4.299,90</span></div>
-        <div class="botao-container">
-          <label>
-            <input type="checkbox" class="toggle" data-title="PlayStation 5 Digital Edition" data-price="R$3.899,90">
-            <span class="botao"></span>
-          </label>
+    <!-- Modal do carrinho -->
+    <div id="cart-modal">
+        <div>
+            <h2 style="color: var(--neon-green); text-align: center; margin-bottom: 20px;">SEU CARRINHO</h2>
+            <ul id="cart-items"></ul>
+            <div class="cart-total" id="cart-total">Total: R$0,00</div>
+            <div class="cart-buttons">
+                <button class="close-cart" onclick="toggleCartModal()">Continuar Comprando</button>
+                <button class="checkout">Finalizar Compra</button>
+            </div>
         </div>
-      </div>
-
-      <div class="produto">
-        <img src="https://cgngamesbh.com.br/product_images/p/164/PS5_Slim_site__36175_zoom.png" alt="PlayStation 5">
-        <div class="titulo">PlayStation 5 com Leitor de Discos</div>
-        <div class="preco">R$4.299,90 <span class="preco-antigo">R$4.599,90</span></div>
-        <div class="botao-container">
-          <label>
-            <input type="checkbox" class="toggle" data-title="PlayStation 5 com Leitor de Discos" data-price="R$4.299,90">
-            <span class="botao"></span>
-          </label>
-        </div>
-      </div>
-
-      <div class="produto">
-        <img src="https://cms-assets.xboxservices.com/assets/c5/30/c53042dc-6a60-43f7-b1ff-0b4e018edbbe.png?n=642227_Hero-Gallery-0_A4_857x676.png" alt="Xbox Series X">
-        <div class="titulo">Xbox Series X 1TB</div>
-        <div class="preco">R$3.999,90 <span class="preco-antigo">R$4.499,90</span></div>
-        <div class="botao-container">
-          <label>
-            <input type="checkbox" class="toggle" data-title="Xbox Series X 1TB" data-price="R$3.999,90">
-            <span class="botao"></span>
-          </label>
-        </div>
-      </div>
-
-      <div class="produto">
-        <img src="https://m.media-amazon.com/images/I/71vfjwI5ECS._AC_UF1000,1000_QL80_.jpg" alt="Xbox Series S">
-        <div class="titulo">Xbox Series S 512GB</div>
-        <div class="preco">R$2.199,90 <span class="preco-antigo">R$2.599,90</span></div>
-        <div class="botao-container">
-          <label>
-            <input type="checkbox" class="toggle" data-title="Xbox Series S 512GB" data-price="R$2.199,90">
-            <span class="botao"></span>
-          </label>
-        </div>
-      </div>
-
-      <div class="produto">
-        <img src="https://m.media-amazon.com/images/I/7148mbvrbWL._AC_UF1000,1000_QL80_.jpg" alt="Nintendo Switch OLED">
-        <div class="titulo">Nintendo Switch OLED</div>
-        <div class="preco">R$2.299,90 <span class="preco-antigo">R$2.599,90</span></div>
-        <div class="botao-container">
-          <label>
-            <input type="checkbox" class="toggle" data-title="Nintendo Switch OLED" data-price="R$2.299,90">
-            <span class="botao"></span>
-          </label>
-        </div>
-      </div>
-
-      <div class="produto">
-        <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-lxxj6e5pf24631" alt="Nintendo Switch">
-        <div class="titulo">Nintendo Switch Standard</div>
-        <div class="preco">R$1.999,90 <span class="preco-antigo">R$2.299,90</span></div>
-        <div class="botao-container">
-          <label>
-            <input type="checkbox" class="toggle" data-title="Nintendo Switch Standard" data-price="R$1.999,90">
-            <span class="botao"></span>
-          </label>
-        </div>
-      </div>
-    </section>
-  </div>
-  
-  <!-- Modal do carrinho -->
-  <div id="cart-modal">
-    <div>
-      <h2 style="color: #4CAF50;">Seu Carrinho</h2>
-      <ul id="cart-items"></ul>
-      <button onclick="toggleCartModal()" style="background:#757575; color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; transition: background-color 0.3s ease;">Fechar</button>
-      <button onclick="checkout()" style="background:#4CAF50; color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; margin-left: 10px; transition: background-color 0.3s ease;">Finalizar Compra</button>
     </div>
-  </div>
 
-  <footer>
-    <div class="icons">
-      <a href="#"><i class="bi bi-twitter"></i></a>
-      <a href="#"><i class="bi bi-facebook"></i></a>
-      <a href="#"><i class="bi bi-instagram"></i></a>
-      <a href="#"><i class="bi bi-envelope"></i></a>
-    </div>
-    <p>© 2025 Loja de Jogos - Todos os direitos reservados.</p>
-  </footer>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>A FATALITY SHOP é a loja definitiva para gamers hardcore. Oferecemos os melhores jogos, consoles e acessórios.</p>
+                <p>Fortaleza - CE, Brasil</p>
+            </div>
+       <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <p><a href="./index.html">Início</a></p>
+                <p><a href="./indexnintendo.html">Nintendo</a></p>
+                <p><a href="./indexXbox.html">Xbox</a></p>
+                <p><a href="./indexplaystation.html">PlayStation</a></p>
+                <p><a href="./console.html">Consoles</a></p>
+                <p><a href="./acessorios.html">Acessórios</a></p>
+                <p><a href="./indexsuporte.html">Suporte</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+                <p style="margin-top: 15px;">contato@fatalityshop.com.br</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2024 FATALITY SHOP. Todos os direitos reservados. | Desenvolvido por Eduardo
+        </div>
+    </footer>
 
-  <script>
-    let cartCount = 0;
-    const cartCountEl = document.getElementById("cart-count");
-    const cartItemsEl = document.getElementById("cart-items");
-    const cartModal = document.getElementById("cart-modal");
-    const carrinho = [];
+    <script>
+        let cartCount = 0;
+        let cartTotal = 0;
+        const cartCountEl = document.getElementById("cart-count");
+        const cartItemsEl = document.getElementById("cart-items");
+        const cartTotalEl = document.getElementById("cart-total");
+        const cartModal = document.getElementById("cart-modal");
+        const carrinho = [];
 
-    // Adiciona evento de clique para todos os botões de adicionar ao carrinho
-    document.querySelectorAll('.toggle').forEach(toggle => {
-      toggle.addEventListener('change', function() {
-        const produtoTitle = this.getAttribute('data-title');
-        const produtoPrice = this.getAttribute('data-price');
-        const botaoEl = this.nextElementSibling;
+        // Adiciona evento de clique para todos os botões de adicionar ao carrinho
+        document.querySelectorAll('.toggle').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const consoleTitle = this.getAttribute('data-title');
+                const consolePrice = parseFloat(this.getAttribute('data-price'));
+                const botaoEl = this.nextElementSibling;
 
-        if (this.checked) {
-          carrinho.push({ title: produtoTitle, price: produtoPrice });
-          cartCount++;
-        } else {
-          const idx = carrinho.findIndex(item => item.title === produtoTitle);
-          if (idx !== -1) carrinho.splice(idx, 1);
-          cartCount--;
+                if (this.checked) {
+                    // Adiciona efeito sonoro (simulado)
+                    playSoundEffect('add');
+                    
+                    carrinho.push({ 
+                        title: consoleTitle, 
+                        price: consolePrice,
+                        quantity: 1
+                    });
+                    cartCount++;
+                    cartTotal += consolePrice;
+                } else {
+                    // Remove item do carrinho
+                    const idx = carrinho.findIndex(item => item.title === consoleTitle);
+                    if (idx !== -1) {
+                        cartTotal -= carrinho[idx].price * carrinho[idx].quantity;
+                        carrinho.splice(idx, 1);
+                        cartCount--;
+                    }
+                }
+
+                updateCartDisplay();
+            });
+        });
+
+        // Função para atualizar a exibição do carrinho
+        function updateCartDisplay() {
+            cartCountEl.textContent = cartCount;
+            cartTotalEl.textContent = `Total: R$${cartTotal.toFixed(2).replace('.', ',')}`;
+            
+            // Atualiza o modal se estiver aberto
+            if (cartModal.style.display === "flex") {
+                renderCartItems();
+            }
         }
 
-        cartCountEl.textContent = cartCount;
-      });
-    });
-
-    // Função para abrir/fechar o modal do carrinho
-    function toggleCartModal() {
-      if (cartModal.style.display === "flex") {
-        cartModal.style.display = "none";
-      } else {
-        cartItemsEl.innerHTML = "";
-        if (carrinho.length === 0) {
-          cartItemsEl.innerHTML = "<li style='text-align: center; color: #757575;'>Seu carrinho está vazio.</li>";
-        } else {
-          carrinho.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = `${item.title} - ${item.price}`;
-            li.style.padding = "10px 0";
-            li.style.borderBottom = "1px solid #333";
-            cartItemsEl.appendChild(li);
-          });
+        // Função para renderizar os itens do carrinho
+        function renderCartItems() {
+            cartItemsEl.innerHTML = "";
+            
+            if (carrinho.length === 0) {
+                cartItemsEl.innerHTML = "<li style='text-align:center; padding:20px;'>Seu carrinho está vazio.</li>";
+            } else {
+                carrinho.forEach(item => {
+                    const li = document.createElement('li');
+                    
+                    li.innerHTML = `
+                        <div style="flex:1;">${item.title}</div>
+                        <div style="width:100px; text-align:right;">
+                            R$${item.price.toFixed(2).replace('.', ',')}
+                        </div>
+                        <div style="width:80px; display:flex; align-items:center; justify-content:space-between;">
+                            <button onclick="changeQuantity('${item.title}', -1)" style="background:none; border:none; color:white; cursor:pointer; font-size:1.2em;">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="changeQuantity('${item.title}', 1)" style="background:none; border:none; color:white; cursor:pointer; font-size:1.2em;">+</button>
+                        </div>
+                        <button onclick="removeItem('${item.title}')" style="background:none; border:none; color:var(--blood-red); cursor:pointer; margin-left:10px;">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    `;
+                    
+                    li.style.display = 'flex';
+                    li.style.alignItems = 'center';
+                    li.style.gap = '15px';
+                    cartItemsEl.appendChild(li);
+                });
+            }
         }
-        cartModal.style.display = "flex";
-      }
-    }
 
-    // Função para finalizar compra (simulação)
-    function checkout() {
-      if (carrinho.length === 0) {
-        alert("Seu carrinho está vazio!");
-        return;
-      }
-      
-      alert("Compra finalizada com sucesso! Obrigado por comprar na Loja de Jogos.");
-      carrinho.length = 0;
-      cartCount = 0;
-      cartCountEl.textContent = cartCount;
-      document.querySelectorAll('.toggle').forEach(toggle => {
-        toggle.checked = false;
-      });
-      toggleCartModal();
+        // Função para alterar quantidade
+        function changeQuantity(title, change) {
+            const item = carrinho.find(i => i.title === title);
+            if (item) {
+                const newQuantity = item.quantity + change;
+                
+                if (newQuantity > 0) {
+                    cartTotal += item.price * change;
+                    item.quantity = newQuantity;
+                } else {
+                    // Remove se quantidade chegar a zero
+                    removeItem(title);
+                }
+                
+                updateCartDisplay();
+                playSoundEffect('click');
+            }
+        }
+
+        // Função para remover item
+        function removeItem(title) {
+            const idx = carrinho.findIndex(item => item.title === title);
+            if (idx !== -1) {
+                cartTotal -= carrinho[idx].price * carrinho[idx].quantity;
+                carrinho.splice(idx, 1);
+                cartCount--;
+                
+                // Desmarca o checkbox correspondente
+                const checkbox = document.querySelector(`.toggle[data-title="${title}"]`);
+                if (checkbox) checkbox.checked = false;
+                
+                updateCartDisplay();
+                playSoundEffect('remove');
+            }
+        }
+
+        // Função para abrir/fechar o modal do carrinho
+        function toggleCartModal() {
+            if (cartModal.style.display === "flex") {
+                cartModal.style.display = "none";
+                playSoundEffect('close');
+            } else {
+                renderCartItems();
+                cartModal.style.display = "flex";
+                playSoundEffect('open');
+            }
+        }
+
+        // Função para efeitos sonoros (simulados)
+        function playSoundEffect(type) {
+            // Na prática, você implementaria sons reais aqui
+            console.log(`Playing ${type} sound effect`);
+        }
+
+        // Evento para fechar o modal ao clicar fora
+        cartModal.addEventListener('click', function(e) {
+            if (e.target === cartModal) {
+                toggleCartModal();
+            }
+        });
+
+        // Evento para o botão de finalizar compra
+        document.querySelector('.checkout').addEventListener('click', function() {
+            if (carrinho.length > 0) {
+                alert('Compra finalizada! Obrigado por escolher a FATALITY SHOP!');
+                carrinho.length = 0;
+                cartCount = 0;
+                cartTotal = 0;
+                updateCartDisplay();
+                toggleCartModal();
+                
+                // Desmarca todos os checkboxes
+                document.querySelectorAll('.toggle').forEach(toggle => {
+                    toggle.checked = false;
+                });
+            } else {
+                alert('Seu carrinho está vazio!');
+            }
+        });
+
+// filepath: c:\Users\eduma\OneDrive - Universidade Federal do Ceará\Área de Trabalho\estudos ;)\cursos\fullstack\oficina 3 edu\console.html
+
+// Submenu desaparece após 5 segundos ao sair com o mouse
+let submenuTimeout;
+
+document.querySelectorAll('nav ul li').forEach(function(li) {
+    const submenu = li.querySelector('.submenu');
+    if (submenu) {
+        li.addEventListener('mouseenter', function() {
+            clearTimeout(submenuTimeout);
+            submenu.style.opacity = '1';
+            submenu.style.visibility = 'visible';
+        });
+        li.addEventListener('mouseleave', function() {
+            submenuTimeout = setTimeout(function() {
+                submenu.style.opacity = '0';
+                submenu.style.visibility = 'hidden';
+            }, 3000); // 3 segundos
+        });
+        submenu.addEventListener('mouseenter', function() {
+            clearTimeout(submenuTimeout);
+            submenu.style.opacity = '1';
+            submenu.style.visibility = 'visible';
+        });
+        submenu.addEventListener('mouseleave', function() {
+            submenuTimeout = setTimeout(function() {
+                submenu.style.opacity = '0';
+                submenu.style.visibility = 'hidden';
+            }, 5000);
+        });
     }
-  </script>
+});
+    </script>
 </body>
 </html>

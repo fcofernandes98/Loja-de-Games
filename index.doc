@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FATALITY SHOP - Acessórios para Gamers</title>
+    <title>FATALITY SHOP - A Loja Definitiva para Gamers</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
@@ -122,7 +122,7 @@
     z-index: 100;              /* Garante que fique acima de outros elementos */
     box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Sombra para efeito de profundidade */
     border-top: 3px solid var(--blood-red); /* Linha vermelha no topo como detalhe */
-    font-size: 0.85em;         /* Tamanho de fonte reduzido */
+    font-size: 1em;         /* Tamanho de fonte reduzido */
     transition: opacity 0.2s ease, visibility 0.2s ease; /* Animação suave de aparecimento */
 }
 
@@ -154,7 +154,6 @@ nav ul li:hover .submenu,
     opacity: 1;               /* Torna totalmente visível */
     visibility: visible;      /* Mostra o elemento */
 }
-
         /* MAIN CONTENT */
         .container {
             max-width: 1300px;
@@ -182,14 +181,14 @@ nav ul li:hover .submenu,
             margin: 15px auto;
         }
 
-        /* ACCESSORIES GRID */
-        .accessories-grid {
+        /* GAMES GRID */
+        .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 30px;
         }
 
-        .accessory-card {
+        .game-card {
             background-color: #1a1a1a;
             border-radius: 10px;
             overflow: hidden;
@@ -201,22 +200,20 @@ nav ul li:hover .submenu,
             border: 1px solid #333;
         }
 
-        .accessory-card:hover {
+        .game-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 25px var(--blood-red);
             border-color: var(--blood-red);
         }
 
-        .accessory-card img {
+        .game-card img {
             width: 100%;
-            height: 220px;
-            object-fit: contain;
-            background-color: #2c2c2c;
-            padding: 20px;
+            height: 250px;
+            object-fit: cover;
             border-bottom: 2px solid #2c2c2c;
         }
 
-        .accessory-info {
+        .game-info {
             padding: 15px;
             flex-grow: 1;
             display: flex;
@@ -224,17 +221,11 @@ nav ul li:hover .submenu,
             justify-content: space-between;
         }
 
-        .accessory-info h2 {
+        .game-info h2 {
             font-size: 1.2em;
             margin-bottom: 10px;
             color: #fff;
             min-height: 50px;
-        }
-
-        .accessory-info p {
-            font-size: 0.9em;
-            color: #aaa;
-            margin-bottom: 15px;
         }
 
         .price {
@@ -259,7 +250,7 @@ nav ul li:hover .submenu,
             display: none;
         }
 
-        .accessory-card:hover .botao-container {
+        .game-card:hover .botao-container {
             display: block;
         }
 
@@ -469,21 +460,6 @@ nav ul li:hover .submenu,
             font-size: 0.9em;
         }
 
-        /* BADGES */
-        .accessory-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background-color: var(--blood-red);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 0.8em;
-            text-transform: uppercase;
-            z-index: 1;
-        }
-
         /* RESPONSIVE */
         @media (max-width: 768px) {
             header h1 {
@@ -494,12 +470,12 @@ nav ul li:hover .submenu,
                 font-size: 2em;
             }
 
-            .accessories-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            .games-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
                 gap: 20px;
             }
 
-            .accessory-card img {
+            .game-card img {
                 height: 200px;
             }
             
@@ -559,132 +535,116 @@ nav ul li:hover .submenu,
     </header>
 
     <div class="container">
-        <h1 class="section-title">ACESSÓRIOS FATALITY</h1>
+        <h1 class="section-title">JOGOS EM DESTAQUE</h1>
         
-        <div class="accessories-grid">
-            <div class="accessory-card">
-                <div class="accessory-badge">PlayStation</div>
-                <img src="./images/controle-sem-fio-.png" alt="Controle PS5 DualSense">
-                <div class="accessory-info">
-                    <h2>Controle PS5 DualSense</h2>
-                    <p>Controle sem fio DualSense para PlayStation 5</p>
-                    <p class="price">R$429,00 <span class="old-price">R$499,00</span></p>
+        <div class="games-grid">
+            <div class="game-card">
+                <img src="https://jploja.com/wp-content/uploads/2024/09/NBA-2k25-1.jpg" alt="NBA 2K25">
+                <div class="game-info">
+                    <h2>NBA 2K25</h2>
+                    <p class="price">R$149,99 <span class="old-price">R$200,45</span></p>
                 </div>
                 <div class="botao-container">
                     <label>
-                        <input type="checkbox" class="toggle" data-title="Controle PS5 DualSense" data-price="429.00"/>
+                        <input type="checkbox" class="toggle" data-title="NBA 2K25" data-price="149.99"/>
                         <span class="botao"></span>
                     </label>
                 </div>
             </div>
 
-            <div class="accessory-card">
-                <div class="accessory-badge">PlayStation</div>
-                <img src="./images/headset-ps5.png" alt="Headset PULSE 3D PS5">
-                <div class="accessory-info">
-                    <h2>Headset PULSE 3D PS5</h2>
-                    <p>Headset sem fio com áudio 3D para PlayStation 5</p>
-                    <p class="price">R$649,90 <span class="old-price">R$799,90</span></p>
+            <div class="game-card">
+                <img src="https://jploja.com/wp-content/uploads/2024/02/WWE-2k24-1.jpg" alt="WWE 2K24">
+                <div class="game-info">
+                    <h2>WWE 2K24</h2>
+                    <p class="price">R$203,99 <span class="old-price">R$249,90</span></p>
                 </div>
                 <div class="botao-container">
                     <label>
-                        <input type="checkbox" class="toggle" data-title="Headset PULSE 3D PS5" data-price="649.90"/>
+                        <input type="checkbox" class="toggle" data-title="WWE 2K24" data-price="203.99"/>
                         <span class="botao"></span>
                     </label>
                 </div>
             </div>
 
-            <div class="accessory-card">
-                <div class="accessory-badge">PlayStation</div>
-                <img src="./images/portal.jpg" alt="PlayStation Portal">
-                <div class="accessory-info">
-                    <h2>PlayStation Portal</h2>
-                    <p>Reprodutor portátil para jogar seus jogos PS5 remotamente</p>
-                    <p class="price">R$1.450,00 <span class="old-price">R$1.699,00</span></p>
+            <div class="game-card">
+                <img src="https://cdn1.epicgames.com/spt-assets/edaff839f0734d16bc89d2ddb1dc9339/steel-magnolia-15owu.jpg" alt="COD Black Op 6">
+                <div class="game-info">
+                    <h2>Call Of Duty Black Ops 6</h2>
+                    <p class="price">R$199,99 <span class="old-price">R$279,99</span></p>
                 </div>
                 <div class="botao-container">
                     <label>
-                        <input type="checkbox" class="toggle" data-title="PlayStation Portal" data-price="1450.00"/>
+                        <input type="checkbox" class="toggle" data-title="Call Of Duty Black Ops 6" data-price="199.99"/>
                         <span class="botao"></span>
                     </label>
                 </div>
             </div>
 
-            <div class="accessory-card">
-                <div class="accessory-badge">Xbox</div>
-                <img src="./images/controlex.jpg" alt="Controle Xbox Series X">
-                <div class="accessory-info">
-                    <h2>Controle Xbox Series X</h2>
-                    <p>Controle sem fio para Xbox Series X/S - Preto</p>
-                    <p class="price">R$409,00 <span class="old-price">R$459,00</span></p>
+            <div class="game-card">
+                <img src="https://rihappy.vtexassets.com/arquivos/ids/6768658/17274529983515.jpg?v=638640043739470000" alt="FIFA 25">
+                <div class="game-info">
+                    <h2>FIFA 25</h2>
+                    <p class="price">R$99,89 <span class="old-price">R$299,00</span></p>
                 </div>
                 <div class="botao-container">
                     <label>
-                        <input type="checkbox" class="toggle" data-title="Controle Xbox Series X" data-price="409.00"/>
+                        <input type="checkbox" class="toggle" data-title="FIFA 25" data-price="99.89"/>
                         <span class="botao"></span>
                     </label>
                 </div>
             </div>
 
-            <div class="accessory-card">
-                <div class="accessory-badge">Xbox</div>
-                <img src="./images/headsetxbox.jpg" alt="Headset Xbox">
-                <div class="accessory-info">
-                    <h2>Headset Xbox</h2>
-                    <p>Headset com fio para Xbox Series X/S com áudio surround</p>
-                    <p class="price">R$702,00 <span class="old-price">R$849,00</span></p>
+            <div class="game-card">
+                <img src="https://www.wowgames.com.br/wp-content/uploads/2024/01/XONE-Palworld-jpg.webp" alt="Palworld">
+                <div class="game-info">
+                    <h2>Palworld</h2>
+                    <p class="price">R$99,66 <span class="old-price">R$149,99</span></p>
                 </div>
                 <div class="botao-container">
                     <label>
-                        <input type="checkbox" class="toggle" data-title="Headset Xbox" data-price="702.00"/>
+                        <input type="checkbox" class="toggle" data-title="Palworld" data-price="99.66"/>
                         <span class="botao"></span>
                     </label>
                 </div>
             </div>
 
-            <div class="accessory-card">
-                <div class="accessory-badge">Nintendo</div>
-                <img src="./images/volante.png" alt="Kit Volantes Nintendo Switch">
-                <div class="accessory-info">
-                    <h2>Kit Volantes Nintendo</h2>
-                    <p>Kit com 2 volantes para Nintendo Switch OLED</p>
-                    <p class="price">R$77,00 <span class="old-price">R$99,00</span></p>
+            <div class="game-card">
+                <img src="https://gocdkeys.com/images/games/phasmophobia-xbox-one.jpg" alt="Phasmophobia">
+                <div class="game-info">
+                    <h2>Phasmophobia</h2>
+                    <p class="price">R$54,17 <span class="old-price">R$85,90</span></p>
                 </div>
                 <div class="botao-container">
                     <label>
-                        <input type="checkbox" class="toggle" data-title="Kit Volantes Nintendo Switch" data-price="77.00"/>
+                        <input type="checkbox" class="toggle" data-title="Phasmophobia" data-price="54.17"/>
                         <span class="botao"></span>
                     </label>
                 </div>
             </div>
 
-            <div class="accessory-card">
-                <div class="accessory-badge">Nintendo</div>
-                <img src="./images/controle-nitendo.png" alt="Controle Joy-Con Nintendo">
-                <div class="accessory-info">
-                    <h2>Controle Joy-Con Nintendo</h2>
-                    <p>Controles Joy-Con para Nintendo Switch - Cores Sortidas</p>
-                    <p class="price">R$449,99 <span class="old-price">R$529,99</span></p>
+            <div class="game-card">
+                <img src="https://www.wowgames.com.br/wp-content/uploads/2024/07/XONE-StarWarsOutlaws-jpg.webp" alt="Star Wars Outlaws">
+                <div class="game-info">
+                    <h2>Star Wars Outlaws</h2>
+                    <p class="price">R$149,99 <span class="old-price">R$299,99</span></p>
                 </div>
                 <div class="botao-container">
                     <label>
-                        <input type="checkbox" class="toggle" data-title="Controle Joy-Con Nintendo" data-price="449.99"/>
+                        <input type="checkbox" class="toggle" data-title="Star Wars Outlaws" data-price="149.99"/>
                         <span class="botao"></span>
                     </label>
                 </div>
             </div>
 
-            <div class="accessory-card">
-                <div class="accessory-badge">Universal</div>
-                <img src="./images/cadeira.jpg" alt="Cadeira Gamer Pro">
-                <div class="accessory-info">
-                    <h2>Cadeira Gamer Pro</h2>
-                    <p>Cadeira gamer ergonômica para todas as plataformas</p>
-                    <p class="price">R$1.299,99 <span class="old-price">R$1.599,99</span></p>
+            <div class="game-card">
+                <img src="https://m.media-amazon.com/images/I/81I4zXPKfmL.jpg" alt="Dragon's Dogma II">
+                <div class="game-info">
+                    <h2>Dragon's Dogma II</h2>
+                    <p class="price">R$192,03 <span class="old-price">R$289,99</span></p>
                 </div>
                 <div class="botao-container">
                     <label>
-                        <input type="checkbox" class="toggle" data-title="Cadeira Gamer Pro" data-price="1299.99"/>
+                        <input type="checkbox" class="toggle" data-title="Dragon's Dogma II" data-price="192.03"/>
                         <span class="botao"></span>
                     </label>
                 </div>
@@ -716,9 +676,6 @@ nav ul li:hover .submenu,
             <div class="footer-section">
                 <h3>Links Rápidos</h3>
                 <p><a href="./index.html">Início</a></p>
-                <p><a href="./indexnintendo.html">Nintendo</a></p>
-                <p><a href="./indexXbox.html">Xbox</a></p>
-                <p><a href="./indexplaystation.html">PlayStation</a></p>
                 <p><a href="./console.html">Consoles</a></p>
                 <p><a href="./acessorios.html">Acessórios</a></p>
                 <p><a href="./indexsuporte.html">Suporte</a></p>
@@ -737,7 +694,7 @@ nav ul li:hover .submenu,
         </div>
         
         <div class="copyright">
-            &copy; 2024 FATALITY SHOP. Todos os direitos reservados. | Desenvolvido por Eduardo
+            &copy; 2025 FATALITY SHOP. Todos os direitos reservados. | Desenvolvido por Eduardo
         </div>
     </footer>
 
@@ -753,8 +710,8 @@ nav ul li:hover .submenu,
         // Adiciona evento de clique para todos os botões de adicionar ao carrinho
         document.querySelectorAll('.toggle').forEach(toggle => {
             toggle.addEventListener('change', function() {
-                const accessoryTitle = this.getAttribute('data-title');
-                const accessoryPrice = parseFloat(this.getAttribute('data-price'));
+                const gameTitle = this.getAttribute('data-title');
+                const gamePrice = parseFloat(this.getAttribute('data-price'));
                 const botaoEl = this.nextElementSibling;
 
                 if (this.checked) {
@@ -762,15 +719,15 @@ nav ul li:hover .submenu,
                     playSoundEffect('add');
                     
                     carrinho.push({ 
-                        title: accessoryTitle, 
-                        price: accessoryPrice,
+                        title: gameTitle, 
+                        price: gamePrice,
                         quantity: 1
                     });
                     cartCount++;
-                    cartTotal += accessoryPrice;
+                    cartTotal += gamePrice;
                 } else {
                     // Remove item do carrinho
-                    const idx = carrinho.findIndex(item => item.title === accessoryTitle);
+                    const idx = carrinho.findIndex(item => item.title === gameTitle);
                     if (idx !== -1) {
                         cartTotal -= carrinho[idx].price * carrinho[idx].quantity;
                         carrinho.splice(idx, 1);
@@ -905,36 +862,6 @@ nav ul li:hover .submenu,
                 alert('Seu carrinho está vazio!');
             }
         });
-
-        let submenuTimeout;
-
-document.querySelectorAll('nav ul li').forEach(function(li) {
-    const submenu = li.querySelector('.submenu');
-    if (submenu) {
-        li.addEventListener('mouseenter', function() {
-            clearTimeout(submenuTimeout);
-            submenu.style.opacity = '1';
-            submenu.style.visibility = 'visible';
-        });
-        li.addEventListener('mouseleave', function() {
-            submenuTimeout = setTimeout(function() {
-                submenu.style.opacity = '0';
-                submenu.style.visibility = 'hidden';
-            }, 3000); // 3 segundos
-        });
-        submenu.addEventListener('mouseenter', function() {
-            clearTimeout(submenuTimeout);
-            submenu.style.opacity = '1';
-            submenu.style.visibility = 'visible';
-        });
-        submenu.addEventListener('mouseleave', function() {
-            submenuTimeout = setTimeout(function() {
-                submenu.style.opacity = '0';
-                submenu.style.visibility = 'hidden';
-            }, 5000);
-        });
-    }
-});
     </script>
 </body>
 </html>

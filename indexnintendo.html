@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-  <title>Jogos Nintendo - Loja de Jogos</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Nintendo - FATALITY SHOP</title>
   <style>
+    :root {
+      --blood-red: #d10000;
+      --dark-red: #8b0000;
+      --gold: #ffd700;
+      --dark-bg: #0a0a0a;
+      --neon-green: #0ddc17;
+      --nintendo-red: #e60012;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -14,46 +23,115 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #121212;
-      color: #fff;
+      font-family: 'Bahnschrift', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--dark-bg);
+      background-image: radial-gradient(circle, #1a1a1a 1px, transparent 1px);
+      background-size: 20px 20px;
+      color: #ffffff;
     }
 
     header {
-      background-color: #e60012;
-      padding: 30px 20px;
+      background: linear-gradient(to right, #000, var(--nintendo-red));
+      padding: 20px 0;
       text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      position: relative;
+      border-bottom: 3px solid var(--gold);
     }
 
     header .logo {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 15px;
     }
 
     header .logo img {
-      width: 40px;
+      width: 240px;
+      filter: drop-shadow(0 0 5px var(--blood-red));
     }
 
     header h1 {
-      font-size: 2em;
+      font-size: 2.5em;
       color: #fff;
+      text-shadow: 2px 2px 0px var(--blood-red),
+                   4px 4px 0px rgba(0,0,0,0.5);
+      letter-spacing: 2px;
+      font-family: 'Arial Black', sans-serif;
+    }
+
+    .slogan {
+      color: white;
+      font-size: 1.2em;
+      margin-top: 5px;
+      letter-spacing: 1px;
     }
 
     nav ul {
       list-style: none;
       display: flex;
       justify-content: center;
-      margin-top: 15px;
       gap: 25px;
+      margin-top: 20px;
       flex-wrap: wrap;
     }
 
+    nav ul li {
+      position: relative;
+    }
+
     nav a {
-      color: #fff;
+      color: white;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1.1em;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover {
+      background-color: var(--blood-red);
+      color: #fff;
+      box-shadow: 0 0 15px var(--blood-red);
+      transform: translateY(-2px);
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #222;
+      padding: 10px 0;
+      border-radius: 0 0 5px 5px;
+      min-width: 200px;
+      z-index: 100;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      border-top: 3px solid var(--blood-red);
+    }
+
+    .submenu li {
+      width: 100%;
+    }
+
+    .submenu a {
+      display: block;
+      padding: 10px 15px;
+      color: #ddd;
+      transition: all 0.3s;
+    }
+
+    .submenu a:hover {
+      background-color: var(--dark-red);
+      color: #fff;
+      padding-left: 20px;
+    }
+
+    nav ul li:hover .submenu {
+      display: block;
     }
 
     .inner {
@@ -62,43 +140,64 @@
       padding: 40px 20px;
     }
 
-    .inner h2 {
-      font-size: 1.8em;
-      margin-bottom: 15px;
-      color: #ff4d4d;
+    .section-title {
+      font-size: 2.5em;
+      text-align: center;
+      margin: 40px 0;
+      color: var(--nintendo-red);
+      text-shadow: 0 0 10px var(--nintendo-red);
+      position: relative;
+      letter-spacing: 2px;
+    }
+
+    .section-title:after {
+      content: "";
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: var(--nintendo-red);
+      margin: 15px auto;
     }
 
     .inner p {
-      font-size: 1em;
+      font-size: 1.1em;
       color: #ccc;
       line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      text-align: center;
     }
 
     .games-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
       margin-top: 40px;
     }
 
     .game-card {
-      background-color: #1e1e1e;
+      background-color: #1a1a1a;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
+      position: relative;
+      border: 1px solid #333;
     }
 
     .game-card:hover {
-      transform: scale(1.03);
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px var(--nintendo-red);
+      border-color: var(--nintendo-red);
     }
 
     .game-card img {
       width: 100%;
-      height: 220px;
+      height: 250px;
       object-fit: cover;
+      border-bottom: 2px solid #2c2c2c;
     }
 
     .game-info {
@@ -110,142 +209,322 @@
     }
 
     .game-info h3 {
-      font-size: 1em;
+      font-size: 1.2em;
       margin-bottom: 10px;
+      color: #fff;
+      min-height: 50px;
     }
 
     .price {
-      color: #e94949;
+      color: var(--neon-green);
       font-weight: bold;
+      font-size: 1.2em;
+      text-shadow: 0 0 5px var(--neon-green);
+    }
+
+    .botao-container {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      display: none;
+    }
+
+    .game-card:hover .botao-container {
+      display: block;
+    }
+
+    .botao {
+      display: inline-block;
+      padding: 8px 15px;
+      background: linear-gradient(to bottom, var(--nintendo-red), #b3000e);
+      color: white;
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+      user-select: none;
+      border: none;
+      font-size: 1em;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+
+    .botao:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px var(--nintendo-red);
     }
 
     .toggle {
       display: none;
     }
 
+    .toggle:checked + .botao {
+      background: linear-gradient(to bottom, var(--neon-green), #0a8a11);
+    }
 
-    /* Desenvolvidor por: Carlos Henrique*/
-    /* Botão Adicionar ao Carrinho */
+    .toggle + .botao::after {
+      content: "Adicionar";
+    }
 
-    .botao {
-      display: inline-block;
-      padding: 5px 10px;
-      background-color: #ff4d4d;
+    .toggle:checked + .botao::after {
+      content: "Adicionado ✓";
+    }
+
+    #cart-icon {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 24px;
+      cursor: pointer;
       color: white;
-      text-align: center;
+      transition: all 0.3s;
+    }
+
+    #cart-icon:hover {
+      color: var(--neon-green);
+      transform: scale(1.1);
+    }
+    
+    #cart-count {
+      background: #fff;
+      color: var(--nintendo-red);
+      border-radius: 50%;
+      padding: 2px 8px;
+      font-size: 14px;
+      margin-left: 5px;
+      font-weight: bold;
+    }
+    
+    #cart-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #cart-modal > div {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 25px;
+      max-width: 600px;
+      width: 90%;
+      border-radius: 10px;
+      position: relative;
+      border: 2px solid var(--nintendo-red);
+      box-shadow: 0 0 30px var(--nintendo-red);
+    }
+    
+    #cart-items {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    #cart-items li {
+      padding: 10px;
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #cart-items li:last-child {
+      border-bottom: none;
+    }
+
+    .cart-total {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: var(--neon-green);
+      text-align: right;
+      margin-top: 20px;
+    }
+
+    .cart-buttons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .cart-buttons button {
+      padding: 10px 20px;
+      border: none;
       border-radius: 5px;
       cursor: pointer;
-      user-select: none;
+      font-weight: bold;
+      transition: all 0.3s;
     }
 
-    .botao-container {
-      display: none;
-      margin-top: 10px;
+    .cart-buttons button:hover {
+      transform: translateY(-2px);
     }
 
-    .game-card:hover .botao-container {
-      display: block;
-    }
-    .toggle:checked+.botao {
-      background-color: #0ddc17;
-      content: "Adicionado ao carrinho";
+    .close-cart {
+      background: #333;
+      color: white;
     }
 
-    .toggle+.botao::after {
-      content: "Adicionar ao carrinho";
-    }
-
-    .toggle:checked+.botao::after {
-      content: "Adicionado ao carrinho";
+    .checkout {
+      background: linear-gradient(to bottom, var(--nintendo-red), #b3000e);
+      color: white;
     }
 
     footer {
-      background-color: #1f1f1f;
+      background: linear-gradient(to right, #000, #222);
+      color: white;
+      padding: 30px 0;
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      color: #999;
+      margin-top: 50px;
+      border-top: 3px solid var(--nintendo-red);
     }
-     nav ul li {
-            position: relative;
-        }
 
-        nav ul li a{
-          transition: color 0.3s ease;
-        }
-        
-        .submenu {
-            display: none;
-            position: absolute;
-            top: 35%;
-            left: 0;
-            background-color: #333;
-            padding: 30%;
-            border-radius: 5px;
-        }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+    }
 
-        nav ul li:hover .submenu {
-            display: block;
-        }
+    .footer-section h3 {
+      color: var(--neon-green);
+      margin-bottom: 15px;
+      font-size: 1.3em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-        nav a:hover {
-          color:#e94949
-        }
+    .footer-section p {
+      margin-bottom: 10px;
+      color: #ccc;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      color: white;
+      font-size: 1.5em;
+      transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: var(--neon-green);
+      transform: scale(1.2);
+    }
+
+    .copyright {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      color: #888;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      .section-title {
+        font-size: 2em;
+      }
+
+      .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .game-card img {
+        height: 200px;
+      }
+      
+      #cart-icon {
+        top: 20px;
+        right: 20px;
+      }
+      
+      nav ul {
+        gap: 10px;
+      }
+
+      .submenu {
+        position: static;
+        display: none;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      nav ul li:hover .submenu {
+        display: block;
+        position: static;
+      }
+    }
   </style>
-
-  <div id="cart-icon" onclick="toggleCartModal()"
-    style="position: absolute; top: 30px; right: 30px; font-size: 24px; cursor: pointer;">
-    <i class="bi bi-cart3"></i>
-    <span id="cart-count"
-      style="background: #fff; color: #e60012; border-radius: 50%; padding: 2px 8px; font-size: 14px; margin-left: 5px;">0</span>
-  </div>
-
-
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="./images/logo.svg" alt="Logo" />
-            <h1>Loja de Jogos</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-             <li>
-                    <a href="#">Jogos</a>
-                    <ul class="submenu">
-                        <li><a href="./indexXbox.html">Xbox</a></li>
-                        <li><a href="./indexplaystation.html">Playstation</a></li>
-                    </ul>
-                </li>
-                <li><a href="./console.html">Consoles</a></li>
-                <li><a href="./acessorios.html">Acessórios</a></li>
-                <li><a href="./indexsuporte.html" target="_blank">Suporte</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <div class="logo">
+      <img src="images/logoprincipal.png" alt="FATALITY SHOP Logo">
+      <h1>FATALITY SHOP</h1>
+      <p class="slogan">NINTENDO GAMES COLLECTION</p>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li>
+          <a href="#">Jogos</a>
+          <ul class="submenu">
+            <li><a href="./indexXbox.html">Xbox</a></li>
+            <li><a href="./indexplaystation.html">PlayStation</a></li>
+          </ul>
+        </li>
+        <li><a href="./console.html">Consoles</a></li>
+        <li><a href="./acessorios.html">Acessórios</a></li>
+        <li><a href="./indexsuporte.html">Suporte</a></li>
+      </ul>
+    </nav>
+    
+    <!-- Ícone do carrinho -->
+    <div id="cart-icon" onclick="toggleCartModal()">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="cart-count">0</span>
+    </div>
+  </header>
 
   <div class="inner">
-    <h2>Sobre a Nintendo</h2>
+    <h1 class="section-title">JOGOS NINTENDO</h1>
     <p>
       A <strong>Nintendo Co., Ltd.</strong> é uma desenvolvedora e publicadora japonesa de jogos eletrônicos sediada em
       Quioto. Fundada em 1889, começou como fabricante de cartas de baralho tradicionais e evoluiu para se tornar uma
       das empresas mais influentes do mundo dos games, com franquias como Mario, Zelda, Pokémon e muitas outras.
     </p>
 
-    <h2>Jogos Populares</h2>
     <div class="games-grid">
-
       <div class="game-card">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/pt/thumb/0/0f/Legend_of_Zelda_Breath_of_the_Wild_capa.png/270px-Legend_of_Zelda_Breath_of_the_Wild_capa.png"
-          alt="Zelda BOTW">
+        <img src="https://upload.wikimedia.org/wikipedia/pt/thumb/0/0f/Legend_of_Zelda_Breath_of_the_Wild_capa.png/270px-Legend_of_Zelda_Breath_of_the_Wild_capa.png" alt="Zelda BOTW">
         <div class="game-info">
           <h3>The Legend of Zelda: Breath of the Wild</h3>
           <span class="price">R$ 299,00</span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" />
+              <input type="checkbox" class="toggle" data-title="The Legend of Zelda: Breath of the Wild" data-price="299.00"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -253,15 +532,13 @@
       </div>
 
       <div class="game-card">
-        <img
-          src="https://m.media-amazon.com/images/I/81gTTc2IpCL._AC_UF1000,1000_QL80_.jpg"
-          alt="Super Smash Bros Ultimate">
+        <img src="https://m.media-amazon.com/images/I/81gTTc2IpCL._AC_UF1000,1000_QL80_.jpg" alt="Super Smash Bros Ultimate">
         <div class="game-info">
           <h3>Super Smash Bros. Ultimate</h3>
           <span class="price">R$ 279,00</span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" />
+              <input type="checkbox" class="toggle" data-title="Super Smash Bros. Ultimate" data-price="279.00"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -269,15 +546,13 @@
       </div>
 
       <div class="game-card">
-        <img
-          src="https://m.media-amazon.com/images/I/61UFnW4XewL._AC_UF1000,1000_QL80_.jpg"
-          alt="Mario Kart 8">
+        <img src="https://m.media-amazon.com/images/I/61UFnW4XewL._AC_UF1000,1000_QL80_.jpg" alt="Mario Kart 8">
         <div class="game-info">
           <h3>Mario Kart 8 Deluxe</h3>
           <span class="price">R$ 249,00</span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" />
+              <input type="checkbox" class="toggle" data-title="Mario Kart 8 Deluxe" data-price="249.00"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -291,7 +566,7 @@
           <span class="price">R$ 279,00</span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" />
+              <input type="checkbox" class="toggle" data-title="Super Mario Odyssey" data-price="279.00"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -299,15 +574,13 @@
       </div>
 
       <div class="game-card">
-        <img
-          src="https://m.media-amazon.com/images/I/81UfEdvf2kL.jpg"
-          alt="Animal Crossing">
+        <img src="https://m.media-amazon.com/images/I/81UfEdvf2kL.jpg" alt="Animal Crossing">
         <div class="game-info">
           <h3>Animal Crossing: New Horizons</h3>
           <span class="price">R$ 249,00</span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" />
+              <input type="checkbox" class="toggle" data-title="Animal Crossing: New Horizons" data-price="249.00"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -315,15 +588,13 @@
       </div>
 
       <div class="game-card">
-        <img
-          src="https://m.media-amazon.com/images/I/61GP7RW7tQL._AC_UF1000,1000_QL80_.jpg"
-          alt="Metroid Dread">
+        <img src="https://m.media-amazon.com/images/I/61GP7RW7tQL._AC_UF1000,1000_QL80_.jpg" alt="Metroid Dread">
         <div class="game-info">
           <h3>Metroid Dread</h3>
           <span class="price">R$ 229,00</span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" />
+              <input type="checkbox" class="toggle" data-title="Metroid Dread" data-price="229.00"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -337,7 +608,7 @@
           <span class="price">R$ 199,00</span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" />
+              <input type="checkbox" class="toggle" data-title="Donkey Kong Country: Tropical Freeze" data-price="199.00"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -345,15 +616,13 @@
       </div>
 
       <div class="game-card">
-        <img
-          src="https://m.media-amazon.com/images/I/71bhNf8QiOS._AC_UF1000,1000_QL80_DpWeblab_.jpg"
-          alt="Pokémon Legends: Arceus">
+        <img src="https://m.media-amazon.com/images/I/71bhNf8QiOS._AC_UF1000,1000_QL80_DpWeblab_.jpg" alt="Pokémon Legends: Arceus">
         <div class="game-info">
           <h3>Pokémon Legends: Arceus</h3>
           <span class="price">R$ 299,00</span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" />
+              <input type="checkbox" class="toggle" data-title="Pokémon Legends: Arceus" data-price="299.00"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -361,13 +630,13 @@
       </div>
 
       <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/81-FD3tzUlL.jpg" alt="Luigi’s Mansion 3">
+        <img src="https://m.media-amazon.com/images/I/81-FD3tzUlL.jpg" alt="Luigi's Mansion 3">
         <div class="game-info">
-          <h3>Luigi’s Mansion 3</h3>
+          <h3>Luigi's Mansion 3</h3>
           <span class="price">R$ 249,00</span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" />
+              <input type="checkbox" class="toggle" data-title="Luigi's Mansion 3" data-price="249.00"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -375,15 +644,13 @@
       </div>
 
       <div class="game-card">
-        <img
-          src="https://m.media-amazon.com/images/I/618GR0WMoQL._AC_UF1000,1000_QL80_DpWeblab_.jpg"
-          alt="The Legend Of Zelda: Tears of the Kingdom">
+        <img src="https://m.media-amazon.com/images/I/618GR0WMoQL._AC_UF1000,1000_QL80_DpWeblab_.jpg" alt="The Legend Of Zelda: Tears of the Kingdom">
         <div class="game-info">
           <h3>The Legend Of Zelda: Tears of the Kingdom</h3>
           <span class="price">R$ 369,98</span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" />
+              <input type="checkbox" class="toggle" data-title="The Legend Of Zelda: Tears of the Kingdom" data-price="369.98"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -391,201 +658,347 @@
       </div>
 
       <div class="game-card">
-        <img
-          src="https://m.media-amazon.com/images/I/618cr+yHRVL._AC_SX679_.jpg"
-          alt="Super Mario Bros. Wonder">
+        <img src="https://m.media-amazon.com/images/I/618cr+yHRVL._AC_SX679_.jpg" alt="Super Mario Bros. Wonder">
         <div class="game-info">
           <h3>Super Mario Bros. Wonder</h3>
           <span class="price">R$ 309,27</span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" />
+              <input type="checkbox" class="toggle" data-title="Super Mario Bros. Wonder" data-price="309.27"/>
               <span class="botao"></span>
             </label>
           </div>
         </div>
       </div>
 
-
-
       <div class="game-card">
-        <img
-          src="https://m.media-amazon.com/images/I/71JyoiGjklL._AC_SY679_.jpg"
-          alt="Ori: The Collection">
+        <img src="https://m.media-amazon.com/images/I/71JyoiGjklL._AC_SY679_.jpg" alt="Ori: The Collection">
         <div class="game-info">
           <h3>Ori: The Collection</h3>
           <span class="price">R$ 229,00</span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" />
+              <input type="checkbox" class="toggle" data-title="Ori: The Collection" data-price="229.00"/>
               <span class="botao"></span>
             </label>
           </div>
         </div>
       </div>
 
-
-
       <div class="game-card">
-        <img
-          src="https://m.media-amazon.com/images/I/716yGxO6+hL._AC_SX679_.jpg"
-          alt="Mario and Luigi: Brothership">
+        <img src="https://m.media-amazon.com/images/I/716yGxO6+hL._AC_SX679_.jpg" alt="Mario and Luigi: Brothership">
         <div class="game-info">
           <h3>Mario and Luigi: Brothership</h3>
           <span class="price">R$ 269,10</span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" />
+              <input type="checkbox" class="toggle" data-title="Mario and Luigi: Brothership" data-price="269.10"/>
               <span class="botao"></span>
             </label>
           </div>
         </div>
       </div>
 
-
       <div class="game-card">
-        <img
-          src="https://m.media-amazon.com/images/I/71LI7czffML._AC_SX679_.jpg"
-          alt="Donkey Kong Country: Returns">
+        <img src="https://m.media-amazon.com/images/I/71LI7czffML._AC_SX679_.jpg" alt="Donkey Kong Country: Returns">
         <div class="game-info">
           <h3>Donkey Kong Country: Returns</h3>
           <span class="price">R$ 349,00</span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" />
+              <input type="checkbox" class="toggle" data-title="Donkey Kong Country: Returns" data-price="349.00"/>
               <span class="botao"></span>
             </label>
           </div>
         </div>
       </div>
 
-
       <div class="game-card">
-        <img
-          src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTno2tqnJKwNLsYf611oYOdCZ4RRM4vt0ClMI6-aa5syA8uBkP-t0pLyN51Ieq3pXtGlyOZ-HjGm5MjNIxLlkyadX31F5Gml34hrVENr-mL9QFP_NFjII2I"
-          alt="Super Bomberman R2">
+        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTno2tqnJKwNLsYf611oYOdCZ4RRM4vt0ClMI6-aa5syA8uBkP-t0pLyN51Ieq3pXtGlyOZ-HjGm5MjNIxLlkyadX31F5Gml34hrVENr-mL9QFP_NFjII2I" alt="Super Bomberman R2">
         <div class="game-info">
           <h3>Super Bomberman R2</h3>
           <span class="price">R$ 229,00</span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" />
+              <input type="checkbox" class="toggle" data-title="Super Bomberman R2" data-price="229.00"/>
               <span class="botao"></span>
             </label>
           </div>
         </div>
       </div>
 
-
       <div class="game-card">
-        <img
-          src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRSn0V46P0XTqFIBpIHr6Fl6Z21fyzdrp3MVmkJ_PqSY6fvvMUpCiaeDIWRERSaogSiGiW8ZAoE-SPLX9TdN7lEohXGyYWys0KmuoDnszBN0ybObQQkxSRXfKTN5Y4rEqczJNemMA&usqp=CAc"
-          alt="Pokémon Violet">
+        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRSn0V46P0XTqFIBpIHr6Fl6Z21fyzdrp3MVmkJ_PqSY6fvvMUpCiaeDIWRERSaogSiGiW8ZAoE-SPLX9TdN7lEohXGyYWys0KmuoDnszBN0ybObQQkxSRXfKTN5Y4rEqczJNemMA&usqp=CAc" alt="Pokémon Violet">
         <div class="game-info">
           <h3>Pokémon Violet</h3>
           <span class="price">R$ 332,47</span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" />
+              <input type="checkbox" class="toggle" data-title="Pokémon Violet" data-price="332.47"/>
               <span class="botao"></span>
             </label>
           </div>
         </div>
       </div>
 
-
       <div class="game-card">
-        <img
-          src="https://m.media-amazon.com/images/I/71vCMnjgF7L._AC_SX679_.jpg"
-          alt="The Legend of Zelda: Echoes of Wisdom">
+        <img src="https://m.media-amazon.com/images/I/71vCMnjgF7L._AC_SX679_.jpg" alt="The Legend of Zelda: Echoes of Wisdom">
         <div class="game-info">
           <h3>The Legend of Zelda: Echoes of Wisdom</h3>
           <span class="price">R$ 324,23</span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" />
+              <input type="checkbox" class="toggle" data-title="The Legend of Zelda: Echoes of Wisdom" data-price="324.23"/>
               <span class="botao"></span>
             </label>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
+  <!-- Modal do carrinho -->
+  <div id="cart-modal">
+    <div>
+      <h2 style="color: var(--neon-green); text-align: center; margin-bottom: 20px;">SEU CARRINHO</h2>
+      <ul id="cart-items"></ul>
+      <div class="cart-total" id="cart-total">Total: R$0,00</div>
+      <div class="cart-buttons">
+        <button class="close-cart" onclick="toggleCartModal()">Continuar Comprando</button>
+        <button class="checkout">Finalizar Compra</button>
+      </div>
     </div>
   </div>
 
   <footer>
-    <p>© 2025 Loja de Jogos Nintendo. Todos os direitos reservados.</p>
-  </footer>
-  
-<!-- teste de commit -->
-
-  <!-- Aqui é o Modal que aparece ao clicar no carrinho na parte superior da page -->
-
-  <div id="cart-modal"
-    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
-    <div
-      style="background:#fff; color:#000; padding:20px; max-width:500px; width:90%; border-radius:10px; position:relative;">
-      <h2 style="margin-bottom:15px;">Carrinho</h2>
-      <ul id="cart-items" style="list-style:none; padding:0; margin-bottom:20px;"></ul>
-      <button onclick="toggleCartModal()"
-        style="background:#e60012; color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">Fechar</button>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Sobre Nós</h3>
+        <p>A FATALITY SHOP é a loja definitiva para gamers hardcore. Oferecemos os melhores jogos, consoles e acessórios.</p>
+        <p>Fortaleza - CE, Brasil</p>
+      </div>
+      
+     <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <p><a href="./index.html">Início</a></p>
+                <p><a href="./indexnintendo.html">Nintendo</a></p>
+                <p><a href="./indexXbox.html">Xbox</a></p>
+                <p><a href="./indexplaystation.html">PlayStation</a></p>
+                <p><a href="./console.html">Consoles</a></p>
+                <p><a href="./acessorios.html">Acessórios</a></p>
+                <p><a href="./indexsuporte.html">Suporte</a></p>
+            </div>
+            
+      <div class="footer-section">
+        <h3>Redes Sociais</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+        <p style="margin-top: 15px;">contato@fatalityshop.com.br</p>
+      </div>
     </div>
-  </div>
-
-  <!-- Aqui começa as funções e manipulações de conteúdo, salvar as imagens -->
+    
+    <div class="copyright">
+      &copy; 2025 FATALITY SHOP. Todos os direitos reservados. | Desenvolvido por Eduardo
+    </div>
+  </footer>
 
   <script>
     let cartCount = 0;
+    let cartTotal = 0;
     const cartCountEl = document.getElementById("cart-count");
     const cartItemsEl = document.getElementById("cart-items");
+    const cartTotalEl = document.getElementById("cart-total");
     const cartModal = document.getElementById("cart-modal");
-
-    const toggles = document.querySelectorAll('.toggle');
     const carrinho = [];
 
-    toggles.forEach((toggle, index) => {
-      toggle.addEventListener('change', function () {
-        const gameCard = toggle.closest('.game-card');
-        const gameTitle = gameCard.querySelector('h3').textContent;
-        const gamePrice = gameCard.querySelector('.price').textContent;
-        const botaoEl = toggle.nextElementSibling;
+    // Adiciona evento de clique para todos os botões de adicionar ao carrinho
+    document.querySelectorAll('.toggle').forEach(toggle => {
+      toggle.addEventListener('change', function() {
+        const gameTitle = this.getAttribute('data-title');
+        const gamePrice = parseFloat(this.getAttribute('data-price'));
+        const botaoEl = this.nextElementSibling;
 
         if (this.checked) {
-          carrinho.push({ title: gameTitle, price: gamePrice });
+          // Adiciona efeito sonoro (simulado)
+          playSoundEffect('add');
           
+          carrinho.push({ 
+            title: gameTitle, 
+            price: gamePrice,
+            quantity: 1
+          });
           cartCount++;
+          cartTotal += gamePrice;
         } else {
+          // Remove item do carrinho
           const idx = carrinho.findIndex(item => item.title === gameTitle);
-          if (idx !== -1) carrinho.splice(idx, 1);
-          
-          cartCount--;
+          if (idx !== -1) {
+            cartTotal -= carrinho[idx].price * carrinho[idx].quantity;
+            carrinho.splice(idx, 1);
+            cartCount--;
+          }
         }
 
-        cartCountEl.textContent = cartCount;
+        updateCartDisplay();
       });
     });
 
+    // Função para atualizar a exibição do carrinho
+    function updateCartDisplay() {
+      cartCountEl.textContent = cartCount;
+      cartTotalEl.textContent = `Total: R$${cartTotal.toFixed(2).replace('.', ',')}`;
+      
+      // Atualiza o modal se estiver aberto
+      if (cartModal.style.display === "flex") {
+        renderCartItems();
+      }
+    }
+
+    // Função para renderizar os itens do carrinho
+    function renderCartItems() {
+      cartItemsEl.innerHTML = "";
+      
+      if (carrinho.length === 0) {
+        cartItemsEl.innerHTML = "<li style='text-align:center; padding:20px;'>Seu carrinho está vazio.</li>";
+      } else {
+        carrinho.forEach(item => {
+          const li = document.createElement('li');
+          
+          li.innerHTML = `
+            <div style="flex:1;">${item.title}</div>
+            <div style="width:100px; text-align:right;">
+              R$${item.price.toFixed(2).replace('.', ',')}
+            </div>
+            <div style="width:80px; display:flex; align-items:center; justify-content:space-between;">
+              <button onclick="changeQuantity('${item.title}', -1)" style="background:none; border:none; color:white; cursor:pointer; font-size:1.2em;">-</button>
+              <span>${item.quantity}</span>
+              <button onclick="changeQuantity('${item.title}', 1)" style="background:none; border:none; color:white; cursor:pointer; font-size:1.2em;">+</button>
+            </div>
+            <button onclick="removeItem('${item.title}')" style="background:none; border:none; color:var(--nintendo-red); cursor:pointer; margin-left:10px;">
+              <i class="fas fa-trash"></i>
+            </button>
+          `;
+          
+          li.style.display = 'flex';
+          li.style.alignItems = 'center';
+          li.style.gap = '15px';
+          cartItemsEl.appendChild(li);
+        });
+      }
+    }
+
+    // Função para alterar quantidade
+    function changeQuantity(title, change) {
+      const item = carrinho.find(i => i.title === title);
+      if (item) {
+        const newQuantity = item.quantity + change;
+        
+        if (newQuantity > 0) {
+          cartTotal += item.price * change;
+          item.quantity = newQuantity;
+        } else {
+          // Remove se quantidade chegar a zero
+          removeItem(title);
+        }
+        
+        updateCartDisplay();
+        playSoundEffect('click');
+      }
+    }
+
+    // Função para remover item
+    function removeItem(title) {
+      const idx = carrinho.findIndex(item => item.title === title);
+      if (idx !== -1) {
+        cartTotal -= carrinho[idx].price * carrinho[idx].quantity;
+        carrinho.splice(idx, 1);
+        cartCount--;
+        
+        // Desmarca o checkbox correspondente
+        const checkbox = document.querySelector(`.toggle[data-title="${title}"]`);
+        if (checkbox) checkbox.checked = false;
+        
+        updateCartDisplay();
+        playSoundEffect('remove');
+      }
+    }
+
+    // Função para abrir/fechar o modal do carrinho
     function toggleCartModal() {
       if (cartModal.style.display === "flex") {
         cartModal.style.display = "none";
+        playSoundEffect('close');
       } else {
-        cartItemsEl.innerHTML = "";
-        if (carrinho.length === 0) {
-          cartItemsEl.innerHTML = "<li>Seu carrinho está vazio.</li>";
-        } else {
-          carrinho.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = `${item.title} - ${item.price}`;
-            cartItemsEl.appendChild(li);
-          });
-        }
+        renderCartItems();
         cartModal.style.display = "flex";
+        playSoundEffect('open');
       }
     }
+
+    // Função para efeitos sonoros (simulados)
+    function playSoundEffect(type) {
+      // Na prática, você implementaria sons reais aqui
+      console.log(`Playing ${type} sound effect`);
+    }
+
+    // Evento para fechar o modal ao clicar fora
+    cartModal.addEventListener('click', function(e) {
+      if (e.target === cartModal) {
+        toggleCartModal();
+      }
+    });
+
+    // Evento para o botão de finalizar compra
+    document.querySelector('.checkout').addEventListener('click', function() {
+      if (carrinho.length > 0) {
+        alert('Compra finalizada! Obrigado por escolher a FATALITY SHOP!');
+        carrinho.length = 0;
+        cartCount = 0;
+        cartTotal = 0;
+        updateCartDisplay();
+        toggleCartModal();
+        
+        // Desmarca todos os checkboxes
+        document.querySelectorAll('.toggle').forEach(toggle => {
+          toggle.checked = false;
+        });
+      } else {
+        alert('Seu carrinho está vazio!');
+      }
+    });
+
+// filepath: c:\Users\eduma\OneDrive - Universidade Federal do Ceará\Área de Trabalho\estudos ;)\cursos\fullstack\oficina 3 edu\indexnintendo.html
+
+// Submenu desaparece após 5 segundos ao sair com o mouse
+let submenuTimeout;
+
+document.querySelectorAll('nav ul li').forEach(function(li) {
+    const submenu = li.querySelector('.submenu');
+    if (submenu) {
+        li.addEventListener('mouseenter', function() {
+            clearTimeout(submenuTimeout);
+            submenu.style.display = 'block';
+        });
+        li.addEventListener('mouseleave', function() {
+            submenuTimeout = setTimeout(function() {
+                submenu.style.display = 'none';
+            }, 3000); // 3 segundos
+        });
+        submenu.addEventListener('mouseenter', function() {
+            clearTimeout(submenuTimeout);
+            submenu.style.display = 'block';
+        });
+        submenu.addEventListener('mouseleave', function() {
+            submenuTimeout = setTimeout(function() {
+                submenu.style.display = 'none';
+            }, 5000);
+        });
+    }
+});
   </script>
-
-
-
 </body>
-
 </html>
