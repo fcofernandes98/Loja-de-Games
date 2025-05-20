@@ -658,197 +658,164 @@ nav ul li:hover .submenu,
         let currentSlide = 0;
         let carouselInterval;
 
-        function renderCarousel() {
-            const slide = document.getElementById('carousel-slide');
-            const dots = document.getElementById('carousel-dots');
-            slide.innerHTML = '';
-            dots.innerHTML = '';
+    function renderCarousel() {
+        const slide = document.getElementById('carousel-slide');
+        const dots = document.getElementById('carousel-dots');
+        slide.innerHTML = '';
+        dots.innerHTML = '';
 
-            // Renderiza apenas 1 jogo por vez (carrossel)
-            const game = featuredGames[currentSlide];
-            const isChecked = carrinho.some(item => item.title === game.title);
+        const game = featuredGames[currentSlide];
+        const isChecked = carrinho.some(item => item.title === game.title);
 
-            const item = document.createElement('div');
-            item.className = 'game-card';
-            item.innerHTML = `
-                <img src="${game.img}" alt="${game.title}">
-                <div class="game-info">
-                    <h2>${game.title}</h2>
-                    <p class="price">R$${game.price.toFixed(2).replace('.', ',')} <span class="old-price">R$${game.oldPrice.toFixed(2).replace('.', ',')}</span></p>
-                </div>
-                <div class="botao-container" style="display:block;">
-                    <label>
-                        <input type="checkbox" class="toggle" data-title="${game.title}" data-price="${game.price}" ${isChecked ? 'checked' : ''}/>
-                        <span class="botao"></span>
-                    </label>
-                </div>
-            `;
-            slide.appendChild(item);
+    // Estrutura do card do carrossel
+        const card = document.createElement('div');
+        card.style.display = 'flex';
+        card.style.background = '#181818';
+        card.style.borderRadius = '18px';
+        card.style.overflow = 'hidden';
+        card.style.boxShadow = '0 6px 32px 0 rgba(0,0,0,0.6)';
+        card.style.alignItems = 'stretch';
+        card.style.margin = '0 auto';
+        card.style.maxWidth = '800px';
+        card.style.minHeight = '280px';
 
-            // Atualiza evento do botão do carrossel
-            item.querySelector('.toggle').addEventListener('change', function() {
-                const gameTitle = this.getAttribute('data-title');
-                const gamePrice = parseFloat(this.getAttribute('data-price'));
+    // Imagem à esquerda
+        const imgDiv = document.createElement('div');
+        imgDiv.style.flex = '1.2';
+        imgDiv.style.background = '#111';
+        imgDiv.style.display = 'flex';
+        imgDiv.style.alignItems = 'center';
+        imgDiv.style.justifyContent = 'center';
+        imgDiv.style.padding = '18px 0 18px 18px';
 
-                if (this.checked) {
-                    playSoundEffect('add');
-                    carrinho.push({ title: gameTitle, price: gamePrice, quantity: 1 });
-                    cartCount++;
-                    cartTotal += gamePrice;
-                } else {
-                    const idx = carrinho.findIndex(item => item.title === gameTitle);
-                    if (idx !== -1) {
-                        cartTotal -= carrinho[idx].price * carrinho[idx].quantity;
-                        carrinho.splice(idx, 1);
-                        cartCount--;
-                    }
-                }
-                updateCartDisplay();
-            });
+        const img = document.createElement('img');
+        img.src = game.img;
+        img.alt = game.title;
+        img.style.width = '100%';
+        img.style.maxWidth = '320px';
+        img.style.height = '200px';
+        img.style.objectFit = 'cover';
+        img.style.borderRadius = '12px';
+        imgDiv.appendChild(img);
 
-            // Dots do carrossel
-            featuredGames.forEach((_, idx) => {
-                const dot = document.createElement('button');
-                dot.className = 'carousel-dot' + (idx === currentSlide ? ' active' : '');
-                dot.onclick = () => { goToSlide(idx); };
-                dots.appendChild(dot);
-            });
-        }
+    // Info à direita
+        const infoDiv = document.createElement('div');
+        infoDiv.style.flex = '2';
+        infoDiv.style.display = 'flex';
+        infoDiv.style.flexDirection = 'column';
+        infoDiv.style.justifyContent = 'center';
+        infoDiv.style.padding = '28px 32px 28px 28px';
 
-        function goToSlide(idx) {
-            currentSlide = idx;
-            renderCarousel();
-            resetCarouselInterval();
-        }
+    // Título
+        const title = document.createElement('h2');
+        title.textContent = game.title;
+        title.style.fontSize = '2em';
+        title.style.fontWeight = 'bold';
+        title.style.marginBottom = '18px';
+        title.style.color = '#fff';
 
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % featuredGames.length;
-            renderCarousel();
-            resetCarouselInterval();
-        }
+    // Descrição (exemplo, pode personalizar para cada jogo)
+        const desc = document.createElement('p');
+        desc.textContent = getGameDescription(game.title);
+        desc.style.color = '#ccc';
+        desc.style.fontSize = '1.1em';
+        desc.style.marginBottom = '22px';
 
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + featuredGames.length) % featuredGames.length;
-            renderCarousel();
-            resetCarouselInterval();
-        }
+    // Preço
+        const price = document.createElement('div');
+        price.innerHTML = `R$ <span style="color:var(--neon-green);font-size:1.5em;font-weight:bold;">${game.price.toFixed(2).replace('.', ',')}</span>
+            <span style="color:#888;text-decoration:line-through;font-size:1em;margin-left:10px;">R$${game.oldPrice.toFixed(2).replace('.', ',')}</span>`;
+        price.style.marginBottom = '18px';
+        price.style.fontSize = '1.2em';
 
-        function resetCarouselInterval() {
-            clearInterval(carouselInterval);
-            carouselInterval = setInterval(nextSlide, 5000);
-        }
+    // Botão de adicionar/remover
+        const label = document.createElement('label');
+        label.style.display = 'inline-block';
+        label.style.marginTop = '10px';
 
-        // Carrinho - igual ao seu código
-        function updateCartDisplay() {
-            cartCountEl.textContent = cartCount;
-            cartTotalEl.textContent = `Total: R$${cartTotal.toFixed(2).replace('.', ',')}`;
-            if (cartModal.style.display === "flex") {
-                renderCartItems();
-            }
-        }
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'toggle';
+        checkbox.setAttribute('data-title', game.title);
+        checkbox.setAttribute('data-price', game.price);
+        if (isChecked) checkbox.checked = true;
 
-        function renderCartItems() {
-            cartItemsEl.innerHTML = "";
-            if (carrinho.length === 0) {
-                cartItemsEl.innerHTML = "<li style='text-align:center; padding:20px;'>Seu carrinho está vazio.</li>";
+        const botao = document.createElement('span');
+        botao.className = 'botao';
+
+        label.appendChild(checkbox);
+        label.appendChild(botao);
+
+        infoDiv.appendChild(title);
+        infoDiv.appendChild(desc);
+        infoDiv.appendChild(price);
+        infoDiv.appendChild(label);
+
+        card.appendChild(imgDiv);
+        card.appendChild(infoDiv);
+        slide.appendChild(card);
+
+    // Evento do botão
+        checkbox.addEventListener('change', function() {
+            const gameTitle = this.getAttribute('data-title');
+            const gamePrice = parseFloat(this.getAttribute('data-price'));
+            if (this.checked) {
+                playSoundEffect('add');
+                carrinho.push({ title: gameTitle, price: gamePrice, quantity: 1 });
+                cartCount++;
+                cartTotal += gamePrice;
             } else {
-                carrinho.forEach(item => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `
-                        <div style="flex:1;">${item.title}</div>
-                        <div style="width:100px; text-align:right;">
-                            R$${item.price.toFixed(2).replace('.', ',')}
-                        </div>
-                        <div style="width:80px; display:flex; align-items:center; justify-content:space-between;">
-                            <button onclick="changeQuantity('${item.title}', -1)" style="background:none; border:none; color:white; cursor:pointer; font-size:1.2em;">-</button>
-                            <span>${item.quantity}</span>
-                            <button onclick="changeQuantity('${item.title}', 1)" style="background:none; border:none; color:white; cursor:pointer; font-size:1.2em;">+</button>
-                        </div>
-                        <button onclick="removeItem('${item.title}')" style="background:none; border:none; color:var(--blood-red); cursor:pointer; margin-left:10px;">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    `;
-                    li.style.display = 'flex';
-                    li.style.alignItems = 'center';
-                    li.style.gap = '15px';
-                    cartItemsEl.appendChild(li);
-                });
+                const idx = carrinho.findIndex(item => item.title === gameTitle);
+                if (idx !== -1) {
+                    cartTotal -= carrinho[idx].price * carrinho[idx].quantity;
+                    carrinho.splice(idx, 1);
+                    cartCount--;
             }
         }
+        updateCartDisplay();
+    });
 
-        function changeQuantity(title, change) {
-            const item = carrinho.find(i => i.title === title);
-            if (item) {
-                const newQuantity = item.quantity + change;
-                if (newQuantity > 0) {
-                    cartTotal += item.price * change;
-                    item.quantity = newQuantity;
-                } else {
-                    removeItem(title);
-                }
-                updateCartDisplay();
-                playSoundEffect('click');
-            }
-        }
+    // Dots do carrossel
+    featuredGames.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (idx === currentSlide ? ' active' : '');
+        dot.style.width = '14px';
+        dot.style.height = '14px';
+        dot.style.borderRadius = '50%';
+        dot.style.margin = '0 5px';
+        dot.style.border = 'none';
+        dot.style.background = idx === currentSlide ? 'var(--blood-red)' : '#444';
+        dot.style.cursor = 'pointer';
+        dot.onclick = () => { goToSlide(idx); };
+        dots.appendChild(dot);
+    });
+}
 
-        function removeItem(title) {
-            const idx = carrinho.findIndex(item => item.title === title);
-            if (idx !== -1) {
-                cartTotal -= carrinho[idx].price * carrinho[idx].quantity;
-                carrinho.splice(idx, 1);
-                cartCount--;
-                // Desmarca o checkbox do carrossel se for o slide atual
-                if (featuredGames[currentSlide].title === title) {
-                    renderCarousel();
-                }
-                updateCartDisplay();
-                playSoundEffect('remove');
-            }
-        }
+// Função para descrição dos jogos (adicione mais conforme desejar)
+function getGameDescription(title) {
+    switch (title) {
+        case "The Last of Us II":
+            return "Vivencie uma jornada intensa de sobrevivência e emoção em um mundo pós-apocalíptico.";
+        case "Call of Duty Black Ops 6":
+            return "Ação frenética e multiplayer de última geração na franquia de tiro mais famosa do mundo.";
+        case "God of War Ragnarok":
+            return "Acompanhe Kratos e Atreus em uma aventura épica pelos mitos nórdicos.";
+        case "FIFA 25":
+            return "O futebol mais realista e emocionante, com gráficos e jogabilidade aprimorados.";
+        case "Palworld":
+            return "Explore, capture criaturas e construa seu mundo em uma aventura cheia de possibilidades.";
+        case "Grand Theft Auto V":
+            return "Viva o crime e a ação em Los Santos, no maior clássico de mundo aberto.";
+        case "The Legend of Zelda Breath of The Wild":
+            return "Jogue o mundo aberto juntamente com Link no complexo e rico universo de The Legend of Zelda, uma das franquias de destaques da Nintendo.";
+        case "Dragon's Dogma II":
+            return "Aventure-se em batalhas épicas e um mundo de fantasia cheio de perigos e descobertas.";
+        default:
+            return "";
+    }
+}
+</script>
 
-        function toggleCartModal() {
-            if (cartModal.style.display === "flex") {
-                cartModal.style.display = "none";
-                playSoundEffect('close');
-            } else {
-                renderCartItems();
-                cartModal.style.display = "flex";
-                playSoundEffect('open');
-            }
-        }
-
-        function playSoundEffect(type) {
-            // Simulação de efeito sonoro
-            // console.log(`Playing ${type} sound effect`);
-        }
-
-        cartModal.addEventListener('click', function(e) {
-            if (e.target === cartModal) {
-                toggleCartModal();
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderCarousel();
-            document.getElementById('next-slide').onclick = nextSlide;
-            document.getElementById('prev-slide').onclick = prevSlide;
-            carouselInterval = setInterval(nextSlide, 5000);
-        });
-
-        document.querySelector('.checkout').addEventListener('click', function() {
-            if (carrinho.length > 0) {
-                alert('Compra finalizada! Obrigado por escolher a FATALITY SHOP!');
-                carrinho.length = 0;
-                cartCount = 0;
-                cartTotal = 0;
-                updateCartDisplay();
-                toggleCartModal();
-                renderCarousel();
-            } else {
-                alert('Seu carrinho está vazio!');
-            }
-            //resolvendo o problema do commit
-        });
     </script>
 </body>
 </html>
