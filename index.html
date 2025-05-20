@@ -6,20 +6,18 @@
     <title>FATALITY SHOP - A Loja Definitiva para Gamers</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-                :root {
+        :root {
             --blood-red: #d10000;
             --dark-red: #8b0000;
             --gold: #ffd700;
             --dark-bg: #0a0a0a;
             --neon-green: #0ddc17;
         }
-
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
         body {
             font-family: 'Bahnschrift', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--dark-bg);
@@ -30,8 +28,6 @@
             display: flex;
             flex-direction: column;
         }
-
-        /* HEADER STYLES */
         header {
             background: linear-gradient(to right, #000, var(--dark-red));
             padding: 15px 0;
@@ -40,19 +36,16 @@
             position: relative;
             border-bottom: 3px solid var(--gold);
         }
-
         header .logo {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
         }
-
         header .logo img {
             width: 240px;
             filter: drop-shadow(0 0 5px var(--blood-red));
         }
-
         header h1 {
             font-size: 2.8em;
             color: #fff;
@@ -61,7 +54,6 @@
             letter-spacing: 2px;
             font-family: 'Arial Black', sans-serif;
         }
-
         .slogan {
             color: var(--neon-green);
             font-size: 1.2em;
@@ -69,8 +61,6 @@
             margin-top: 5px;
             letter-spacing: 1px;
         }
-
-        /* NAVIGATION */
         nav ul {
             list-style: none;
             display: flex;
@@ -79,11 +69,9 @@
             margin-top: 20px;
             flex-wrap: wrap;
         }
-
         nav ul li {
             position: relative;
         }
-
         nav a {
             color: white;
             text-decoration: none;
@@ -95,73 +83,53 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-
         nav a:hover {
             background-color: var(--blood-red);
             color: #fff;
             box-shadow: 0 0 15px var(--blood-red);
             transform: translateY(-2px);
         }
-
-        /* SUBMENU */
-/* ================================================== */
-/* ESTILOS DO SUBMENU - VERSÃO COMPACTA SEM ESPAÇOS */
-/* ================================================== */
-
-/* Container principal do submenu (inicialmente invisível) */
-.submenu {
-    opacity: 0;                /* Totalmente transparente */
-    visibility: hidden;        /* Escondido da visualização */
-    position: absolute;        /* Posicionamento absoluto em relação ao menu pai */
-    top: 100%;                 /* Posicionado logo abaixo do item do menu */
-    left: 0;                   /* Alinhado à esquerda do item pai */
-    background-color: #222;    /* Cor de fundo escura */
-    padding: 0;                /* SEM espaçamento interno (remove o espaço azul) */
-    border-radius: 0 0 5px 5px; /* Bordas arredondadas apenas na parte inferior */
-    min-width: 160px;          /* Largura mínima do submenu */
-    z-index: 100;              /* Garante que fique acima de outros elementos */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Sombra para efeito de profundidade */
-    border-top: 3px solid var(--blood-red); /* Linha vermelha no topo como detalhe */
-    font-size: 1em;         /* Tamanho de fonte reduzido */
-    transition: opacity 0.2s ease, visibility 0.2s ease; /* Animação suave de aparecimento */
-}
-
-/* Cada item da lista do submenu */
-.submenu li {
-    width: 100%;              /* Ocupa 100% da largura disponível */
-    margin: 0;                /* Remove qualquer margem entre itens */
-}
-
-/* Links clicáveis do submenu */
-.submenu a {
-    display: block;           /* Transforma em bloco para preencher toda a área */
-    padding: 5px 10px;        /* Espaçamento interno mínimo (5px topo/baixo, 10px laterais) */
-    color: #ddd;              /* Cor do texto cinza claro */
-    transition: background-color 0.15s; /* Transição suave da cor de fundo */
-}
-
-/* Efeito quando o mouse passa sobre os links */
-.submenu a:hover {
-    background-color: var(--dark-red); /* Fundo vermelho escuro */
-    color: #fff;              /* Texto branco no hover */
-}
-
-/* Regras para exibir o submenu quando:
-   - O mouse está sobre o item do menu principal (li:hover)
-   - OU sobre o próprio submenu */
-nav ul li:hover .submenu,
-.submenu:hover {
-    opacity: 1;               /* Torna totalmente visível */
-    visibility: visible;      /* Mostra o elemento */
-}
-        /* MAIN CONTENT */
+        .submenu {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #222;
+            padding: 0;
+            border-radius: 0 0 5px 5px;
+            min-width: 160px;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            border-top: 3px solid var(--blood-red);
+            font-size: 1em;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+        }
+        .submenu li {
+            width: 100%;
+            margin: 0;
+        }
+        .submenu a {
+            display: block;
+            padding: 5px 10px;
+            color: #ddd;
+            transition: background-color 0.15s;
+        }
+        .submenu a:hover {
+            background-color: var(--dark-red);
+            color: #fff;
+        }
+        nav ul li:hover .submenu,
+        .submenu:hover {
+            opacity: 1;
+            visibility: visible;
+        }
         .container {
             max-width: 1300px;
             margin: 30px auto;
             padding: 0 20px;
             flex: 1;
         }
-
         .section-title {
             font-size: 2.5em;
             text-align: center;
@@ -171,7 +139,6 @@ nav ul li:hover .submenu,
             position: relative;
             letter-spacing: 2px;
         }
-
         .section-title:after {
             content: "";
             display: block;
@@ -180,14 +147,11 @@ nav ul li:hover .submenu,
             background: var(--blood-red);
             margin: 15px auto;
         }
-
-        /* GAMES GRID */
         .games-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 30px;
         }
-
         .game-card {
             background-color: #1a1a1a;
             border-radius: 10px;
@@ -199,20 +163,17 @@ nav ul li:hover .submenu,
             position: relative;
             border: 1px solid #333;
         }
-
         .game-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 25px var(--blood-red);
             border-color: var(--blood-red);
         }
-
         .game-card img {
             width: 100%;
             height: 250px;
             object-fit: cover;
             border-bottom: 2px solid #2c2c2c;
         }
-
         .game-info {
             padding: 15px;
             flex-grow: 1;
@@ -220,40 +181,33 @@ nav ul li:hover .submenu,
             flex-direction: column;
             justify-content: space-between;
         }
-
         .game-info h2 {
             font-size: 1.2em;
             margin-bottom: 10px;
             color: #fff;
             min-height: 50px;
         }
-
         .price {
             font-size: 1.3rem;
             font-weight: bold;
             color: var(--neon-green);
             text-shadow: 0 0 5px var(--neon-green);
         }
-
         .price .old-price {
             font-size: 0.9rem;
             color: #888;
             text-decoration: line-through;
             margin-left: 6px;
         }
-
-        /* BUTTONS */
         .botao-container {
             position: absolute;
             bottom: 15px;
             right: 15px;
             display: none;
         }
-
         .game-card:hover .botao-container {
             display: block;
         }
-
         .botao {
             display: inline-block;
             padding: 8px 15px;
@@ -270,29 +224,22 @@ nav ul li:hover .submenu,
             letter-spacing: 1px;
             transition: all 0.3s;
         }
-
         .botao:hover {
             transform: scale(1.05);
             box-shadow: 0 0 15px var(--blood-red);
         }
-
         .toggle {
             display: none;
         }
-
         .toggle:checked + .botao {
             background: linear-gradient(to bottom, var(--neon-green), #0a8a11);
         }
-
         .toggle + .botao::after {
             content: "Adicionar";
         }
-
         .toggle:checked + .botao::after {
             content: "Adicionado ✓";
         }
-
-        /* CART STYLES */
         #cart-icon {
             position: absolute;
             top: 30px;
@@ -302,12 +249,10 @@ nav ul li:hover .submenu,
             color: white;
             transition: all 0.3s;
         }
-
         #cart-icon:hover {
             color: var(--neon-green);
             transform: scale(1.1);
         }
-        
         #cart-count {
             background: #fff;
             color: var(--blood-red);
@@ -317,8 +262,6 @@ nav ul li:hover .submenu,
             margin-left: 5px;
             font-weight: bold;
         }
-        
-        /* CART MODAL */
         #cart-modal {
             display: none;
             position: fixed;
@@ -331,7 +274,6 @@ nav ul li:hover .submenu,
             justify-content: center;
             align-items: center;
         }
-        
         #cart-modal > div {
             background: #1a1a1a;
             color: #fff;
@@ -343,7 +285,6 @@ nav ul li:hover .submenu,
             border: 2px solid var(--blood-red);
             box-shadow: 0 0 30px var(--blood-red);
         }
-        
         #cart-items {
             list-style: none;
             padding: 0;
@@ -351,7 +292,6 @@ nav ul li:hover .submenu,
             max-height: 400px;
             overflow-y: auto;
         }
-
         #cart-items li {
             padding: 10px;
             border-bottom: 1px solid #333;
@@ -359,11 +299,9 @@ nav ul li:hover .submenu,
             justify-content: space-between;
             align-items: center;
         }
-
         #cart-items li:last-child {
             border-bottom: none;
         }
-
         .cart-total {
             font-size: 1.3em;
             font-weight: bold;
@@ -371,14 +309,12 @@ nav ul li:hover .submenu,
             text-align: right;
             margin-top: 20px;
         }
-
         .cart-buttons {
             display: flex;
             justify-content: flex-end;
             gap: 10px;
             margin-top: 20px;
         }
-
         .cart-buttons button {
             padding: 10px 20px;
             border: none;
@@ -387,22 +323,17 @@ nav ul li:hover .submenu,
             font-weight: bold;
             transition: all 0.3s;
         }
-
         .cart-buttons button:hover {
             transform: translateY(-2px);
         }
-
         .close-cart {
             background: #333;
             color: white;
         }
-
         .checkout {
             background: linear-gradient(to bottom, var(--blood-red), var(--dark-red));
             color: white;
         }
-
-        /* FOOTER */
         footer {
             background: linear-gradient(to right, #000, #222);
             color: white;
@@ -411,7 +342,6 @@ nav ul li:hover .submenu,
             margin-top: 50px;
             border-top: 3px solid var(--blood-red);
         }
-
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -420,7 +350,6 @@ nav ul li:hover .submenu,
             gap: 30px;
             padding: 0 20px;
         }
-
         .footer-section h3 {
             color: var(--neon-green);
             margin-bottom: 15px;
@@ -428,30 +357,25 @@ nav ul li:hover .submenu,
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-
         .footer-section p {
             margin-bottom: 10px;
             color: #ccc;
         }
-
         .social-icons {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin-top: 15px;
         }
-
         .social-icons a {
             color: white;
             font-size: 1.5em;
             transition: all 0.3s;
         }
-
         .social-icons a:hover {
             color: var(--neon-green);
             transform: scale(1.2);
         }
-
         .copyright {
             margin-top: 30px;
             padding-top: 20px;
@@ -459,35 +383,27 @@ nav ul li:hover .submenu,
             color: #888;
             font-size: 0.9em;
         }
-
-        /* RESPONSIVE */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2em;
             }
-
             .section-title {
                 font-size: 2em;
             }
-
             .games-grid {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
                 gap: 20px;
             }
-
             .game-card img {
                 height: 200px;
             }
-            
             #cart-icon {
                 top: 20px;
                 right: 20px;
             }
-            
             nav ul {
                 gap: 10px;
             }
-
             .submenu {
                 position: static;
                 display: none;
@@ -495,7 +411,6 @@ nav ul li:hover .submenu,
                 box-shadow: none;
                 border-radius: 0;
             }
-
             nav ul li:hover .submenu {
                 display: block;
                 position: static;
@@ -534,7 +449,6 @@ nav ul li:hover .submenu,
 
     <div class="container">
         <h1 class="section-title">JOGOS EM DESTAQUE</h1>
-        <!-- Carrossel de jogos em destaque -->
         <div id="carousel-container" style="max-width:900px;margin:0 auto 40px auto;">
             <div class="carousel-slide" id="carousel-slide"></div>
             <div class="carousel-controls">
@@ -545,7 +459,6 @@ nav ul li:hover .submenu,
         </div>
     </div>
 
-    <!-- Modal do carrinho -->
     <div id="cart-modal">
         <div>
             <h2 style="color: var(--neon-green); text-align: center; margin-bottom: 20px;">SEU CARRINHO</h2>
@@ -559,7 +472,6 @@ nav ul li:hover .submenu,
     </div>
 
     <footer>
-        <!-- ...footer igual ao seu código... -->
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Sobre Nós</h3>
@@ -593,7 +505,6 @@ nav ul li:hover .submenu,
     </footer>
 
     <script>
-        // Dados dos jogos em destaque
         const featuredGames = [
             {
                 img: "https://image.api.playstation.com/vulcan/ap/rnd/202311/1717/50816ed9cb59ebc484b9d6c9b19b34a953b6ce384ea2dbad.png",
@@ -645,7 +556,6 @@ nav ul li:hover .submenu,
             }
         ];
 
-        // Carrinho
         let cartCount = 0;
         let cartTotal = 0;
         const cartCountEl = document.getElementById("cart-count");
@@ -654,169 +564,296 @@ nav ul li:hover .submenu,
         const cartModal = document.getElementById("cart-modal");
         const carrinho = [];
 
-        // Carrossel
         let currentSlide = 0;
         let carouselInterval;
 
-    function renderCarousel() {
-        const slide = document.getElementById('carousel-slide');
-        const dots = document.getElementById('carousel-dots');
-        slide.innerHTML = '';
-        dots.innerHTML = '';
+        function renderCarousel() {
+            const slide = document.getElementById('carousel-slide');
+            const dots = document.getElementById('carousel-dots');
+            slide.innerHTML = '';
+            dots.innerHTML = '';
 
-        const game = featuredGames[currentSlide];
-        const isChecked = carrinho.some(item => item.title === game.title);
+            const game = featuredGames[currentSlide];
+            const isChecked = carrinho.some(item => item.title === game.title);
 
-    // Estrutura do card do carrossel
-        const card = document.createElement('div');
-        card.style.display = 'flex';
-        card.style.background = '#181818';
-        card.style.borderRadius = '18px';
-        card.style.overflow = 'hidden';
-        card.style.boxShadow = '0 6px 32px 0 rgba(0,0,0,0.6)';
-        card.style.alignItems = 'stretch';
-        card.style.margin = '0 auto';
-        card.style.maxWidth = '800px';
-        card.style.minHeight = '280px';
+            // Estrutura do card do carrossel
+            const card = document.createElement('div');
+            card.style.display = 'flex';
+            card.style.background = '#181818';
+            card.style.borderRadius = '18px';
+            card.style.overflow = 'hidden';
+            card.style.boxShadow = '0 6px 32px 0 rgba(0,0,0,0.6)';
+            card.style.alignItems = 'stretch';
+            card.style.margin = '0 auto';
+            card.style.maxWidth = '800px';
+            card.style.minHeight = '280px';
 
-    // Imagem à esquerda
-        const imgDiv = document.createElement('div');
-        imgDiv.style.flex = '1.2';
-        imgDiv.style.background = '#111';
-        imgDiv.style.display = 'flex';
-        imgDiv.style.alignItems = 'center';
-        imgDiv.style.justifyContent = 'center';
-        imgDiv.style.padding = '18px 0 18px 18px';
+            // Imagem à esquerda
+            const imgDiv = document.createElement('div');
+            imgDiv.style.flex = '1.2';
+            imgDiv.style.background = '#111';
+            imgDiv.style.display = 'flex';
+            imgDiv.style.alignItems = 'center';
+            imgDiv.style.justifyContent = 'center';
+            imgDiv.style.padding = '18px 0 18px 18px';
 
-        const img = document.createElement('img');
-        img.src = game.img;
-        img.alt = game.title;
-        img.style.width = '100%';
-        img.style.maxWidth = '320px';
-        img.style.height = '200px';
-        img.style.objectFit = 'cover';
-        img.style.borderRadius = '12px';
-        imgDiv.appendChild(img);
+            const img = document.createElement('img');
+            img.src = game.img;
+            img.alt = game.title;
+            img.style.width = '100%';
+            img.style.maxWidth = '320px';
+            img.style.height = '200px';
+            img.style.objectFit = 'cover';
+            img.style.borderRadius = '12px';
+            imgDiv.appendChild(img);
 
-    // Info à direita
-        const infoDiv = document.createElement('div');
-        infoDiv.style.flex = '2';
-        infoDiv.style.display = 'flex';
-        infoDiv.style.flexDirection = 'column';
-        infoDiv.style.justifyContent = 'center';
-        infoDiv.style.padding = '28px 32px 28px 28px';
+            // Info à direita
+            const infoDiv = document.createElement('div');
+            infoDiv.style.flex = '2';
+            infoDiv.style.display = 'flex';
+            infoDiv.style.flexDirection = 'column';
+            infoDiv.style.justifyContent = 'center';
+            infoDiv.style.padding = '28px 32px 28px 28px';
 
-    // Título
-        const title = document.createElement('h2');
-        title.textContent = game.title;
-        title.style.fontSize = '2em';
-        title.style.fontWeight = 'bold';
-        title.style.marginBottom = '18px';
-        title.style.color = '#fff';
+            // Título
+            const title = document.createElement('h2');
+            title.textContent = game.title;
+            title.style.fontSize = '2em';
+            title.style.fontWeight = 'bold';
+            title.style.marginBottom = '18px';
+            title.style.color = '#fff';
 
-    // Descrição (exemplo, pode personalizar para cada jogo)
-        const desc = document.createElement('p');
-        desc.textContent = getGameDescription(game.title);
-        desc.style.color = '#ccc';
-        desc.style.fontSize = '1.1em';
-        desc.style.marginBottom = '22px';
+            // Descrição
+            const desc = document.createElement('p');
+            desc.textContent = getGameDescription(game.title);
+            desc.style.color = '#ccc';
+            desc.style.fontSize = '1.1em';
+            desc.style.marginBottom = '22px';
 
-    // Preço
-        const price = document.createElement('div');
-        price.innerHTML = `R$ <span style="color:var(--neon-green);font-size:1.5em;font-weight:bold;">${game.price.toFixed(2).replace('.', ',')}</span>
-            <span style="color:#888;text-decoration:line-through;font-size:1em;margin-left:10px;">R$${game.oldPrice.toFixed(2).replace('.', ',')}</span>`;
-        price.style.marginBottom = '18px';
-        price.style.fontSize = '1.2em';
+            // Preço
+            const price = document.createElement('div');
+            price.innerHTML = `R$ <span style="color:var(--neon-green);font-size:1.5em;font-weight:bold;">${game.price.toFixed(2).replace('.', ',')}</span>
+                <span style="color:#888;text-decoration:line-through;font-size:1em;margin-left:10px;">R$${game.oldPrice.toFixed(2).replace('.', ',')}</span>`;
+            price.style.marginBottom = '18px';
+            price.style.fontSize = '1.2em';
 
-    // Botão de adicionar/remover
-        const label = document.createElement('label');
-        label.style.display = 'inline-block';
-        label.style.marginTop = '10px';
+            // Botão de adicionar/remover
+            const label = document.createElement('label');
+            label.style.display = 'inline-block';
+            label.style.marginTop = '10px';
 
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.className = 'toggle';
-        checkbox.setAttribute('data-title', game.title);
-        checkbox.setAttribute('data-price', game.price);
-        if (isChecked) checkbox.checked = true;
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.className = 'toggle';
+            checkbox.setAttribute('data-title', game.title);
+            checkbox.setAttribute('data-price', game.price);
+            if (isChecked) checkbox.checked = true;
 
-        const botao = document.createElement('span');
-        botao.className = 'botao';
+            const botao = document.createElement('span');
+            botao.className = 'botao';
 
-        label.appendChild(checkbox);
-        label.appendChild(botao);
+            label.appendChild(checkbox);
+            label.appendChild(botao);
 
-        infoDiv.appendChild(title);
-        infoDiv.appendChild(desc);
-        infoDiv.appendChild(price);
-        infoDiv.appendChild(label);
+            infoDiv.appendChild(title);
+            infoDiv.appendChild(desc);
+            infoDiv.appendChild(price);
+            infoDiv.appendChild(label);
 
-        card.appendChild(imgDiv);
-        card.appendChild(infoDiv);
-        slide.appendChild(card);
+            card.appendChild(imgDiv);
+            card.appendChild(infoDiv);
+            slide.appendChild(card);
 
-    // Evento do botão
-        checkbox.addEventListener('change', function() {
-            const gameTitle = this.getAttribute('data-title');
-            const gamePrice = parseFloat(this.getAttribute('data-price'));
-            if (this.checked) {
-                playSoundEffect('add');
-                carrinho.push({ title: gameTitle, price: gamePrice, quantity: 1 });
-                cartCount++;
-                cartTotal += gamePrice;
-            } else {
-                const idx = carrinho.findIndex(item => item.title === gameTitle);
-                if (idx !== -1) {
-                    cartTotal -= carrinho[idx].price * carrinho[idx].quantity;
-                    carrinho.splice(idx, 1);
-                    cartCount--;
+            // Evento do botão
+            checkbox.addEventListener('change', function() {
+                const gameTitle = this.getAttribute('data-title');
+                const gamePrice = parseFloat(this.getAttribute('data-price'));
+                if (this.checked) {
+                    playSoundEffect('add');
+                    carrinho.push({ title: gameTitle, price: gamePrice, quantity: 1 });
+                    cartCount++;
+                    cartTotal += gamePrice;
+                } else {
+                    const idx = carrinho.findIndex(item => item.title === gameTitle);
+                    if (idx !== -1) {
+                        cartTotal -= carrinho[idx].price * carrinho[idx].quantity;
+                        carrinho.splice(idx, 1);
+                        cartCount--;
+                    }
+                }
+                updateCartDisplay();
+            });
+
+            // Dots do carrossel
+            featuredGames.forEach((_, idx) => {
+                const dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (idx === currentSlide ? ' active' : '');
+                dot.style.width = '14px';
+                dot.style.height = '14px';
+                dot.style.borderRadius = '50%';
+                dot.style.margin = '0 5px';
+                dot.style.border = 'none';
+                dot.style.background = idx === currentSlide ? 'var(--blood-red)' : '#444';
+                dot.style.cursor = 'pointer';
+                dot.onclick = () => { goToSlide(idx); };
+                dots.appendChild(dot);
+            });
+        }
+
+        function getGameDescription(title) {
+            switch (title) {
+                case "The Last of Us II":
+                    return "Vivencie uma jornada intensa de sobrevivência e emoção em um mundo pós-apocalíptico.";
+                case "Call of Duty Black Ops 6":
+                    return "Ação frenética e multiplayer de última geração na franquia de tiro mais famosa do mundo.";
+                case "God of War Ragnarok":
+                    return "Acompanhe Kratos e Atreus em uma aventura épica pelos mitos nórdicos.";
+                case "FIFA 25":
+                    return "O futebol mais realista e emocionante, com gráficos e jogabilidade aprimorados.";
+                case "Palworld":
+                    return "Explore, capture criaturas e construa seu mundo em uma aventura cheia de possibilidades.";
+                case "Grand Theft Auto V":
+                    return "Viva o crime e a ação em Los Santos, no maior clássico de mundo aberto.";
+                case "The Legend of Zelda Breath of The Wild":
+                    return "Jogue o mundo aberto juntamente com Link no complexo e rico universo de The Legend of Zelda, uma das franquias de destaques da Nintendo.";
+                case "Dragon's Dogma II":
+                    return "Aventure-se em batalhas épicas e um mundo de fantasia cheio de perigos e descobertas.";
+                default:
+                    return "";
             }
         }
-        updateCartDisplay();
-    });
 
-    // Dots do carrossel
-    featuredGames.forEach((_, idx) => {
-        const dot = document.createElement('button');
-        dot.className = 'carousel-dot' + (idx === currentSlide ? ' active' : '');
-        dot.style.width = '14px';
-        dot.style.height = '14px';
-        dot.style.borderRadius = '50%';
-        dot.style.margin = '0 5px';
-        dot.style.border = 'none';
-        dot.style.background = idx === currentSlide ? 'var(--blood-red)' : '#444';
-        dot.style.cursor = 'pointer';
-        dot.onclick = () => { goToSlide(idx); };
-        dots.appendChild(dot);
-    });
-}
+        function goToSlide(idx) {
+            currentSlide = idx;
+            renderCarousel();
+            resetCarouselInterval();
+        }
 
-// Função para descrição dos jogos (adicione mais conforme desejar)
-function getGameDescription(title) {
-    switch (title) {
-        case "The Last of Us II":
-            return "Vivencie uma jornada intensa de sobrevivência e emoção em um mundo pós-apocalíptico.";
-        case "Call of Duty Black Ops 6":
-            return "Ação frenética e multiplayer de última geração na franquia de tiro mais famosa do mundo.";
-        case "God of War Ragnarok":
-            return "Acompanhe Kratos e Atreus em uma aventura épica pelos mitos nórdicos.";
-        case "FIFA 25":
-            return "O futebol mais realista e emocionante, com gráficos e jogabilidade aprimorados.";
-        case "Palworld":
-            return "Explore, capture criaturas e construa seu mundo em uma aventura cheia de possibilidades.";
-        case "Grand Theft Auto V":
-            return "Viva o crime e a ação em Los Santos, no maior clássico de mundo aberto.";
-        case "The Legend of Zelda Breath of The Wild":
-            return "Jogue o mundo aberto juntamente com Link no complexo e rico universo de The Legend of Zelda, uma das franquias de destaques da Nintendo.";
-        case "Dragon's Dogma II":
-            return "Aventure-se em batalhas épicas e um mundo de fantasia cheio de perigos e descobertas.";
-        default:
-            return "";
-    }
-}
-</script>
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % featuredGames.length;
+            renderCarousel();
+            resetCarouselInterval();
+        }
 
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + featuredGames.length) % featuredGames.length;
+            renderCarousel();
+            resetCarouselInterval();
+        }
+
+        function resetCarouselInterval() {
+            clearInterval(carouselInterval);
+            carouselInterval = setInterval(nextSlide, 5000);
+        }
+
+        function updateCartDisplay() {
+            cartCountEl.textContent = cartCount;
+            cartTotalEl.textContent = `Total: R$${cartTotal.toFixed(2).replace('.', ',')}`;
+            if (cartModal.style.display === "flex") {
+                renderCartItems();
+            }
+        }
+
+        function renderCartItems() {
+            cartItemsEl.innerHTML = "";
+            if (carrinho.length === 0) {
+                cartItemsEl.innerHTML = "<li style='text-align:center; padding:20px;'>Seu carrinho está vazio.</li>";
+            } else {
+                carrinho.forEach(item => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <div style="flex:1;">${item.title}</div>
+                        <div style="width:100px; text-align:right;">
+                            R$${item.price.toFixed(2).replace('.', ',')}
+                        </div>
+                        <div style="width:80px; display:flex; align-items:center; justify-content:space-between;">
+                            <button onclick="changeQuantity('${item.title}', -1)" style="background:none; border:none; color:white; cursor:pointer; font-size:1.2em;">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="changeQuantity('${item.title}', 1)" style="background:none; border:none; color:white; cursor:pointer; font-size:1.2em;">+</button>
+                        </div>
+                        <button onclick="removeItem('${item.title}')" style="background:none; border:none; color:var(--blood-red); cursor:pointer; margin-left:10px;">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    `;
+                    li.style.display = 'flex';
+                    li.style.alignItems = 'center';
+                    li.style.gap = '15px';
+                    cartItemsEl.appendChild(li);
+                });
+            }
+        }
+
+        function changeQuantity(title, change) {
+            const item = carrinho.find(i => i.title === title);
+            if (item) {
+                const newQuantity = item.quantity + change;
+                if (newQuantity > 0) {
+                    cartTotal += item.price * change;
+                    item.quantity = newQuantity;
+                } else {
+                    removeItem(title);
+                }
+                updateCartDisplay();
+                playSoundEffect('click');
+            }
+        }
+
+        function removeItem(title) {
+            const idx = carrinho.findIndex(item => item.title === title);
+            if (idx !== -1) {
+                cartTotal -= carrinho[idx].price * carrinho[idx].quantity;
+                carrinho.splice(idx, 1);
+                cartCount--;
+                if (featuredGames[currentSlide].title === title) {
+                    renderCarousel();
+                }
+                updateCartDisplay();
+                playSoundEffect('remove');
+            }
+        }
+
+        function toggleCartModal() {
+            if (cartModal.style.display === "flex") {
+                cartModal.style.display = "none";
+                playSoundEffect('close');
+            } else {
+                renderCartItems();
+                cartModal.style.display = "flex";
+                playSoundEffect('open');
+            }
+        }
+
+        function playSoundEffect(type) {
+            // Simulação de efeito sonoro
+            // console.log(`Playing ${type} sound effect`);
+        }
+
+        cartModal.addEventListener('click', function(e) {
+            if (e.target === cartModal) {
+                toggleCartModal();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCarousel();
+            document.getElementById('next-slide').onclick = nextSlide;
+            document.getElementById('prev-slide').onclick = prevSlide;
+            carouselInterval = setInterval(nextSlide, 5000);
+        });
+
+        document.querySelector('.checkout').addEventListener('click', function() {
+            if (carrinho.length > 0) {
+                alert('Compra finalizada! Obrigado por escolher a FATALITY SHOP!');
+                carrinho.length = 0;
+                cartCount = 0;
+                cartTotal = 0;
+                updateCartDisplay();
+                toggleCartModal();
+                renderCarousel();
+            } else {
+                alert('Seu carrinho está vazio!');
+            }
+        });
     </script>
 </body>
 </html>
-
