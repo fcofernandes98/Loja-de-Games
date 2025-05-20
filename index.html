@@ -6,7 +6,7 @@
     <title>FATALITY SHOP - A Loja Definitiva para Gamers</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        :root {
+                :root {
             --blood-red: #d10000;
             --dark-red: #8b0000;
             --gold: #ffd700;
@@ -526,8 +526,6 @@ nav ul li:hover .submenu,
                 <li><a href="./indexsuporte.html">Suporte</a></li>
             </ul>
         </nav>
-        
-        <!-- Ícone do carrinho -->
         <div id="cart-icon" onclick="toggleCartModal()">
             <i class="fas fa-shopping-cart"></i>
             <span id="cart-count">0</span>
@@ -536,123 +534,18 @@ nav ul li:hover .submenu,
 
     <div class="container">
         <h1 class="section-title">JOGOS EM DESTAQUE</h1>
-        
-        <div class="games-grid">
-            <div class="game-card">
-                <img src="https://jploja.com/wp-content/uploads/2024/09/NBA-2k25-1.jpg" alt="NBA 2K25">
-                <div class="game-info">
-                    <h2>NBA 2K25</h2>
-                    <p class="price">R$149,99 <span class="old-price">R$200,45</span></p>
-                </div>
-                <div class="botao-container">
-                    <label>
-                        <input type="checkbox" class="toggle" data-title="NBA 2K25" data-price="149.99"/>
-                        <span class="botao"></span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <img src="https://jploja.com/wp-content/uploads/2024/02/WWE-2k24-1.jpg" alt="WWE 2K24">
-                <div class="game-info">
-                    <h2>WWE 2K24</h2>
-                    <p class="price">R$203,99 <span class="old-price">R$249,90</span></p>
-                </div>
-                <div class="botao-container">
-                    <label>
-                        <input type="checkbox" class="toggle" data-title="WWE 2K24" data-price="203.99"/>
-                        <span class="botao"></span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <img src="https://cdn1.epicgames.com/spt-assets/edaff839f0734d16bc89d2ddb1dc9339/steel-magnolia-15owu.jpg" alt="COD Black Op 6">
-                <div class="game-info">
-                    <h2>Call Of Duty Black Ops 6</h2>
-                    <p class="price">R$199,99 <span class="old-price">R$279,99</span></p>
-                </div>
-                <div class="botao-container">
-                    <label>
-                        <input type="checkbox" class="toggle" data-title="Call Of Duty Black Ops 6" data-price="199.99"/>
-                        <span class="botao"></span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <img src="https://rihappy.vtexassets.com/arquivos/ids/6768658/17274529983515.jpg?v=638640043739470000" alt="FIFA 25">
-                <div class="game-info">
-                    <h2>FIFA 25</h2>
-                    <p class="price">R$99,89 <span class="old-price">R$299,00</span></p>
-                </div>
-                <div class="botao-container">
-                    <label>
-                        <input type="checkbox" class="toggle" data-title="FIFA 25" data-price="99.89"/>
-                        <span class="botao"></span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <img src="https://www.wowgames.com.br/wp-content/uploads/2024/01/XONE-Palworld-jpg.webp" alt="Palworld">
-                <div class="game-info">
-                    <h2>Palworld</h2>
-                    <p class="price">R$99,66 <span class="old-price">R$149,99</span></p>
-                </div>
-                <div class="botao-container">
-                    <label>
-                        <input type="checkbox" class="toggle" data-title="Palworld" data-price="99.66"/>
-                        <span class="botao"></span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <img src="https://gocdkeys.com/images/games/phasmophobia-xbox-one.jpg" alt="Phasmophobia">
-                <div class="game-info">
-                    <h2>Phasmophobia</h2>
-                    <p class="price">R$54,17 <span class="old-price">R$85,90</span></p>
-                </div>
-                <div class="botao-container">
-                    <label>
-                        <input type="checkbox" class="toggle" data-title="Phasmophobia" data-price="54.17"/>
-                        <span class="botao"></span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <img src="https://www.wowgames.com.br/wp-content/uploads/2024/07/XONE-StarWarsOutlaws-jpg.webp" alt="Star Wars Outlaws">
-                <div class="game-info">
-                    <h2>Star Wars Outlaws</h2>
-                    <p class="price">R$149,99 <span class="old-price">R$299,99</span></p>
-                </div>
-                <div class="botao-container">
-                    <label>
-                        <input type="checkbox" class="toggle" data-title="Star Wars Outlaws" data-price="149.99"/>
-                        <span class="botao"></span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <img src="https://m.media-amazon.com/images/I/81I4zXPKfmL.jpg" alt="Dragon's Dogma II">
-                <div class="game-info">
-                    <h2>Dragon's Dogma II</h2>
-                    <p class="price">R$192,03 <span class="old-price">R$289,99</span></p>
-                </div>
-                <div class="botao-container">
-                    <label>
-                        <input type="checkbox" class="toggle" data-title="Dragon's Dogma II" data-price="192.03"/>
-                        <span class="botao"></span>
-                    </label>
-                </div>
+        <!-- Carrossel de jogos em destaque -->
+        <div id="carousel-container" style="max-width:900px;margin:0 auto 40px auto;">
+            <div class="carousel-slide" id="carousel-slide"></div>
+            <div class="carousel-controls">
+                <button id="prev-slide" aria-label="Anterior" class="carousel-arrow"><i class="fa fa-chevron-left"></i></button>
+                <div id="carousel-dots"></div>
+                <button id="next-slide" aria-label="Próximo" class="carousel-arrow"><i class="fa fa-chevron-right"></i></button>
             </div>
         </div>
     </div>
 
-    <!-- Modal do carrinho teste-->
+    <!-- Modal do carrinho -->
     <div id="cart-modal">
         <div>
             <h2 style="color: var(--neon-green); text-align: center; margin-bottom: 20px;">SEU CARRINHO</h2>
@@ -666,13 +559,13 @@ nav ul li:hover .submenu,
     </div>
 
     <footer>
+        <!-- ...footer igual ao seu código... -->
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Sobre Nós</h3>
                 <p>A FATALITY SHOP é a loja definitiva para gamers hardcore. Oferecemos os melhores jogos, consoles e acessórios.</p>
                 <p>Fortaleza - CE, Brasil</p>
             </div>
-            
             <div class="footer-section">
                 <h3>Links Rápidos</h3>
                 <p><a href="./index.html">Início</a></p>
@@ -683,7 +576,6 @@ nav ul li:hover .submenu,
                 <p><a href="./acessorios.html">Acessórios</a></p>
                 <p><a href="./indexsuporte.html">Suporte</a></p>
             </div>
-            
             <div class="footer-section">
                 <h3>Redes Sociais</h3>
                 <div class="social-icons">
@@ -695,13 +587,65 @@ nav ul li:hover .submenu,
                 <p style="margin-top: 15px;">contato@fatalityshop.com.br</p>
             </div>
         </div>
-        
         <div class="copyright">
             &copy; 2025 FATALITY SHOP. Todos os direitos reservados. | Desenvolvido por Eduardo
         </div>
     </footer>
 
     <script>
+        // Dados dos jogos em destaque
+        const featuredGames = [
+            {
+                img: "https://image.api.playstation.com/vulcan/ap/rnd/202311/1717/50816ed9cb59ebc484b9d6c9b19b34a953b6ce384ea2dbad.png",
+                title: "The Last of Us II",
+                price: 168.90,
+                oldPrice: 190.90
+            },
+            {
+                img: "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F03c433b0-f112-4978-93a4-f939bdf8f548_1920x1080.jpeg",
+                title: "Call of Duty Black Ops 6",
+                price: 199.99,
+                oldPrice: 279.99
+            },
+            {
+                img: "https://cdn1.epicgames.com/spt-assets/edaff839f0734d16bc89d2ddb1dc9339/steel-magnolia-15owu.jpg",
+                title: "God of War Ragnarok",
+                price: 279.90,
+                oldPrice: 349.99
+            },
+            {
+                img: "https://i.ytimg.com/vi/pBM2xyco_Kg/maxresdefault.jpg",
+                title: "FIFA 25",
+                price: 99.89,
+                oldPrice: 299.00
+            },
+            {
+                img: "https://image.api.playstation.com/vulcan/ap/rnd/202407/0207/5a52ade92affafa4c4353c97110026811a365b65d6bad64e.jpg",
+                title: "Palworld",
+                price: 99.66,
+                oldPrice: 149.99
+            },
+            {
+                img: "https://s2-techtudo.glbimg.com/Dx-d7zd6abaVIdY1QqGVKl_QvJ4=/0x0:620x349/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/s/i/R6L1HDR3GxheHSo2ECLQ/2013-10-11-grand-theft-auto-5-gta-finais.jpg",
+                title: "Grand Theft Auto V",
+                price: 113.66,
+                oldPrice: 249.99
+            },
+            {
+                img: "https://assets.nintendo.com/image/upload/q_auto/f_auto/ncom/software/switch/70010000000025/7137262b5a64d921e193653f8aa0b722925abc5680380ca0e18a5cfd91697f58",
+                title: "The Legend of Zelda Breath of The Wild",
+                price: 299.00,
+                oldPrice: 299.99
+            },
+            {
+                img: "https://m.media-amazon.com/images/I/81I4zXPKfmL.jpg",
+                title: "Dragon's Dogma II",
+                price: 192.03,
+                oldPrice: 289.99
+            }
+        ];
+
+        // Carrinho
         let cartCount = 0;
         let cartTotal = 0;
         const cartCountEl = document.getElementById("cart-count");
@@ -710,26 +654,48 @@ nav ul li:hover .submenu,
         const cartModal = document.getElementById("cart-modal");
         const carrinho = [];
 
-        // Adiciona evento de clique para todos os botões de adicionar ao carrinho
-        document.querySelectorAll('.toggle').forEach(toggle => {
-            toggle.addEventListener('change', function() {
+        // Carrossel
+        let currentSlide = 0;
+        let carouselInterval;
+
+        function renderCarousel() {
+            const slide = document.getElementById('carousel-slide');
+            const dots = document.getElementById('carousel-dots');
+            slide.innerHTML = '';
+            dots.innerHTML = '';
+
+            // Renderiza apenas 1 jogo por vez (carrossel)
+            const game = featuredGames[currentSlide];
+            const isChecked = carrinho.some(item => item.title === game.title);
+
+            const item = document.createElement('div');
+            item.className = 'game-card';
+            item.innerHTML = `
+                <img src="${game.img}" alt="${game.title}">
+                <div class="game-info">
+                    <h2>${game.title}</h2>
+                    <p class="price">R$${game.price.toFixed(2).replace('.', ',')} <span class="old-price">R$${game.oldPrice.toFixed(2).replace('.', ',')}</span></p>
+                </div>
+                <div class="botao-container" style="display:block;">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="${game.title}" data-price="${game.price}" ${isChecked ? 'checked' : ''}/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            `;
+            slide.appendChild(item);
+
+            // Atualiza evento do botão do carrossel
+            item.querySelector('.toggle').addEventListener('change', function() {
                 const gameTitle = this.getAttribute('data-title');
                 const gamePrice = parseFloat(this.getAttribute('data-price'));
-                const botaoEl = this.nextElementSibling;
 
                 if (this.checked) {
-                    // Adiciona efeito sonoro (simulado)
                     playSoundEffect('add');
-                    
-                    carrinho.push({ 
-                        title: gameTitle, 
-                        price: gamePrice,
-                        quantity: 1
-                    });
+                    carrinho.push({ title: gameTitle, price: gamePrice, quantity: 1 });
                     cartCount++;
                     cartTotal += gamePrice;
                 } else {
-                    // Remove item do carrinho
                     const idx = carrinho.findIndex(item => item.title === gameTitle);
                     if (idx !== -1) {
                         cartTotal -= carrinho[idx].price * carrinho[idx].quantity;
@@ -737,32 +703,57 @@ nav ul li:hover .submenu,
                         cartCount--;
                     }
                 }
-
                 updateCartDisplay();
             });
-        });
 
-        // Função para atualizar a exibição do carrinho
+            // Dots do carrossel
+            featuredGames.forEach((_, idx) => {
+                const dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (idx === currentSlide ? ' active' : '');
+                dot.onclick = () => { goToSlide(idx); };
+                dots.appendChild(dot);
+            });
+        }
+
+        function goToSlide(idx) {
+            currentSlide = idx;
+            renderCarousel();
+            resetCarouselInterval();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % featuredGames.length;
+            renderCarousel();
+            resetCarouselInterval();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + featuredGames.length) % featuredGames.length;
+            renderCarousel();
+            resetCarouselInterval();
+        }
+
+        function resetCarouselInterval() {
+            clearInterval(carouselInterval);
+            carouselInterval = setInterval(nextSlide, 5000);
+        }
+
+        // Carrinho - igual ao seu código
         function updateCartDisplay() {
             cartCountEl.textContent = cartCount;
             cartTotalEl.textContent = `Total: R$${cartTotal.toFixed(2).replace('.', ',')}`;
-            
-            // Atualiza o modal se estiver aberto
             if (cartModal.style.display === "flex") {
                 renderCartItems();
             }
         }
 
-        // Função para renderizar os itens do carrinho
         function renderCartItems() {
             cartItemsEl.innerHTML = "";
-            
             if (carrinho.length === 0) {
                 cartItemsEl.innerHTML = "<li style='text-align:center; padding:20px;'>Seu carrinho está vazio.</li>";
             } else {
                 carrinho.forEach(item => {
                     const li = document.createElement('li');
-                    
                     li.innerHTML = `
                         <div style="flex:1;">${item.title}</div>
                         <div style="width:100px; text-align:right;">
@@ -777,7 +768,6 @@ nav ul li:hover .submenu,
                             <i class="fas fa-trash"></i>
                         </button>
                     `;
-                    
                     li.style.display = 'flex';
                     li.style.alignItems = 'center';
                     li.style.gap = '15px';
@@ -786,43 +776,36 @@ nav ul li:hover .submenu,
             }
         }
 
-        // Função para alterar quantidade
         function changeQuantity(title, change) {
             const item = carrinho.find(i => i.title === title);
             if (item) {
                 const newQuantity = item.quantity + change;
-                
                 if (newQuantity > 0) {
                     cartTotal += item.price * change;
                     item.quantity = newQuantity;
                 } else {
-                    // Remove se quantidade chegar a zero
                     removeItem(title);
                 }
-                
                 updateCartDisplay();
                 playSoundEffect('click');
             }
         }
 
-        // Função para remover item
         function removeItem(title) {
             const idx = carrinho.findIndex(item => item.title === title);
             if (idx !== -1) {
                 cartTotal -= carrinho[idx].price * carrinho[idx].quantity;
                 carrinho.splice(idx, 1);
                 cartCount--;
-                
-                // Desmarca o checkbox correspondente
-                const checkbox = document.querySelector(`.toggle[data-title="${title}"]`);
-                if (checkbox) checkbox.checked = false;
-                
+                // Desmarca o checkbox do carrossel se for o slide atual
+                if (featuredGames[currentSlide].title === title) {
+                    renderCarousel();
+                }
                 updateCartDisplay();
                 playSoundEffect('remove');
             }
         }
 
-        // Função para abrir/fechar o modal do carrinho
         function toggleCartModal() {
             if (cartModal.style.display === "flex") {
                 cartModal.style.display = "none";
@@ -834,20 +817,24 @@ nav ul li:hover .submenu,
             }
         }
 
-        // Função para efeitos sonoros (simulados)
         function playSoundEffect(type) {
-            // Na prática, você implementaria sons reais aqui
-            console.log(`Playing ${type} sound effect`);
+            // Simulação de efeito sonoro
+            // console.log(`Playing ${type} sound effect`);
         }
 
-        // Evento para fechar o modal ao clicar fora
         cartModal.addEventListener('click', function(e) {
             if (e.target === cartModal) {
                 toggleCartModal();
             }
         });
 
-        // Evento para o botão de finalizar compra
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCarousel();
+            document.getElementById('next-slide').onclick = nextSlide;
+            document.getElementById('prev-slide').onclick = prevSlide;
+            carouselInterval = setInterval(nextSlide, 5000);
+        });
+
         document.querySelector('.checkout').addEventListener('click', function() {
             if (carrinho.length > 0) {
                 alert('Compra finalizada! Obrigado por escolher a FATALITY SHOP!');
@@ -856,11 +843,7 @@ nav ul li:hover .submenu,
                 cartTotal = 0;
                 updateCartDisplay();
                 toggleCartModal();
-                
-                // Desmarca todos os checkboxes
-                document.querySelectorAll('.toggle').forEach(toggle => {
-                    toggle.checked = false;
-                });
+                renderCarousel();
             } else {
                 alert('Seu carrinho está vazio!');
             }
