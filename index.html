@@ -416,6 +416,37 @@
                 position: static;
             }
         }
+
+        /* ...existing code... */
+
+    /* Estilo bonito para as setas do carrossel */
+    .carousel-arrow {
+        background: #232834;
+        border: none;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.3em;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        transition: background 0.2s, transform 0.2s;
+        margin: 0 8px;
+        cursor: pointer;
+        outline: none;
+    }
+    .carousel-arrow:hover {
+        background: #181c23;
+        transform: scale(1.08);
+    }
+    .carousel-arrow i {
+        color: #fff;
+        font-size: 1.2em;
+        margin: 0;
+        padding: 0;
+    }
     </style>
 </head>
 <body>
