@@ -13,11 +13,7 @@
             --dark-bg: #0a0a0a;
             --neon-green: #0ddc17;
         }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Bahnschrift', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--dark-bg);
@@ -69,9 +65,7 @@
             margin-top: 20px;
             flex-wrap: wrap;
         }
-        nav ul li {
-            position: relative;
-        }
+        nav ul li { position: relative; }
         nav a {
             color: white;
             text-decoration: none;
@@ -105,10 +99,7 @@
             font-size: 1em;
             transition: opacity 0.2s ease, visibility 0.2s ease;
         }
-        .submenu li {
-            width: 100%;
-            margin: 0;
-        }
+        .submenu li { width: 100%; margin: 0; }
         .submenu a {
             display: block;
             padding: 5px 10px;
@@ -133,7 +124,7 @@
         .section-title {
             font-size: 2.5em;
             text-align: center;
-            margin: 40px 0;
+            margin: 40px 0 20px 0;
             color: var(--neon-green);
             text-shadow: 0 0 10px var(--neon-green);
             position: relative;
@@ -148,9 +139,21 @@
             margin: 15px auto;
         }
         /* CAROUSEL */
-        #carousel-container {
-            max-width: 1200px;
+        #carousel-outer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin: 0 auto 40px auto;
+            background: #181c23;
+            border-radius: 24px;
+            box-shadow: 0 6px 32px 0 rgba(0,0,0,0.6);
+            padding: 0;
+            max-width: 1240px;
+            min-height: 480px;
+            position: relative;
+        }
+        #carousel-container {
+            width: 100%;
             position: relative;
             min-height: 420px;
             display: flex;
@@ -180,16 +183,16 @@
             background: #232834;
             border: none;
             border-radius: 50%;
-            width: 38px;
-            height: 38px;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #fff;
-            font-size: 1.3em;
+            font-size: 1.5em;
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
             transition: background 0.2s, transform 0.2s;
-            margin: 0 8px;
+            margin: 0 12px;
             cursor: pointer;
             outline: none;
             pointer-events: auto;
@@ -212,8 +215,8 @@
             margin: 0 10px;
         }
         .carousel-dot {
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             border: none;
             background: #444;
@@ -224,15 +227,31 @@
         .carousel-dot.active {
             background: var(--blood-red);
         }
-        /* RESTANTE DO CSS IGUAL */
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
+        /* GAMES GRID */
+        .games-grid, .consoles-grid, .accessories-grid {
+            display: flex;
+            gap: 32px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--blood-red) #222;
         }
-        .game-card {
-            background-color: #1a1a1a;
-            border-radius: 10px;
+        .games-grid::-webkit-scrollbar,
+        .consoles-grid::-webkit-scrollbar,
+        .accessories-grid::-webkit-scrollbar {
+            height: 8px;
+            background: #222;
+        }
+        .games-grid::-webkit-scrollbar-thumb,
+        .consoles-grid::-webkit-scrollbar-thumb,
+        .accessories-grid::-webkit-scrollbar-thumb {
+            background: var(--blood-red);
+            border-radius: 8px;
+        }
+        .game-card, .console-card, .accessory-card {
+            background-color: #181818;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             transition: all 0.3s ease;
@@ -240,30 +259,34 @@
             flex-direction: column;
             position: relative;
             border: 1px solid #333;
+            min-width: 340px;
+            max-width: 340px;
         }
-        .game-card:hover {
-            transform: translateY(-10px);
+        .game-card:hover, .console-card:hover, .accessory-card:hover {
+            transform: translateY(-10px) scale(1.03);
             box-shadow: 0 10px 25px var(--blood-red);
             border-color: var(--blood-red);
         }
-        .game-card img {
+        .game-card img, .console-card img, .accessory-card img {
             width: 100%;
-            height: 250px;
+            height: 210px;
             object-fit: cover;
             border-bottom: 2px solid #2c2c2c;
+            background: #222;
         }
-        .game-info {
-            padding: 15px;
+        .game-info, .console-info, .accessory-info {
+            padding: 18px 18px 30px 18px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
         }
-        .game-info h2 {
-            font-size: 1.2em;
+        .game-info h2, .console-info h2, .accessory-info h2 {
+            font-size: 1.3em;
             margin-bottom: 10px;
             color: #fff;
-            min-height: 50px;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
         .price {
             font-size: 1.3rem;
@@ -279,12 +302,8 @@
         }
         .botao-container {
             position: absolute;
-            bottom: 15px;
-            right: 15px;
-            display: none;
-        }
-        .game-card:hover .botao-container {
-            display: block;
+            bottom: 18px;
+            right: 18px;
         }
         .botao {
             display: inline-block;
@@ -306,18 +325,29 @@
             transform: scale(1.05);
             box-shadow: 0 0 15px var(--blood-red);
         }
-        .toggle {
-            display: none;
-        }
+        .toggle { display: none; }
         .toggle:checked + .botao {
             background: linear-gradient(to bottom, var(--neon-green), #0a8a11);
         }
-        .toggle + .botao::after {
-            content: "Adicionar";
+        .toggle + .botao::after { content: "Adicionar"; }
+        .toggle:checked + .botao::after { content: "Adicionado ✓"; }
+        /* BADGES */
+        .console-badge, .accessory-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: var(--blood-red);
+            color: #fff;
+            font-size: 0.95em;
+            font-weight: bold;
+            padding: 5px 14px;
+            border-radius: 6px;
+            z-index: 2;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            text-transform: uppercase;
         }
-        .toggle:checked + .botao::after {
-            content: "Adicionado ✓";
-        }
+        .accessory-badge { background: var(--dark-red); }
         #cart-icon {
             position: absolute;
             top: 30px;
@@ -461,36 +491,21 @@
             color: #888;
             font-size: 0.9em;
         }
+        @media (max-width: 1200px) {
+            #carousel-outer { max-width: 98vw; }
+            .games-grid, .consoles-grid, .accessories-grid { gap: 18px; }
+            .game-card, .console-card, .accessory-card { min-width: 270px; max-width: 270px; }
+        }
         @media (max-width: 900px) {
-            #carousel-container {
-                max-width: 98vw;
-                min-height: 320px;
-            }
-            .carousel-slide {
-                min-height: 220px;
-            }
+            #carousel-outer { min-height: 320px; }
+            .carousel-slide { min-height: 220px; }
         }
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-            .section-title {
-                font-size: 2em;
-            }
-            .games-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 20px;
-            }
-            .game-card img {
-                height: 200px;
-            }
-            #cart-icon {
-                top: 20px;
-                right: 20px;
-            }
-            nav ul {
-                gap: 10px;
-            }
+            header h1 { font-size: 2em; }
+            .section-title { font-size: 2em; }
+            .game-card img, .console-card img, .accessory-card img { height: 150px; }
+            #cart-icon { top: 20px; right: 20px; }
+            nav ul { gap: 10px; }
             .submenu {
                 position: static;
                 display: none;
@@ -536,12 +551,112 @@
 
     <div class="container">
         <h1 class="section-title">JOGOS EM DESTAQUE</h1>
-        <div id="carousel-container">
-            <div class="carousel-slide" id="carousel-slide"></div>
-            <div class="carousel-controls">
-                <button id="prev-slide" aria-label="Anterior" class="carousel-arrow"><i class="fa fa-chevron-left"></i></button>
-                <div id="carousel-dots"></div>
-                <button id="next-slide" aria-label="Próximo" class="carousel-arrow"><i class="fa fa-chevron-right"></i></button>
+        <div id="carousel-outer">
+            <div id="carousel-container">
+                <div class="carousel-slide" id="carousel-slide"></div>
+                <div class="carousel-controls">
+                    <button id="prev-slide" aria-label="Anterior" class="carousel-arrow"><i class="fa fa-chevron-left"></i></button>
+                    <div id="carousel-dots"></div>
+                    <button id="next-slide" aria-label="Próximo" class="carousel-arrow"><i class="fa fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="section-title">CONSOLES EM DESTAQUE</h1>
+        <div class="consoles-grid">
+            <div class="console-card">
+                <div class="console-badge">Exclusivo</div>
+                <img src="./images/ps5.jpg" alt="PlayStation 5">
+                <div class="console-info">
+                    <h2>PlayStation 5</h2>
+                    <p>Console PlayStation 5 Edição Digital - 825GB SSD</p>
+                    <p class="price">R$4.299,90 <span class="old-price">R$4.999,90</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="PlayStation 5 Digital" data-price="4299.90"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="console-card">
+                <div class="console-badge">Melhor Custo</div>
+                <img src="./images/xboxs.png" alt="Xbox Series S">
+                <div class="console-info">
+                    <h2>Xbox Series S</h2>
+                    <p>Console Xbox Series S - 512GB SSD</p>
+                    <p class="price">R$2.299,90 <span class="old-price">R$2.799,90</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="Xbox Series S" data-price="2299.90"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="console-card">
+                <div class="console-badge">Lançamento</div>
+                <img src="./images/nitendooled.jpg" alt="Nintendo Switch OLED">
+                <div class="console-info">
+                    <h2>Nintendo Switch OLED</h2>
+                    <p>Console Nintendo Switch Modelo OLED - 64GB</p>
+                    <p class="price">R$2.499,90 <span class="old-price">R$2.999,90</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="Nintendo Switch OLED" data-price="2499.90"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="section-title">ACESSÓRIOS EM DESTAQUE</h1>
+        <div class="accessories-grid">
+            <div class="accessory-card">
+                <div class="accessory-badge">PlayStation</div>
+                <img src="./images/headset-ps5.png" alt="Headset PULSE 3D PS5">
+                <div class="accessory-info">
+                    <h2>Headset PULSE 3D PS5</h2>
+                    <p>Headset sem fio com áudio 3D para PlayStation 5</p>
+                    <p class="price">R$649,90 <span class="old-price">R$799,90</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="Headset PULSE 3D PS5" data-price="649.90"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="accessory-card">
+                <div class="accessory-badge">Xbox</div>
+                <img src="./images/controlex.jpg" alt="Controle Xbox Series X">
+                <div class="accessory-info">
+                    <h2>Controle Xbox Series X</h2>
+                    <p>Controle sem fio para Xbox Series X/S - Preto</p>
+                    <p class="price">R$409,00 <span class="old-price">R$459,00</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="Controle Xbox Series X" data-price="409.00"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="accessory-card">
+                <div class="accessory-badge">Nintendo</div>
+                <img src="./images/controle-nitendo.png" alt="Controle Joy-Con Nintendo">
+                <div class="accessory-info">
+                    <h2>Controle Joy-Con Nintendo</h2>
+                    <p>Controles Joy-Con para Nintendo Switch - Cores Sortidas</p>
+                    <p class="price">R$449,99 <span class="old-price">R$529,99</span></p>
+                </div>
+                <div class="botao-container">
+                    <label>
+                        <input type="checkbox" class="toggle" data-title="Controle Joy-Con Nintendo" data-price="449.99"/>
+                        <span class="botao"></span>
+                    </label>
+                </div>
             </div>
         </div>
     </div>
@@ -590,7 +705,7 @@
             &copy; 2025 FATALITY SHOP. Todos os direitos reservados. | Desenvolvido por Eduardo
         </div>
     </footer>
-
+         
     <script>
         const featuredGames = [
             {
@@ -630,13 +745,13 @@
                 oldPrice: 249.99
             },
             {
-                img: "https://assets.nintendo.com/image/upload/q_auto/f_auto/ncom/software/switch/70010000000025/7137262b5a64d921e193653f8aa0b722925abc5680380ca0e18a5cfd91697f58",
+                img: "https://media.wired.com/photos/633c95ef85e7a4cc2f802256/master/pass/Breath-of-the-Wild-Casual-Gamer-Culture.jpg",
                 title: "The Legend of Zelda Breath of The Wild",
                 price: 299.00,
                 oldPrice: 299.99
             },
             {
-                img: "https://m.media-amazon.com/images/I/81I4zXPKfmL.jpg",
+                img: "https://store-images.s-microsoft.com/image/apps.396.14277259033847105.7852260c-8a58-4e28-9e97-dd6d1a7f62f9.a4c88625-0802-48a6-86d8-f41f098ab7e0?q=90&w=480&h=270",
                 title: "Dragon's Dogma II",
                 price: 192.03,
                 oldPrice: 289.99
