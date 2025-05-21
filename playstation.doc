@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlayStation - FATALITY SHOP</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <title>Nintendo - FATALITY SHOP</title>
   <style>
     :root {
       --blood-red: #d10000;
@@ -13,7 +13,7 @@
       --gold: #ffd700;
       --dark-bg: #0a0a0a;
       --neon-green: #0ddc17;
-      --nintendo-red: #e60012;
+      --playstation-blue: #003087;
     }
 
     * {
@@ -31,7 +31,7 @@
     }
 
     header {
-      background: linear-gradient(to right, #000, var(--nintendo-red));
+      background: linear-gradient(to right, #000, var(--playstation-blue));
       padding: 20px 0;
       text-align: center;
       box-shadow: 0 2px 10px rgba(0,0,0,0.5);
@@ -144,8 +144,8 @@
       font-size: 2.5em;
       text-align: center;
       margin: 40px 0;
-      color: var(--nintendo-red);
-      text-shadow: 0 0 10px var(--nintendo-red);
+      color: var(--neon-green);
+      text-shadow: 0 0 10px var(--neon-green);
       position: relative;
       letter-spacing: 2px;
     }
@@ -155,7 +155,7 @@
       display: block;
       width: 100px;
       height: 3px;
-      background: var(--nintendo-red);
+      background: var(--playstation-blue);
       margin: 15px auto;
     }
 
@@ -189,8 +189,8 @@
 
     .game-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 10px 25px var(--nintendo-red);
-      border-color: var(--nintendo-red);
+      box-shadow: 0 10px 25px var(--playstation-blue);
+      border-color: var(--playstation-blue);
     }
 
     .game-card img {
@@ -222,6 +222,13 @@
       text-shadow: 0 0 5px var(--neon-green);
     }
 
+    .old-price {
+      font-size: 0.9em;
+      color: #888;
+      text-decoration: line-through;
+      margin-left: 6px;
+    }
+
     .botao-container {
       position: absolute;
       bottom: 15px;
@@ -236,7 +243,7 @@
     .botao {
       display: inline-block;
       padding: 8px 15px;
-      background: linear-gradient(to bottom, var(--nintendo-red), #b3000e);
+      background: linear-gradient(to bottom, var(--playstation-blue), #002366);
       color: white;
       text-align: center;
       border-radius: 5px;
@@ -252,7 +259,7 @@
 
     .botao:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 15px var(--nintendo-red);
+      box-shadow: 0 0 15px var(--playstation-blue);
     }
 
     .toggle {
@@ -288,7 +295,7 @@
     
     #cart-count {
       background: #fff;
-      color: var(--nintendo-red);
+      color: var(--playstation-blue);
       border-radius: 50%;
       padding: 2px 8px;
       font-size: 14px;
@@ -317,8 +324,8 @@
       width: 90%;
       border-radius: 10px;
       position: relative;
-      border: 2px solid var(--nintendo-red);
-      box-shadow: 0 0 30px var(--nintendo-red);
+      border: 2px solid var(--playstation-blue);
+      box-shadow: 0 0 30px var(--playstation-blue);
     }
     
     #cart-items {
@@ -375,7 +382,7 @@
     }
 
     .checkout {
-      background: linear-gradient(to bottom, var(--nintendo-red), #b3000e);
+      background: linear-gradient(to bottom, var(--playstation-blue), #002366);
       color: white;
     }
 
@@ -385,7 +392,7 @@
       padding: 30px 0;
       text-align: center;
       margin-top: 50px;
-      border-top: 3px solid var(--nintendo-red);
+      border-top: 3px solid var(--playstation-blue);
     }
 
     .footer-content {
@@ -436,47 +443,33 @@
       font-size: 0.9em;
     }
 
-    .container, .inner {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-
-    .games-grid, .consoles-grid, .accessories-grid, .support-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-
-    @media (max-width: 900px) {
-      .games-grid, .consoles-grid, .accessories-grid, .support-container {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 15px;
-      }
-    }
-
     @media (max-width: 768px) {
       header h1 {
         font-size: 2em;
       }
+
       .section-title {
         font-size: 2em;
       }
-      .games-grid, .consoles-grid, .accessories-grid, .support-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
+
+      .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
       }
-      .game-card img, .console-card img, .accessory-card img {
-        height: 150px;
+
+      .game-card img {
+        height: 200px;
       }
+      
       #cart-icon {
         top: 20px;
         right: 20px;
       }
+      
       nav ul {
         gap: 10px;
       }
+
       .submenu {
         position: static;
         display: none;
@@ -484,6 +477,7 @@
         box-shadow: none;
         border-radius: 0;
       }
+
       nav ul li:hover .submenu {
         display: block;
         position: static;
@@ -492,10 +486,10 @@
 
     @media (max-width: 600px) {
       header .logo img {
-        width: 100px;
+        width: 120px;
       }
       header h1 {
-        font-size: 1.1em;
+        font-size: 1.3em;
       }
       .slogan {
         font-size: 0.9em;
@@ -522,13 +516,13 @@
         max-width: 100vw;
       }
       .section-title {
-        font-size: 1.1em;
+        font-size: 1.3em;
         margin: 20px 0 10px 0;
       }
       .games-grid, .consoles-grid, .accessories-grid, .support-container {
         display: flex !important;
         flex-direction: column !important;
-        gap: 10px !important;
+        gap: 15px !important;
         overflow-x: unset !important;
       }
       .game-card, .console-card, .accessory-card, .faq-section, .contact-section {
@@ -539,7 +533,7 @@
         border-radius: 8px !important;
       }
       .game-card img, .console-card img, .accessory-card img {
-        height: 100px !important;
+        height: 120px !important;
         object-fit: cover;
       }
       .botao, .submit-btn {
@@ -568,11 +562,6 @@
         font-size: 0.9em;
       }
     }
-
-    html, body {
-      max-width: 100vw;
-      overflow-x: hidden;
-    }
   </style>
 </head>
 <body>
@@ -580,7 +569,7 @@
     <div class="logo">
       <img src="images/logoprincipal.png" alt="FATALITY SHOP Logo">
       <h1>FATALITY SHOP</h1>
-      <p class="slogan">NINTENDO GAMES COLLECTION</p>
+      <p class="slogan">PLAYSTATION EXCLUSIVES</p>
     </div>
     <nav>
       <ul>
@@ -589,7 +578,7 @@
           <a href="#">Jogos</a>
           <ul class="submenu">
             <li><a href="./indexXbox.html">Xbox</a></li>
-            <li><a href="./indexplaystation.html">PlayStation</a></li>
+            <li><a href="./indexnintendo.html">Nintendo</a></li>
           </ul>
         </li>
         <li><a href="./console.html">Consoles</a></li>
@@ -606,22 +595,20 @@
   </header>
 
   <div class="inner">
-    <h1 class="section-title">JOGOS NINTENDO</h1>
+    <h1 class="section-title">JOGOS PLAYSTATION</h1>
     <p>
-      A <strong>Nintendo Co., Ltd.</strong> é uma desenvolvedora e publicadora japonesa de jogos eletrônicos sediada em
-      Quioto. Fundada em 1889, começou como fabricante de cartas de baralho tradicionais e evoluiu para se tornar uma
-      das empresas mais influentes do mundo dos games, com franquias como Mario, Zelda, Pokémon e muitas outras.
+      <strong>PlayStation</strong> é uma marca internacional de consoles de videogame criada pela empresa japonesa Sony Interactive Entertainment, conhecida pelos seus exclusivos como God of War, Uncharted, The Last of Us e muitos outros.
     </p>
 
     <div class="games-grid">
       <div class="game-card">
-        <img src="https://upload.wikimedia.org/wikipedia/pt/thumb/0/0f/Legend_of_Zelda_Breath_of_the_Wild_capa.png/270px-Legend_of_Zelda_Breath_of_the_Wild_capa.png" alt="Zelda BOTW">
+        <img src="https://m.media-amazon.com/images/I/61OZeW+pPYL._AC_UF1000,1000_QL80_.jpg" alt="The Last of Us Part II">
         <div class="game-info">
-          <h3>The Legend of Zelda: Breath of the Wild</h3>
-          <span class="price">R$ 299,00</span>
+          <h3>The Last of Us Part II</h3>
+          <span class="price">R$168,90 <span class="old-price">R$190,90</span></span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" data-title="The Legend of Zelda: Breath of the Wild" data-price="299.00"/>
+              <input type="checkbox" class="toggle" data-title="The Last of Us Part II" data-price="168.90"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -629,13 +616,13 @@
       </div>
 
       <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/81gTTc2IpCL._AC_UF1000,1000_QL80_.jpg" alt="Super Smash Bros Ultimate">
+        <img src="https://m.media-amazon.com/images/I/81XPzboI34S._AC_SX679_.jpg" alt="Ghost of Tsushima">
         <div class="game-info">
-          <h3>Super Smash Bros. Ultimate</h3>
-          <span class="price">R$ 279,00</span>
+          <h3>Ghost of Tsushima</h3>
+          <span class="price">R$203,99 <span class="old-price">R$249,90</span></span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" data-title="Super Smash Bros. Ultimate" data-price="279.00"/>
+              <input type="checkbox" class="toggle" data-title="Ghost of Tsushima" data-price="203.99"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -643,13 +630,13 @@
       </div>
 
       <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/61UFnW4XewL._AC_UF1000,1000_QL80_.jpg" alt="Mario Kart 8">
+        <img src="https://cdn.awsli.com.br/800x800/53/53761/produto/29815822/4677d91514.jpg" alt="Marvel's Spider-Man PS4">
         <div class="game-info">
-          <h3>Mario Kart 8 Deluxe</h3>
-          <span class="price">R$ 249,00</span>
+          <h3>Marvel's Spider-Man PS4</h3>
+          <span class="price">R$124,99 <span class="old-price">R$249,99</span></span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" data-title="Mario Kart 8 Deluxe" data-price="249.00"/>
+              <input type="checkbox" class="toggle" data-title="Marvel's Spider-Man PS4" data-price="124.99"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -657,13 +644,13 @@
       </div>
 
       <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/91SF0Tzmv4L._AC_UF1000,1000_QL80_.jpg" alt="Super Mario Odyssey">
+        <img src="https://cdn.awsli.com.br/800x800/53/53761/produto/13691607/563cf74011.jpg" alt="Uncharted 4">
         <div class="game-info">
-          <h3>Super Mario Odyssey</h3>
-          <span class="price">R$ 279,00</span>
+          <h3>Uncharted 4</h3>
+          <span class="price">R$59,99 <span class="old-price">R$149,99</span></span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" data-title="Super Mario Odyssey" data-price="279.00"/>
+              <input type="checkbox" class="toggle" data-title="Uncharted 4" data-price="59.99"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -671,13 +658,13 @@
       </div>
 
       <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/81UfEdvf2kL.jpg" alt="Animal Crossing">
+        <img src="https://m.media-amazon.com/images/I/81q4K9Qx+wL.jpg" alt="Watch Dogs Legion">
         <div class="game-info">
-          <h3>Animal Crossing: New Horizons</h3>
-          <span class="price">R$ 249,00</span>
+          <h3>Watch Dogs Legion</h3>
+          <span class="price">R$99,89 <span class="old-price">R$299,00</span></span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" data-title="Animal Crossing: New Horizons" data-price="249.00"/>
+              <input type="checkbox" class="toggle" data-title="Watch Dogs Legion" data-price="99.89"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -685,13 +672,13 @@
       </div>
 
       <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/61GP7RW7tQL._AC_UF1000,1000_QL80_.jpg" alt="Metroid Dread">
+        <img src="https://m.media-amazon.com/images/I/81J-uEoQ6WL.jpg" alt="Final Fantasy VII">
         <div class="game-info">
-          <h3>Metroid Dread</h3>
-          <span class="price">R$ 229,00</span>
+          <h3>Final Fantasy VII</h3>
+          <span class="price">R$149,99 <span class="old-price">R$299,99</span></span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" data-title="Metroid Dread" data-price="229.00"/>
+              <input type="checkbox" class="toggle" data-title="Final Fantasy VII" data-price="149.99"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -699,13 +686,13 @@
       </div>
 
       <div class="game-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCHqhnBWZ0gpUi0ZszCUIe6vof6gjeY4h88g&s" alt="Donkey Kong Country: Tropical Freeze">
+        <img src="https://m.media-amazon.com/images/I/81htlTqEckL._AC_UF1000,1000_QL80_.jpg" alt="GTA V">
         <div class="game-info">
-          <h3>Donkey Kong Country: Tropical Freeze</h3>
-          <span class="price">R$ 199,00</span>
+          <h3>Grand Theft Auto V</h3>
+          <span class="price">R$113,66 <span class="old-price">R$249,99</span></span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" data-title="Donkey Kong Country: Tropical Freeze" data-price="199.00"/>
+              <input type="checkbox" class="toggle" data-title="Grand Theft Auto V" data-price="113.66"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -713,13 +700,13 @@
       </div>
 
       <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/71bhNf8QiOS._AC_UF1000,1000_QL80_DpWeblab_.jpg" alt="Pokémon Legends: Arceus">
+        <img src="https://m.media-amazon.com/images/I/8136lnf0n2L.jpg" alt="GOW Ragnarok">
         <div class="game-info">
-          <h3>Pokémon Legends: Arceus</h3>
-          <span class="price">R$ 299,00</span>
+          <h3>God of War Ragnarok</h3>
+          <span class="price">R$279,90 <span class="old-price">R$349,99</span></span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" data-title="Pokémon Legends: Arceus" data-price="299.00"/>
+              <input type="checkbox" class="toggle" data-title="God of War Ragnarok" data-price="279.90"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -727,13 +714,13 @@
       </div>
 
       <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/81-FD3tzUlL.jpg" alt="Luigi's Mansion 3">
+        <img src="https://m.media-amazon.com/images/I/61MXORMRgML._AC_UF1000,1000_QL80_.jpg" alt="Horizon Forbidden West">
         <div class="game-info">
-          <h3>Luigi's Mansion 3</h3>
-          <span class="price">R$ 249,00</span>
+          <h3>Horizon Forbidden West</h3>
+          <span class="price">R$229,90 <span class="old-price">R$299,90</span></span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" data-title="Luigi's Mansion 3" data-price="249.00"/>
+              <input type="checkbox" class="toggle" data-title="Horizon Forbidden West" data-price="229.90"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -741,13 +728,13 @@
       </div>
 
       <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/618GR0WMoQL._AC_UF1000,1000_QL80_DpWeblab_.jpg" alt="The Legend Of Zelda: Tears of the Kingdom">
+        <img src="https://m.media-amazon.com/images/I/71dOeR8TDjL.jpg" alt="Wo Long Fallen Dinasty">
         <div class="game-info">
-          <h3>The Legend Of Zelda: Tears of the Kingdom</h3>
-          <span class="price">R$ 369,98</span>
+          <h3>Wo Long Fallen Dinasty</h3>
+          <span class="price">R$229,90 <span class="old-price">R$299,90</span></span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" data-title="The Legend Of Zelda: Tears of the Kingdom" data-price="369.98"/>
+              <input type="checkbox" class="toggle" data-title="Wo Long Fallen Dinasty" data-price="229.90"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -755,13 +742,13 @@
       </div>
 
       <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/618cr+yHRVL._AC_SX679_.jpg" alt="Super Mario Bros. Wonder">
+        <img src="https://m.media-amazon.com/images/I/81-5Hwz8HbL._AC_UF1000,1000_QL80_.jpg" alt="The Witcher 3">
         <div class="game-info">
-          <h3>Super Mario Bros. Wonder</h3>
-          <span class="price">R$ 309,27</span>
+          <h3>The Witcher 3</h3>
+          <span class="price">R$89,90 <span class="old-price">R$199,90</span></span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" data-title="Super Mario Bros. Wonder" data-price="309.27"/>
+              <input type="checkbox" class="toggle" data-title="The Witcher 3" data-price="89.90"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -769,13 +756,13 @@
       </div>
 
       <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/71JyoiGjklL._AC_SY679_.jpg" alt="Ori: The Collection">
+        <img src="https://http2.mlstatic.com/D_NQ_NP_739150-MLA53283119543_012023-O.webp" alt="Dead Space Remake">
         <div class="game-info">
-          <h3>Ori: The Collection</h3>
-          <span class="price">R$ 229,00</span>
+          <h3>Dead Space Remake</h3>
+          <span class="price">R$249,99 <span class="old-price">R$349,90</span></span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" data-title="Ori: The Collection" data-price="229.00"/>
+              <input type="checkbox" class="toggle" data-title="Dead Space Remake" data-price="249.99"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -783,13 +770,13 @@
       </div>
 
       <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/716yGxO6+hL._AC_SX679_.jpg" alt="Mario and Luigi: Brothership">
+        <img src="https://cdn.awsli.com.br/600x450/1919/1919257/produto/287233148/254645648-an1xl91d7y.jpg" alt="Hogwarts Legacy">
         <div class="game-info">
-          <h3>Mario and Luigi: Brothership</h3>
-          <span class="price">R$ 269,10</span>
+          <h3>Hogwarts Legacy</h3>
+          <span class="price">R$229,90 <span class="old-price">R$299,90</span></span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" data-title="Mario and Luigi: Brothership" data-price="269.10"/>
+              <input type="checkbox" class="toggle" data-title="Hogwarts Legacy" data-price="229.90"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -797,13 +784,13 @@
       </div>
 
       <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/71LI7czffML._AC_SX679_.jpg" alt="Donkey Kong Country: Returns">
+        <img src="https://cdn.awsli.com.br/2500x2500/0/810/produto/22108855768d09d7c04.jpg" alt="Final Fantasy XVI">
         <div class="game-info">
-          <h3>Donkey Kong Country: Returns</h3>
-          <span class="price">R$ 349,00</span>
+          <h3>Final Fantasy XVI</h3>
+          <span class="price">R$299,90 <span class="old-price">R$399,90</span></span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" data-title="Donkey Kong Country: Returns" data-price="349.00"/>
+              <input type="checkbox" class="toggle" data-title="Final Fantasy XVI" data-price="299.90"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -811,13 +798,13 @@
       </div>
 
       <div class="game-card">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTno2tqnJKwNLsYf611oYOdCZ4RRM4vt0ClMI6-aa5syA8uBkP-t0pLyN51Ieq3pXtGlyOZ-HjGm5MjNIxLlkyadX31F5Gml34hrVENr-mL9QFP_NFjII2I" alt="Super Bomberman R2">
+        <img src="https://m.media-amazon.com/images/I/71ksB1D3FIL.jpg" alt="Street Fighter VI">
         <div class="game-info">
-          <h3>Super Bomberman R2</h3>
-          <span class="price">R$ 229,00</span>
+          <h3>Street Fighter VI</h3>
+          <span class="price">R$249,90 <span class="old-price">R$349,90</span></span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" data-title="Super Bomberman R2" data-price="229.00"/>
+              <input type="checkbox" class="toggle" data-title="Street Fighter VI" data-price="249.90"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -825,13 +812,13 @@
       </div>
 
       <div class="game-card">
-        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRSn0V46P0XTqFIBpIHr6Fl6Z21fyzdrp3MVmkJ_PqSY6fvvMUpCiaeDIWRERSaogSiGiW8ZAoE-SPLX9TdN7lEohXGyYWys0KmuoDnszBN0ybObQQkxSRXfKTN5Y4rEqczJNemMA&usqp=CAc" alt="Pokémon Violet">
+        <img src="https://m.media-amazon.com/images/I/61MqGRmb7HL._AC_UF1000,1000_QL80_.jpg" alt="Diablo IV">
         <div class="game-info">
-          <h3>Pokémon Violet</h3>
-          <span class="price">R$ 332,47</span>
+          <h3>Diablo IV</h3>
+          <span class="price">R$349,90 <span class="old-price">R$449,90</span></span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" data-title="Pokémon Violet" data-price="332.47"/>
+              <input type="checkbox" class="toggle" data-title="Diablo IV" data-price="349.90"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -839,13 +826,55 @@
       </div>
 
       <div class="game-card">
-        <img src="https://m.media-amazon.com/images/I/71vCMnjgF7L._AC_SX679_.jpg" alt="The Legend of Zelda: Echoes of Wisdom">
+        <img src="https://m.media-amazon.com/images/I/616e7cE5kbL._AC_UF1000,1000_QL80_.jpg" alt="Like a Dragon Ishin">
         <div class="game-info">
-          <h3>The Legend of Zelda: Echoes of Wisdom</h3>
-          <span class="price">R$ 324,23</span>
+          <h3>Like a Dragon Ishin</h3>
+          <span class="price">R$199,90 <span class="old-price">R$249,90</span></span>
           <div class="botao-container">
             <label>
-              <input type="checkbox" class="toggle" data-title="The Legend of Zelda: Echoes of Wisdom" data-price="324.23"/>
+              <input type="checkbox" class="toggle" data-title="Like a Dragon Ishin" data-price="199.90"/>
+              <span class="botao"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://m.media-amazon.com/images/I/81F925s0ZAL._AC_UF1000,1000_QL80_.jpg" alt="Wild Hearts">
+        <div class="game-info">
+          <h3>Wild Hearts</h3>
+          <span class="price">R$249,90 <span class="old-price">R$349,90</span></span>
+          <div class="botao-container">
+            <label>
+              <input type="checkbox" class="toggle" data-title="Wild Hearts" data-price="249.90"/>
+              <span class="botao"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://m.media-amazon.com/images/I/81wSlwccDDL._AC_UF1000,1000_QL80_.jpg" alt="Atomic Heart">
+        <div class="game-info">
+          <h3>Atomic Heart</h3>
+          <span class="price">R$199,90 <span class="old-price">R$249,99</span></span>
+          <div class="botao-container">
+            <label>
+              <input type="checkbox" class="toggle" data-title="Atomic Heart" data-price="199.90"/>
+              <span class="botao"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <img src="https://m.media-amazon.com/images/I/716G8O97EkL.jpg" alt="Dead Island 2">
+        <div class="game-info">
+          <h3>Dead Island 2</h3>
+          <span class="price">R$229,90 <span class="old-price">R$299,90</span></span>
+          <div class="botao-container">
+            <label>
+              <input type="checkbox" class="toggle" data-title="Dead Island 2" data-price="229.90"/>
               <span class="botao"></span>
             </label>
           </div>
@@ -875,7 +904,7 @@
         <p>Fortaleza - CE, Brasil</p>
       </div>
       
-     <div class="footer-section">
+      <div class="footer-section">
                 <h3>Links Rápidos</h3>
                 <p><a href="./index.html">Início</a></p>
                 <p><a href="./indexnintendo.html">Nintendo</a></p>
@@ -894,7 +923,7 @@
           <a href="#"><i class="fab fa-instagram"></i></a>
           <a href="#"><i class="fab fa-discord"></i></a>
         </div>
-        <p style="margin-top: 15px;">contato@fatalityshop.com.br</p>
+        <p style="margin-top: 15px;">fatalitygamesshop@gmail.com</p>
       </div>
     </div>
     
@@ -975,7 +1004,7 @@
               <span>${item.quantity}</span>
               <button onclick="changeQuantity('${item.title}', 1)" style="background:none; border:none; color:white; cursor:pointer; font-size:1.2em;">+</button>
             </div>
-            <button onclick="removeItem('${item.title}')" style="background:none; border:none; color:var(--nintendo-red); cursor:pointer; margin-left:10px;">
+            <button onclick="removeItem('${item.title}')" style="background:none; border:none; color:var(--playstation-blue); cursor:pointer; margin-left:10px;">
               <i class="fas fa-trash"></i>
             </button>
           `;
@@ -1068,7 +1097,7 @@
       }
     });
 
-// filepath: c:\Users\eduma\OneDrive - Universidade Federal do Ceará\Área de Trabalho\estudos ;)\cursos\fullstack\oficina 3 edu\indexnintendo.html
+// filepath: c:\Users\eduma\OneDrive - Universidade Federal do Ceará\Área de Trabalho\estudos ;)\cursos\fullstack\oficina 3 edu\indexplaystation.html
 
 // Submenu desaparece após 5 segundos ao sair com o mouse
 let submenuTimeout;

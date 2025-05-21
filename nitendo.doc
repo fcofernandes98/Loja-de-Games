@@ -436,47 +436,33 @@
       font-size: 0.9em;
     }
 
-    .container, .inner {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-
-    .games-grid, .consoles-grid, .accessories-grid, .support-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-
-    @media (max-width: 900px) {
-      .games-grid, .consoles-grid, .accessories-grid, .support-container {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 15px;
-      }
-    }
-
     @media (max-width: 768px) {
       header h1 {
         font-size: 2em;
       }
+
       .section-title {
         font-size: 2em;
       }
-      .games-grid, .consoles-grid, .accessories-grid, .support-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
+
+      .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
       }
-      .game-card img, .console-card img, .accessory-card img {
-        height: 150px;
+
+      .game-card img {
+        height: 200px;
       }
+      
       #cart-icon {
         top: 20px;
         right: 20px;
       }
+      
       nav ul {
         gap: 10px;
       }
+
       .submenu {
         position: static;
         display: none;
@@ -484,6 +470,7 @@
         box-shadow: none;
         border-radius: 0;
       }
+
       nav ul li:hover .submenu {
         display: block;
         position: static;
@@ -492,10 +479,10 @@
 
     @media (max-width: 600px) {
       header .logo img {
-        width: 100px;
+        width: 120px;
       }
       header h1 {
-        font-size: 1.1em;
+        font-size: 1.3em;
       }
       .slogan {
         font-size: 0.9em;
@@ -522,13 +509,13 @@
         max-width: 100vw;
       }
       .section-title {
-        font-size: 1.1em;
+        font-size: 1.3em;
         margin: 20px 0 10px 0;
       }
       .games-grid, .consoles-grid, .accessories-grid, .support-container {
         display: flex !important;
         flex-direction: column !important;
-        gap: 10px !important;
+        gap: 15px !important;
         overflow-x: unset !important;
       }
       .game-card, .console-card, .accessory-card, .faq-section, .contact-section {
@@ -539,7 +526,7 @@
         border-radius: 8px !important;
       }
       .game-card img, .console-card img, .accessory-card img {
-        height: 100px !important;
+        height: 120px !important;
         object-fit: cover;
       }
       .botao, .submit-btn {
@@ -567,11 +554,6 @@
       .footer-section p, .copyright {
         font-size: 0.9em;
       }
-    }
-
-    html, body {
-      max-width: 100vw;
-      overflow-x: hidden;
     }
   </style>
 </head>

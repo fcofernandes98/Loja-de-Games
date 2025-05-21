@@ -525,6 +525,85 @@ nav ul li:hover .submenu,
                 position: static;
             }
         }
+
+        @media (max-width: 600px) {
+  header .logo img {
+    width: 120px;
+  }
+  header h1 {
+    font-size: 1.3em;
+  }
+  .slogan {
+    font-size: 0.9em;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+    margin-top: 10px;
+  }
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+  .submenu {
+    min-width: 100vw;
+    font-size: 1em;
+    border-radius: 0;
+    left: 0;
+    right: 0;
+  }
+  .container, .inner {
+    padding: 0 5px;
+    margin: 10px 0;
+    max-width: 100vw;
+  }
+  .section-title {
+    font-size: 1.3em;
+    margin: 20px 0 10px 0;
+  }
+  .games-grid, .consoles-grid, .accessories-grid, .support-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    overflow-x: unset !important;
+  }
+  .game-card, .console-card, .accessory-card, .faq-section, .contact-section {
+    min-width: unset !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    border-radius: 8px !important;
+  }
+  .game-card img, .console-card img, .accessory-card img {
+    height: 120px !important;
+    object-fit: cover;
+  }
+  .botao, .submit-btn {
+    width: 100%;
+    font-size: 1em;
+    padding: 12px 0;
+  }
+  #cart-modal > div {
+    max-width: 98vw;
+    padding: 10px;
+  }
+  #cart-icon {
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+  }
+  .footer-content {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    padding: 0 5px;
+  }
+  .footer-section h3 {
+    font-size: 1em;
+  }
+  .footer-section p, .copyright {
+    font-size: 0.9em;
+  }
+}
     </style>
 </head>
 <body>
@@ -540,7 +619,7 @@ nav ul li:hover .submenu,
                 <li>
                     <a href="#">Jogos</a>
                     <ul class="submenu">
-                        <li><a href="./indexxbox.html">Xbox</a></li>
+                        <li><a href="./indexXbox.html">Xbox</a></li>
                         <li><a href="./indexplaystation.html">PlayStation</a></li>
                         <li><a href="./indexnintendo.html">Nintendo</a></li>
                     </ul>
@@ -564,7 +643,7 @@ nav ul li:hover .submenu,
         <div class="accessories-grid">
             <div class="accessory-card">
                 <div class="accessory-badge">PlayStation</div>
-                <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3" alt="Controle PS5 DualSense">
+                <img src="./images/controle-sem-fio-.png" alt="Controle PS5 DualSense">
                 <div class="accessory-info">
                     <h2>Controle PS5 DualSense</h2>
                     <p>Controle sem fio DualSense para PlayStation 5</p>
@@ -580,7 +659,7 @@ nav ul li:hover .submenu,
 
             <div class="accessory-card">
                 <div class="accessory-badge">PlayStation</div>
-                <img src="https://images.unsplash.com/photo-1631729371254-42c2892f0e6e" alt="Headset PULSE 3D PS5">
+                <img src="./images/headset-ps5.png" alt="Headset PULSE 3D PS5">
                 <div class="accessory-info">
                     <h2>Headset PULSE 3D PS5</h2>
                     <p>Headset sem fio com áudio 3D para PlayStation 5</p>
@@ -596,7 +675,7 @@ nav ul li:hover .submenu,
 
             <div class="accessory-card">
                 <div class="accessory-badge">PlayStation</div>
-                <img src="https://images.unsplash.com/photo-1633109865711-0d7387e3f046" alt="PlayStation Portal">
+                <img src="./images/portal.jpg" alt="PlayStation Portal">
                 <div class="accessory-info">
                     <h2>PlayStation Portal</h2>
                     <p>Reprodutor portátil para jogar seus jogos PS5 remotamente</p>
@@ -612,7 +691,7 @@ nav ul li:hover .submenu,
 
             <div class="accessory-card">
                 <div class="accessory-badge">Xbox</div>
-                <img src="https://images.unsplash.com/photo-1621259182978-fbf93132d53d" alt="Controle Xbox Series X">
+                <img src="./images/controlex.jpg" alt="Controle Xbox Series X">
                 <div class="accessory-info">
                     <h2>Controle Xbox Series X</h2>
                     <p>Controle sem fio para Xbox Series X/S - Preto</p>
@@ -628,7 +707,7 @@ nav ul li:hover .submenu,
 
             <div class="accessory-card">
                 <div class="accessory-badge">Xbox</div>
-                <img src="https://images.unsplash.com/photo-1633109865711-0d7387e3f046" alt="Headset Xbox">
+                <img src="./images/headsetxbox.jpg" alt="Headset Xbox">
                 <div class="accessory-info">
                     <h2>Headset Xbox</h2>
                     <p>Headset com fio para Xbox Series X/S com áudio surround</p>
@@ -644,7 +723,7 @@ nav ul li:hover .submenu,
 
             <div class="accessory-card">
                 <div class="accessory-badge">Nintendo</div>
-                <img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1" alt="Kit Volantes Nintendo Switch">
+                <img src="./images/volante.png" alt="Kit Volantes Nintendo Switch">
                 <div class="accessory-info">
                     <h2>Kit Volantes Nintendo</h2>
                     <p>Kit com 2 volantes para Nintendo Switch OLED</p>
@@ -660,7 +739,7 @@ nav ul li:hover .submenu,
 
             <div class="accessory-card">
                 <div class="accessory-badge">Nintendo</div>
-                <img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1" alt="Controle Joy-Con Nintendo">
+                <img src="./images/controle-nitendo.png" alt="Controle Joy-Con Nintendo">
                 <div class="accessory-info">
                     <h2>Controle Joy-Con Nintendo</h2>
                     <p>Controles Joy-Con para Nintendo Switch - Cores Sortidas</p>
@@ -676,7 +755,7 @@ nav ul li:hover .submenu,
 
             <div class="accessory-card">
                 <div class="accessory-badge">Universal</div>
-                <img src="https://images.unsplash.com/photo-1600080972464-8e5f35f63d08" alt="Cadeira Gamer Pro">
+                <img src="./images/cadeira.jpg" alt="Cadeira Gamer Pro">
                 <div class="accessory-info">
                     <h2>Cadeira Gamer Pro</h2>
                     <p>Cadeira gamer ergonômica para todas as plataformas</p>
@@ -905,6 +984,36 @@ nav ul li:hover .submenu,
                 alert('Seu carrinho está vazio!');
             }
         });
+
+        let submenuTimeout;
+
+document.querySelectorAll('nav ul li').forEach(function(li) {
+    const submenu = li.querySelector('.submenu');
+    if (submenu) {
+        li.addEventListener('mouseenter', function() {
+            clearTimeout(submenuTimeout);
+            submenu.style.opacity = '1';
+            submenu.style.visibility = 'visible';
+        });
+        li.addEventListener('mouseleave', function() {
+            submenuTimeout = setTimeout(function() {
+                submenu.style.opacity = '0';
+                submenu.style.visibility = 'hidden';
+            }, 3000); // 3 segundos
+        });
+        submenu.addEventListener('mouseenter', function() {
+            clearTimeout(submenuTimeout);
+            submenu.style.opacity = '1';
+            submenu.style.visibility = 'visible';
+        });
+        submenu.addEventListener('mouseleave', function() {
+            submenuTimeout = setTimeout(function() {
+                submenu.style.opacity = '0';
+                submenu.style.visibility = 'hidden';
+            }, 5000);
+        });
+    }
+});
     </script>
 </body>
 </html>
